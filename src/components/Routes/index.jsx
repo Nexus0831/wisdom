@@ -9,18 +9,27 @@ import {
   Route
 } from 'react-router';
 
+import Redirect from './Redirect';
 
 class Routes extends React.Component {
   render() {
     return(
+      <div
+        id="routes"
+      >
         <Switch>
-          <Route
+          {/* <Route
             path="/"
             exact
             render={}
-          >
-          </Route>
+          > */}
+          {/* </Route> */}
         </Switch>
+        <Redirect
+          {...this.props}
+        />
+      </div>
+
     );
   }
 }
