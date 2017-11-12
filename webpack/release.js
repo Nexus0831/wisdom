@@ -22,7 +22,7 @@ const plugins = [
 console.log('--------------- release ---------------');
 
 module.exports = {
-  entry: path.join(__dirname, './../src/index.jsx'),
+  entry: path.join(__dirname, './../src/index.js'),
   output: {
     path: path.join(__dirname, './../build'),
     filename: 'main.js',

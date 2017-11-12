@@ -28,7 +28,6 @@ class Routes extends React.Component {
           {...this.props}
         >
         </Route>
-
       </Switch>
     );
   }

@@ -23,7 +23,7 @@ console.log('--------------- local ---------------');
 
 module.exports = {
   entry: [
-    path.join(__dirname, './../src/index.jsx'),
+    path.join(__dirname, './../src/index.js'),
     'react-hot-loader/patch'
   ],
   output: {

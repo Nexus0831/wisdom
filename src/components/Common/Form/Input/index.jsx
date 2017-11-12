@@ -1,6 +1,11 @@
 // node_modules
 import React from 'react';
 
+// styles
+import {
+  ValidateError,
+  GhostInput
+} from './cssinjs';
 
 // pure function
 const Input = (props) => {
@@ -8,7 +13,7 @@ const Input = (props) => {
     <span
       id="input"
     >
-      <input
+      <GhostInput
         placeholder={props.placeholder}
         value={props.input.value}
         label={props.label}
@@ -22,7 +27,7 @@ const Input = (props) => {
       {
         props.meta.touched
         && props.meta.error
-        && <span>{props.meta.error}</span>
+        && <ValidateError>{props.meta.error}</ValidateError>
       }
     </span>
   );
