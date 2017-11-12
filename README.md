@@ -1,26 +1,12 @@
-# React開発環境のベース
+# Wisdom
 
-## 使用パッケージ
+## 使用技術
 
-- babel-preset-es2015
-- babel-preset-es2016
-- babel-preset-stage-0
-- babel-plugin-transform-runtime
-- react-hot-loader
-- babel-polyfill
-- sass-loader
-- node-sass
-- redux
-- immutable
-- react-redux
-- styled-components
-- redux-form
-- redux-actions
-- redux-promise
-- redux-thunk
-- react-router-dom
-- react-router
+- React
+- Redux
+- immutable.js
+- CSSinJS
 
-## 環境構築
-
-`$ yarn install`
+## デザイン
+海外の都会のWebサイトをイメージ       
+ゴーストデザイン（笑）

@@ -22,7 +22,7 @@ const plugins = [
 console.log('--------------- production ---------------');
 
 module.exports = {
-  entry: path.join(__dirname, './../src/index.jsx'),
+  entry: path.join(__dirname, './../src/index.js'),
   output: {
     path: path.join(__dirname, './../build'),
     filename: 'main.js',
@@ -48,6 +48,7 @@ module.exports = {
         ]
       },
       { test: /\.png$/, use: 'url-loader?mimetype=image/png' },
+      { test: /\.jpg$/, use: 'url-loader?mimetype=image/jpg' },
       { test: /\.svg$/, use: 'url-loader?mimetype=image/svg+xml' },
       { test: /\.woff$/, use: 'url-loader?mimetype=application/font-woff' },
       { test: /\.woff2$/, use: 'url-loader?mimetype=application/font-woff' },
