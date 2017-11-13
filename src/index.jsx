@@ -1,7 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 import store from './store';
+
+import 'react-hot-loader/patch';
 
 import {
   Provider
@@ -10,7 +12,7 @@ import {
 // components
 import App from './components/App';
 
-ReactDOM.render(
+render(
   <Provider
     store={store}
   >
@@ -18,3 +20,8 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+// hot reload
+if (module.hot) {
+  module.hot.accept(App, () => { render(<App />); });
+}
