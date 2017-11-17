@@ -1,4 +1,6 @@
 node_modules
 build
 ./src/config/aws
-./.idea
+.idea
+yarn-error.log
+yarn.look
