@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a6ac650e-233b-427d-879e-eaa681a1da96" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/Home/cssinjs/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Common/Background/cssinjs/index.js" afterPath="$PROJECT_DIR$/src/components/Common/Background/cssinjs/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Common/Form/Input/cssinjs/index.js" afterPath="$PROJECT_DIR$/src/components/Common/Form/Input/cssinjs/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Common/HeaderMenu/index.jsx" afterPath="$PROJECT_DIR$/src/components/Common/HeaderMenu/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Common/HeaderMenu/scss/index.scss" afterPath="$PROJECT_DIR$/src/components/Common/HeaderMenu/scss/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Home/index.jsx" afterPath="$PROJECT_DIR$/src/components/Home/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Signin/cssinjs/index.js" afterPath="$PROJECT_DIR$/src/components/Signin/cssinjs/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Signin/index.jsx" afterPath="$PROJECT_DIR$/src/components/Signin/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.jsx" afterPath="$PROJECT_DIR$/src/index.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack/local.js" afterPath="$PROJECT_DIR$/webpack/local.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,19 +39,6 @@
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Common/Background/cssinjs/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="28" column="26" lean-forward="false" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-              <folding>
-                <marker date="1510749685241" expanded="true" signature="186:589" ph="{...}" />
-                <marker date="1510749685241" expanded="true" signature="644:762" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Common/Form/Input/cssinjs/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="980">
@@ -90,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Home/cssinjs/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="461">
@@ -114,6 +92,16 @@
                 <marker date="1510902572277" expanded="true" signature="1694:1823" ph="{...}" />
                 <marker date="1510902572277" expanded="true" signature="1878:1978" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -194,7 +182,6 @@
         <option value="$PROJECT_DIR$/src/config/validates/signin.js" />
         <option value="$PROJECT_DIR$/src/components/Routes/Redirect.jsx" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/components/Routes/index.jsx" />
         <option value="$PROJECT_DIR$/src/components/Routes/AfterSignin.jsx" />
         <option value="$PROJECT_DIR$/src/components/Common/Header/scss/index.scss" />
@@ -211,6 +198,7 @@
         <option value="$PROJECT_DIR$/src/components/Home/index.jsx" />
         <option value="$PROJECT_DIR$/src/components/Common/HeaderMenu/scss/index.scss" />
         <option value="$PROJECT_DIR$/src/components/Home/cssinjs/index.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -596,12 +584,12 @@
       <workItem from="1510541959728" duration="2061000" />
       <workItem from="1510562199296" duration="1253000" />
       <workItem from="1510706852357" duration="2557000" />
-      <workItem from="1510725529509" duration="10007000" />
+      <workItem from="1510725529509" duration="10288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38077000" />
+    <option name="totallyTimeSpent" value="38358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -840,13 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="5" lean-forward="false" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Routes/BeforeSignin.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1056,6 +1037,14 @@
             <marker date="1510902572277" expanded="true" signature="1694:1823" ph="{...}" />
             <marker date="1510902572277" expanded="true" signature="1878:1978" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
