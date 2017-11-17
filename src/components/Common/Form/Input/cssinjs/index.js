@@ -30,4 +30,24 @@ export const GhostInput = styled.input`
   &:focus {
     background-color: rgba(255, 255, 255, .3);
   }
+  
+  /* 各ベンダープレフィックスが取れた標準版！！(http://caniuse.com/#search=placeholder-shown) */
+  &:placeholder-shown {
+      color: #ccc; }
+  
+  /* Google Chrome, Safari, Opera 15+, Android, iOS */
+  &::-webkit-input-placeholder {
+      color: #ccc; }
+
+  /* Firefox 18- */
+  &:-moz-placeholder {
+      color: #ccc; opacity: 1; }
+
+  /* Firefox 19+ */
+  &::-moz-placeholder {
+      color: #ccc; opacity: 1; }
+
+  /* IE 10+ */
+  &:-ms-input-placeholder {
+      color: #ccc; }
 `;

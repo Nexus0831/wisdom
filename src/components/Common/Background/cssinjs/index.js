@@ -26,7 +26,7 @@ export const BackgroundImage = styled.div`
 
 // 背景効果
 export const BackgroundEffect = styled.div`
-  width: 100%;
+  width: calc(100% + 30px);
   height: calc(100vh + 30px);
   position: fixed;
   background-color: rgba(0, 0, 0, .25);

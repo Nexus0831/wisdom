@@ -9,23 +9,19 @@ import {
   Route
 } from 'react-router';
 
-import Redirect from './Redirect';
+import BeforeSignin from './BeforeSignin';
+import AfterSignin from './AfterSignin';
 
 class Routes extends React.Component {
   render() {
-    return(
+    return (
       <div
         id="routes"
       >
-        <Switch>
-          {/* <Route
-            path="/"
-            exact
-            render={}
-          > */}
-          {/* </Route> */}
-        </Switch>
-        <Redirect
+        <AfterSignin
+          {...this.props}
+        />
+        <BeforeSignin
           {...this.props}
         />
       </div>

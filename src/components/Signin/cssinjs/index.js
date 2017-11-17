@@ -28,6 +28,7 @@ export const Title = styled.h1`
 export const FormRow = styled.div`
   width: 100%;
   padding-bottom: 40px;
+  height: 100px;
 `;
 
 export const Button = styled.button`
@@ -41,6 +42,7 @@ export const Button = styled.button`
   background-color: rgba(0, 0, 0, 0);
   font-family: "Helvetica Neue";
   margin-top: 30px;
+  border-radius: 0;
   
   &:hover {
     background-color: rgba(26, 239, 34, .15);
