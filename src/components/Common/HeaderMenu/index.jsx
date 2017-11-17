@@ -43,17 +43,6 @@ class HeaderMenu extends React.Component {
             })
           }
         >
-          {/*<Menu.Item*/}
-            {/*active={*/}
-              {/*activeItem === 'top'*/}
-            {/*}*/}
-          {/*>*/}
-            {/*<Link*/}
-              {/*to="/"*/}
-            {/*>*/}
-              {/*Wisdom*/}
-            {/*</Link>*/}
-          {/*</Menu.Item>*/}
           <Menu.Item
             name="home"
             active={
@@ -67,7 +56,7 @@ class HeaderMenu extends React.Component {
                     className="item"
                     to="/"
                   >
-                    WISDOM
+                    Wisdom
                   </Link>
                 );
               }
@@ -76,11 +65,11 @@ class HeaderMenu extends React.Component {
           <Menu.Menu
             position="right"
           >
-            {/* About */}
+            {/* New Archive */}
             <Menu.Item
-              name="signin"
+              name="newArchive"
               active={
-                activeItem === 'signin'
+                activeItem === 'newArchive'
               }
               // onClick={this.handleItemClick}
               as={
@@ -88,20 +77,20 @@ class HeaderMenu extends React.Component {
                   return (
                     <Link
                       className="item"
-                      to="/signin"
+                      to="/newArchive"
                     >
-                      SIGNIN
+                      New Archive
                     </Link>
                   );
                 }
               }
             />
 
-            {/* News */}
+            {/* Interest */}
             <Menu.Item
-              name="news"
+              name="interest"
               active={
-                activeItem === 'news'
+                activeItem === 'interest'
               }
               // onClick={this.handleItemClick}
               as={
@@ -109,20 +98,20 @@ class HeaderMenu extends React.Component {
                   return (
                     <Link
                       className="item"
-                      to="/news"
+                      to="/interest"
                     >
-                      NEWS
+                      Interest
                     </Link>
                   );
                 }
               }
             />
 
-            {/* Recruit */}
+            {/* Article */}
             <Menu.Item
-              name="recruit"
+              name="article"
               active={
-                activeItem === 'recruit'
+                activeItem === 'article'
               }
               // onClick={this.handleItemClick}
               as={
@@ -130,51 +119,10 @@ class HeaderMenu extends React.Component {
                   return (
                     <Link
                       className="item"
-                      to="/recruit"
+                      to="/article"
                     >
-                      RECRUIT
+                      Article
                     </Link>
-                  );
-                }
-              }
-            />
-
-            {/* Contact */}
-            <Menu.Item
-              name="contact"
-              active={
-                activeItem === 'contact'
-              }
-              // onClick={this.handleItemClick}
-              as={
-                () => {
-                  return (
-                    <Link
-                      className="item"
-                      to="/contact"
-                    >
-                      CONTACT
-                    </Link>
-                  );
-                }
-              }
-            />
-
-            {/* TechBlog */}
-            <Menu.Item
-              name="tech"
-              active={
-                activeItem === 'tech'
-              }
-              as={
-                () => {
-                  return (
-                    <span
-                      // onClick={this.handleTechClick}
-                      className="item link"
-                    >
-                      TECH BLOG
-                    </span>
                   );
                 }
               }

@@ -53,6 +53,7 @@ class Signin extends React.Component {
 
               <Field
                 name="email"
+                placeholder='email...'
                 component={Input}
               />
             </FormRow>
@@ -60,6 +61,7 @@ class Signin extends React.Component {
               <Field
                 name="password"
                 type="password"
+                placeholder='password...'
                 component={Input}
               />
             </FormRow>
