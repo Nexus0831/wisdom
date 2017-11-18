@@ -86,6 +86,28 @@ class HeaderMenu extends React.Component {
               }
             />
 
+            {/* Sharing */}
+            <Menu.Item
+              name="article"
+              active={
+                activeItem === 'article'
+              }
+              // onClick={this.handleItemClick}
+              as={
+                () => {
+                  return (
+                    <Link
+                      className="item"
+                      to="/sharing"
+                    >
+                      Sharing
+                    </Link>
+                  );
+                }
+              }
+            />
+            </Menu.Menu>
+
             {/* Interest */}
             <Menu.Item
               name="interest"
@@ -107,27 +129,7 @@ class HeaderMenu extends React.Component {
               }
             />
 
-            {/* Article */}
-            <Menu.Item
-              name="article"
-              active={
-                activeItem === 'article'
-              }
-              // onClick={this.handleItemClick}
-              as={
-                () => {
-                  return (
-                    <Link
-                      className="item"
-                      to="/article"
-                    >
-                      Article
-                    </Link>
-                  );
-                }
-              }
-            />
-          </Menu.Menu>
+
         </Menu>
       </div>
     );

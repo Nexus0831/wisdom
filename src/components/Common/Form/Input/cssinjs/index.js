@@ -8,7 +8,7 @@ import styled, {
 export const ValidateError = styled.div`
   &&& {
     font-size: 12px;
-    color: #bd081c;
+    color: #df2a3e;
     white-space: nowrap;
     padding-top: 5px;
   }
@@ -18,6 +18,7 @@ export const GhostInput = styled.input`
   height: 40px;
   width: 100%;
   font-size: 20px;
+  font-weight: 300;
   padding-left: 10px;
   padding-right: -10px;
   font-family: Helvetica Neue;
@@ -29,25 +30,30 @@ export const GhostInput = styled.input`
   
   &:focus {
     background-color: rgba(255, 255, 255, .3);
+    border-color: #2CA4BF;
   }
   
   /* 各ベンダープレフィックスが取れた標準版！！(http://caniuse.com/#search=placeholder-shown) */
   &:placeholder-shown {
-      color: #ccc; }
+      color: #ccc; 
+      letter-spacing: normal;
+  }
   
   /* Google Chrome, Safari, Opera 15+, Android, iOS */
   &::-webkit-input-placeholder {
-      color: #ccc; }
-
-  /* Firefox 18- */
-  &:-moz-placeholder {
-      color: #ccc; opacity: 1; }
+      color: #ccc; 
+      letter-spacing: normal;
+  }
 
   /* Firefox 19+ */
   &::-moz-placeholder {
-      color: #ccc; opacity: 1; }
+      color: #ccc; opacity: 1; 
+      letter-spacing: normal;
+  }
 
   /* IE 10+ */
   &:-ms-input-placeholder {
-      color: #ccc; }
+      color: #ccc; 
+      letter-spacing: normal;
+  }
 `;

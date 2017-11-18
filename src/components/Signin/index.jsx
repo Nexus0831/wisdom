@@ -14,6 +14,10 @@ import {
   withRouter
 } from 'react-router';
 
+import {
+  NavLink
+} from 'react-router-dom';
+
 import validate from './../../config/validates/signin';
 
 import {
@@ -68,6 +72,7 @@ class Signin extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
+                onClick={() => this.props.history.push("/")}
               >
                 Signin
               </Button>

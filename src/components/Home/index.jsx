@@ -37,14 +37,15 @@ import Input from './../Common/Form/Input';
 
 // styles
 import {
-    SearchForm,
-    MyContainer,
-    ArchiveCard,
-    Title,
-    CreateDate,
-    Text,
-    ButtonContainer,
-    Button
+  SearchForm,
+  MyContainer,
+  ArchiveCard,
+  Title,
+  CreateDate,
+  Text,
+  ButtonContainer,
+  Button,
+  MyGrid
 } from './cssinjs';
 
 import * as actions from './../../actions/app';
@@ -71,136 +72,124 @@ class Home extends React.Component {
             />
           </SearchForm>
 
-          <Grid>
-            <Grid.Column
-              computer={5}
-              tablet={8}
-              mobile={16}
-            >
-              {/*<NavLink*/}
-                {/*to="/signin"*/}
-              {/*>*/}
-                <ArchiveCard>
-                  <Title>
-                    Pythonインストール
-                  </Title>
-                  <CreateDate>
-                    {/*2017年12月24日 13時35分*/}
-                    2017/12/24 13:35
-                  </CreateDate>
-                  <Text>
-                    #Python
+          <MyGrid>
 
-                    ## 準備
-                    Pythonのインストール方法を記録しておく
-                    ちなみにmac版である。
-                    この圧倒的Pythonista力！！
-                    映画インターンシップを見たい
-                    Amazonビデオで視聴しようと思う。
-                  </Text>
-                  <ButtonContainer>
-                    <Button>
-                      edit
-                    </Button>
-                    <Modal
-                      trigger={
-                        <Button
-                          danger
-                        >
-                          delete
-                        </Button>
-                      }
-                      basic
-                      size="small"
+            {/*<NavLink*/}
+            {/*to="/signin"*/}
+            {/*>*/}
+
+            <ArchiveCard>
+              <Title>
+                Pythonインストール
+              </Title>
+              <CreateDate>
+                {/*2017年12月24日 13時35分*/}
+                2017/12/24 13:35
+              </CreateDate>
+              <Text>
+                #Python
+
+                ## 準備
+                Pythonのインストール方法を記録しておく
+                ちなみにmac版である。
+                この圧倒的Pythonista力！！
+                映画インターンシップを見たい
+                Amazonビデオで視聴しようと思う。
+              </Text>
+              <ButtonContainer>
+                <Button>
+                  edit
+                </Button>
+                <Modal
+                  trigger={
+                    <Button
+                      danger
                     >
-                      <Header content="confirmation" />
-                      <Modal.Content>
-                        <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                      </Modal.Content>
-                      <Modal.Actions>
-                        <Button
-                          danger
-                        >
-                          yes
-                        </Button>
-                      </Modal.Actions>
-                    </Modal>
+                      delete
+                    </Button>
+                  }
+                  basic
+                  size="small"
+                >
+                  <Header content="confirmation"/>
+                  <Modal.Content>
+                    <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+                  </Modal.Content>
+                  <Modal.Actions>
+                    <Button
+                      danger
+                    >
+                      yes
+                    </Button>
+                  </Modal.Actions>
+                </Modal>
 
-                  </ButtonContainer>
-                </ArchiveCard>
-              {/*</NavLink>*/}
-            </Grid.Column>
-            <Grid.Column
-              computer={5}
-              tablet={8}
-              mobile={16}
-            >
-              <ArchiveCard>
-                <Title>
-                  Pythonインストール
-                </Title>
-                <CreateDate>
-                  {/*2017年12月24日 13時35分*/}
-                  2017/12/24 13:35
-                </CreateDate>
-                <Text>
-                  #Python
+              </ButtonContainer>
+            </ArchiveCard>
 
-                  ## 準備
-                  Pythonのインストール方法を記録しておく
-                  ちなみにmac版である。
-                  この圧倒的Pythonista力！！
-                  映画インターンシップを見たい
-                  Amazonビデオで視聴しようと思う。
-                </Text>
-                <ButtonContainer>
-                  <Button>
-                    edit
-                  </Button>
-                  <Button
-                    danger
-                  >
-                    delete
-                  </Button>
-                </ButtonContainer>
-              </ArchiveCard>
-            </Grid.Column>
-            <Grid.Column
-              computer={5}
-              tablet={8}
-              mobile={16}
-            >
-              <ArchiveCard>
-                <Title>
-                  Pythonインストール
-                </Title>
-                <CreateDate>
-                  {/*2017年12月24日 13時35分*/}
-                  2017/12/24 13:35
-                </CreateDate>
-                <Text>
-                  #Python
+            {/*</NavLink>*/}
 
-                  ## 準備
-                  Pythonのインストール方法を記録しておく
-                  ちなみにmac版である。
-                  この圧倒的Pythonista力！！
-                  映画インターンシップを見たい
-                  Amazonビデオで視聴しようと思う。
-                </Text>
-                <ButtonContainer>
-                  <Button>
-                    edit
-                  </Button>
-                  <Button
-                    danger
-                  >
-                    delete
-                  </Button>
-                </ButtonContainer>
-              </ArchiveCard>
-            </Grid.Column>
-          </Grid>
+
+            <ArchiveCard>
+              <Title>
+                Pythonインストール
+              </Title>
+              <CreateDate>
+                {/*2017年12月24日 13時35分*/}
+                2017/12/24 13:35
+              </CreateDate>
+              <Text>
+                #Python
+
+                ## 準備
+                Pythonのインストール方法を記録しておく
+                ちなみにmac版である。
+                この圧倒的Pythonista力！！
+                映画インターンシップを見たい
+                Amazonビデオで視聴しようと思う。
+              </Text>
+              <ButtonContainer>
+                <Button>
+                  edit
+                </Button>
+                <Button
+                  danger
+                >
+                  delete
+                </Button>
+              </ButtonContainer>
+            </ArchiveCard>
+
+            <ArchiveCard>
+              <Title>
+                Pythonインストール
+              </Title>
+              <CreateDate>
+                {/*2017年12月24日 13時35分*/}
+                2017/12/24 13:35
+              </CreateDate>
+              <Text>
+                #Python
+
+                ## 準備
+                Pythonのインストール方法を記録しておく
+                ちなみにmac版である。
+                この圧倒的Pythonista力！！
+                映画インターンシップを見たい
+                Amazonビデオで視聴しようと思う。
+              </Text>
+              <ButtonContainer>
+                <Button>
+                  edit
+                </Button>
+                <Button
+                  danger
+                >
+                  delete
+                </Button>
+              </ButtonContainer>
+            </ArchiveCard>
+          </MyGrid>
         </MyContainer>
       </div>
     );
