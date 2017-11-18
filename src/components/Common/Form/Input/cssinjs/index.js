@@ -30,7 +30,6 @@ export const GhostInput = styled.input`
   
   &:focus {
     background-color: rgba(255, 255, 255, .3);
-    border-color: #2CA4BF;
   }
   
   /* 各ベンダープレフィックスが取れた標準版！！(http://caniuse.com/#search=placeholder-shown) */

@@ -55,7 +55,7 @@ class Home extends React.Component {
   render() {
     return (
       <div id="home">
-        <Background/>
+
         <HeaderMenu
           defaultTransparent
           style={{
@@ -97,13 +97,18 @@ class Home extends React.Component {
                 Amazonビデオで視聴しようと思う。
               </Text>
               <ButtonContainer>
-                <Button>
+                <Button
+                  row="2 / 3"
+                  column="2 / 3"
+                >
                   edit
                 </Button>
                 <Modal
                   trigger={
                     <Button
                       danger
+                      row="2 / 3"
+                      column="4 / 5"
                     >
                       delete
                     </Button>
@@ -129,7 +134,6 @@ class Home extends React.Component {
 
             {/*</NavLink>*/}
 
-
             <ArchiveCard>
               <Title>
                 Pythonインストール
@@ -149,14 +153,38 @@ class Home extends React.Component {
                 Amazonビデオで視聴しようと思う。
               </Text>
               <ButtonContainer>
-                <Button>
+                <Button
+                  row="2 / 3"
+                  column="2 / 3"
+                >
                   edit
                 </Button>
-                <Button
-                  danger
+                <Modal
+                  trigger={
+                    <Button
+                      danger
+                      row="2 / 3"
+                      column="4 / 5"
+                    >
+                      delete
+                    </Button>
+                  }
+                  basic
+                  size="small"
                 >
-                  delete
-                </Button>
+                  <Header content="confirmation"/>
+                  <Modal.Content>
+                    <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+                  </Modal.Content>
+                  <Modal.Actions>
+                    <Button
+                      danger
+                    >
+                      yes
+                    </Button>
+                  </Modal.Actions>
+                </Modal>
+
               </ButtonContainer>
             </ArchiveCard>
 
@@ -179,16 +207,41 @@ class Home extends React.Component {
                 Amazonビデオで視聴しようと思う。
               </Text>
               <ButtonContainer>
-                <Button>
+                <Button
+                  row="2 / 3"
+                  column="2 / 3"
+                >
                   edit
                 </Button>
-                <Button
-                  danger
+                <Modal
+                  trigger={
+                    <Button
+                      danger
+                      row="2 / 3"
+                      column="4 / 5"
+                    >
+                      delete
+                    </Button>
+                  }
+                  basic
+                  size="small"
                 >
-                  delete
-                </Button>
+                  <Header content="confirmation"/>
+                  <Modal.Content>
+                    <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+                  </Modal.Content>
+                  <Modal.Actions>
+                    <Button
+                      danger
+                    >
+                      yes
+                    </Button>
+                  </Modal.Actions>
+                </Modal>
+
               </ButtonContainer>
             </ArchiveCard>
+
           </MyGrid>
         </MyContainer>
       </div>
