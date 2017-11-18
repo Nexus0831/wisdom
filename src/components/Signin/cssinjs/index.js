@@ -6,6 +6,11 @@ import styled from 'styled-components';
 export const Form = styled.div`
   width: 350px;
   height: 600px;
+  
+  @media (max-width: 619px) {
+    height: 400px;
+  }
+  
 `;
 
 export const Centered = styled.div`
@@ -23,20 +28,31 @@ export const Title = styled.h1`
   font-size: 70px;
   text-align: center;
   font-weight: 100;
+  
+  @media (max-width: 619px) {
+    font-size: 40px;
+  }
+  
+  }
 `;
 
 export const FormRow = styled.div`
   width: 100%;
   padding-bottom: 40px;
   height: 100px;
+  
+  @media (max-width: 619px) {
+    padding: 0 30px 0;
+    height: 70px;
+  }
 `;
 
 export const Button = styled.button`
   color: #1AEF22;
-  font-weight: 400;
+  font-weight: 300;
   height: 50px;
-  width: calc(100% + 16px);
-  font-size: 30px;
+  width: 100%;
+  font-size: 25px;
   border: 3px solid #1AEF22;
   outline: 0 !important;
   background-color: rgba(0, 0, 0, 0);

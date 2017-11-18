@@ -32,6 +32,27 @@ export const MyContainer = styled.div`
   //}
 `;
 
+export const MyGrid = styled.div`
+  display: grid;
+  
+  @media (max-width: 619px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+  }
+  
+  @media (min-width: 620px) { 
+    grid-template-columns: 49% 49%;
+    grid-row-gap: 16px;
+    grid-column-gap: 2%;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 32% 32% 32%;
+    grid-row-gap: 20px;
+    grid-column-gap: 2%;
+  }
+`;
+
 export const ArchiveCard = styled.div`
   width: 100%;
   height: 200px;
@@ -39,7 +60,7 @@ export const ArchiveCard = styled.div`
   position: relative;
   
   &:hover {
-    background-color: rgba(255, 255, 255, .2);
+    //background-color: rgba(255, 255, 255, .2);
   }
 `;
 
@@ -91,7 +112,7 @@ export const Button = styled.button`
   border-radius: 0;
   
   &:hover {
-    background-color: ${props => props.danger ?  'rgba(239, 51, 26, .15)' : 'rgba(26, 239, 34, .15)'};
+    background-color: ${props => props.danger ?  'rgba(239, 51, 26, .2)' : 'rgba(26, 239, 34, .2)'};
     cursor: pointer;
   }
 `;
