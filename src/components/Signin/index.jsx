@@ -47,7 +47,6 @@ class Signin extends React.Component {
   render() {
     return(
       <div id="signin">
-        <Background/>
         <Centered>
           <Form>
             <Title>

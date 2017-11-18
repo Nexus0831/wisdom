@@ -57,10 +57,11 @@ export const ArchiveCard = styled.div`
   width: 100%;
   height: 200px;
   border: 1px solid #FFFFFF;
-  position: relative;
   
   &:hover {
     //background-color: rgba(255, 255, 255, .2);
+    box-shadow: 0 0 20px 5px rgba(255,255,255,.3) inset;
+    cursor: pointer;
   }
 `;
 
@@ -92,23 +93,29 @@ export const Text = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  text-align: right;
+  display: grid;
+  grid-template-rows: 10px 1fr 5px;
+  grid-template-columns: 1fr 100px 10px 100px 10px;
+  //grid-template-areas:
+  //      "..... ..... ..... ......"
+  //      "..... edit ...... delete"
+  //      "..... ..... ..... ......";
   width: 100%;
   height: 50px;
 `;
 
 export const Button = styled.button`
+  ${props => props.row ? 'grid-row:' + props.row : ''};
+  ${props => props.column ? 'grid-column:' + props.column : ''};  
   color: ${props => props.danger ?  '#EF331A' : '#1AEF22'};
   font-weight: 300;
+  font-size: 16px;
   height: 35px;
   width: 100px;
-  font-size: 16px;
   border: 1px solid ${props => props.danger ?  '#EF331A' : '#1AEF22'};
   outline: 0 !important;
   background-color: rgba(0, 0, 0, 0);
   font-family: "Helvetica Neue";
-  margin-top: 10px;
-  margin-right: 10px;
   border-radius: 0;
   
   &:hover {

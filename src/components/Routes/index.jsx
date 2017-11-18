@@ -11,6 +11,7 @@ import {
 
 import BeforeSignin from './BeforeSignin';
 import AfterSignin from './AfterSignin';
+import Background from './../Common/Background';
 
 class Routes extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class Routes extends React.Component {
       <div
         id="routes"
       >
+        <Background/>
         <AfterSignin
           {...this.props}
         />
