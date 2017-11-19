@@ -129,5 +129,9 @@ export const globalStyles = injectGlobal`
     display: grid;
     grid-template-rows: 80px 1fr;
     grid-template-columns: 20px 1fr 20px;
+    
+    @media (max-width: 619px) {
+        grid-template-rows: 60px 1fr;
+    }
   }
 `;
