@@ -14,17 +14,25 @@
   }
   .ui.menu {
     transition-duration: .5s;
-    padding: {
-      top: 15px;
-      bottom: 15px;
-    }
+    //padding: {
+    //  top: 15px;
+    //  bottom: 15px;
+    //}
     border-radius: 0px;
     height: 70px;
     border: none;
+
+    @media (max-width: 619px) {
+      height: 50px;
+    }
     .item {
       font-family: "mr-eaves-modern";
       color: #555555;
       font-size: 20px;
+
+      @media (max-width: 619px) {
+        font-size: 13px;
+      }
       &:hover {
         background: {
           color: transparent;
@@ -48,6 +56,10 @@
         font-family: "mr-eaves-modern";
         color: white;
         font-size: 20px;
+
+        @media (max-width: 619px) {
+          font-size: 13px;
+        }
         &:hover {
           background: {
             color: transparent;
