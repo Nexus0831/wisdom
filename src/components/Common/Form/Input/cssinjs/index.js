@@ -26,7 +26,7 @@ export const GhostInput = styled.input`
   outline: 0 !important;
   border: 2px solid #FFFFFF;
   background-color: rgba(0, 0, 0, 0);
-  letter-spacing: ${props => props.type ? '5px' : 'normal'};
+  letter-spacing: ${props => props.type ? '5px' : '2px'};
   
   &:focus {
     background-color: rgba(255, 255, 255, .3);
@@ -35,13 +35,13 @@ export const GhostInput = styled.input`
   /* 各ベンダープレフィックスが取れた標準版！！(http://caniuse.com/#search=placeholder-shown) */
   &:placeholder-shown {
       color: #ccc; 
-      letter-spacing: normal;
+      letter-spacing: 2px;
   }
   
   /* Google Chrome, Safari, Opera 15+, Android, iOS */
   &::-webkit-input-placeholder {
       color: #ccc; 
-      letter-spacing: normal;
+      letter-spacing: 2px;
   }
 
   /* Firefox 19+ */
