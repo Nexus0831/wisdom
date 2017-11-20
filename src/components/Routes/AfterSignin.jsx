@@ -16,6 +16,7 @@ class Routes extends React.Component {
   render() {
     return (
       <Switch>
+        {/*Home*/}
         <Route
           path="/"
           exact
