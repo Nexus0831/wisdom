@@ -31,17 +31,31 @@ import {
 
 // components
 import Input from './../../Common/Form/Input';
+import CheckBox from './../../Common/Form/CheckBox';
 
 // styles
 import {
-  SearchForm,
   MyContainer,
+  TitleForm,
+  SharingForm,
+  EditorForm,
+  SubmitForm,
+  SubmitButton
 } from './cssinjs';
 
 import * as actions from './../../../actions/app';
 import HeaderMenu from "./../../Common/HeaderMenu/index";
 
 class ArchiveCreate extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.handleChange = this.handleChange.bind(this);
+  // }
+  //
+  // handleChange() {
+  //   this.props.formValues.sharing = !this.props.formValues.sharing
+  // }
+
   render() {
     return (
       <div id="archive-create">
@@ -54,14 +68,31 @@ class ArchiveCreate extends React.Component {
           }}
         />
         <MyContainer>
-          <SearchForm>
+          <TitleForm>
             <Field
               name='title'
               placeholder='title...'
               component={Input}
             />
-          </SearchForm>
+          </TitleForm>
 
+          <SharingForm>
+            <Field
+              name='sharing'
+              label="sharing"
+              component={CheckBox}
+            />
+          </SharingForm>
+
+          <EditorForm>
+            SimpleMDE
+          </EditorForm>
+
+          <SubmitForm>
+            <SubmitButton>
+              Submit
+            </SubmitButton>
+          </SubmitForm>
         </MyContainer>
       </div>
     );
