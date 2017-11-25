@@ -55,4 +55,12 @@ export const GhostInput = styled.input`
       color: #ccc; 
       letter-spacing: normal;
   }
+  
+  &::selection {
+    background-color: rgba(255, 255, 255, .4);
+  }
+  
+  &::-moz-selection {
+    background-color: rgba(255, 255, 255, .4);
+  }
 `;

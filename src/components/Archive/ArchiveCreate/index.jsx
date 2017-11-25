@@ -13,6 +13,8 @@ import {
   withRouter,
 } from 'react-router';
 
+import SimpleMDE  from 'react-simplemde-editor';
+
 import {
   NavLink
 } from 'react-router-dom';
@@ -32,19 +34,26 @@ import {
 // components
 import Input from './../../Common/Form/Input';
 import CheckBox from './../../Common/Form/CheckBox';
+import TextArea from './../../Common/Form/TextArea';
 
 // styles
 import {
   MyContainer,
-  TitleForm,
-  SharingForm,
-  EditorForm,
-  SubmitForm,
-  SubmitButton
+  TitleArea,
+  SharingArea,
+  MainArea,
+  SubmitArea,
+  SubmitButton,
+  ToolBar,
+  EditorArea,
+  PreviewArea
 } from './cssinjs';
 
 import * as actions from './../../../actions/app';
 import HeaderMenu from "./../../Common/HeaderMenu/index";
+
+import 'react-simplemde-editor/dist/simplemde.min.css';
+
 
 class ArchiveCreate extends React.Component {
   // constructor(props) {
@@ -55,6 +64,9 @@ class ArchiveCreate extends React.Component {
   // handleChange() {
   //   this.props.formValues.sharing = !this.props.formValues.sharing
   // }
+
+
+
 
   render() {
     return (
@@ -68,31 +80,45 @@ class ArchiveCreate extends React.Component {
           }}
         />
         <MyContainer>
-          <TitleForm>
+          <TitleArea>
             <Field
               name='title'
               placeholder='title...'
               component={Input}
             />
-          </TitleForm>
+          </TitleArea>
 
-          <SharingForm>
+          <SharingArea>
             <Field
               name='sharing'
               label="sharing"
               component={CheckBox}
             />
-          </SharingForm>
+          </SharingArea>
 
-          <EditorForm>
-            SimpleMDE
-          </EditorForm>
+          <MainArea>
+            <ToolBar>
+            </ToolBar>
+            <EditorArea>
+              <Field
+                name='markdown'
+                component={TextArea}
+              />
+              {/*<Field*/}
+                {/*name='title'*/}
+                {/*placeholder='title...'*/}
+                {/*component={Input}*/}
+              {/*/>*/}
+            </EditorArea>
+            <PreviewArea>
+            </PreviewArea>
+          </MainArea>
 
-          <SubmitForm>
+          <SubmitArea>
             <SubmitButton>
               Submit
             </SubmitButton>
-          </SubmitForm>
+          </SubmitArea>
         </MyContainer>
       </div>
     );

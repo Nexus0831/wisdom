@@ -23,6 +23,7 @@ export const GhostCheckBox = styled.input`
     font-weight: 300;
     font-size: 16px;
     font-family: "Helvetica Neue";
+    transition-duration: .3s;
   }
   
   &:checked + label {

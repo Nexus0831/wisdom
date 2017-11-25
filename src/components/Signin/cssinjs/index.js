@@ -59,6 +59,7 @@ export const Button = styled.button`
   font-family: "Helvetica Neue";
   margin-top: 30px;
   border-radius: 0;
+  transition-duration: .3s;
   
   &:hover {
     background-color: rgba(26, 239, 34, .15);
