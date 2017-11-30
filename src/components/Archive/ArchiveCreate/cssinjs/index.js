@@ -41,15 +41,32 @@ export const ToolBar = styled.div`
 `;
 
 export const EditorArea = styled.div`
-  grid-row: 2 / 3;
+  grid-row: 1;
   grid-column: 1 / 2;
 `;
 
 export const PreviewArea = styled.div`
-  grid-row: 2 / 3;
+  grid-row: 1;
   grid-column: 2 / 3;
   border: 2px solid #fff;
   border-left: none;
+  padding: 10px;
+`;
+
+export const FullPreviewArea = styled.div`
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  border: 2px solid #fff;
+  color: #fff !important;
+  padding: 10px;
+`;
+
+export const DividedArea = styled.div`
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 50% 50%;
 `;
 
 // export const MarkdownEditor = styled.textarea`

@@ -1,5 +1,11 @@
 // node_modules
 import React from 'react';
+import marked from 'marked';
+
+marked.setOptions({
+  sanitize: true,
+  // highlight:
+});
 
 import {
   connect
@@ -12,8 +18,6 @@ import {
 import {
   withRouter,
 } from 'react-router';
-
-import SimpleMDE  from 'react-simplemde-editor';
 
 import {
   NavLink
@@ -28,7 +32,8 @@ import {
   reduxForm,
   Field,
   getFormValues,
-  isValid
+  isValid,
+  initialize
 } from 'redux-form';
 
 // components
@@ -46,27 +51,35 @@ import {
   SubmitButton,
   ToolBar,
   EditorArea,
-  PreviewArea
+  PreviewArea,
+  DividedArea,
+  FullPreviewArea
 } from './cssinjs';
 
-import * as actions from './../../../actions/app';
+import * as actions from './../../../actions/archive';
 import HeaderMenu from "./../../Common/HeaderMenu/index";
-
-import 'react-simplemde-editor/dist/simplemde.min.css';
 
 
 class ArchiveCreate extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleChange = this.handleChange.bind(this);
-  // }
-  //
-  // handleChange() {
-  //   this.props.formValues.sharing = !this.props.formValues.sharing
-  // }
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.fullPreview = this.fullPreview.bind(this);
+  }
 
 
+  handleChange() {
+    this.props.realTimePreview(this.props.formValues.markdown);
+  }
 
+  fullPreview() {
+    this.props.realTimePreview(this.props.formValues.markdown);
+    this.props.fullPreview(!this.props.archive.isPreview);
+  }
+
+  async componentWillMount() {
+    await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
+  }
 
   render() {
     return (
@@ -98,24 +111,46 @@ class ArchiveCreate extends React.Component {
 
           <MainArea>
             <ToolBar>
+              <button
+                onClick={this.fullPreview}
+              >
+                Preview
+              </button>
             </ToolBar>
-            <EditorArea>
-              <Field
-                name='markdown'
-                component={TextArea}
-              />
-              {/*<Field*/}
-                {/*name='title'*/}
-                {/*placeholder='title...'*/}
-                {/*component={Input}*/}
-              {/*/>*/}
-            </EditorArea>
-            <PreviewArea>
-            </PreviewArea>
+            {
+              this.props.archive.isPreview ?
+                <FullPreviewArea>
+                  <div
+                    dangerouslySetInnerHTML={{__html: marked(this.props.archive.markdown)}}
+                  />
+                </FullPreviewArea>
+                :
+                <DividedArea>
+                  <EditorArea>
+                    <Field
+                      name='markdown'
+                      component={TextArea}
+                      // wrap='off'
+                      // onChange={this.props.onChange(thi)}
+                    />
+                  </EditorArea>
+                  <PreviewArea>
+                    <div
+                       dangerouslySetInnerHTML={{__html: marked(this.props.archive.markdown)}}
+                     />
+                  </PreviewArea>
+                </DividedArea>
+            }
+
+
+
+
           </MainArea>
 
           <SubmitArea>
-            <SubmitButton>
+            <SubmitButton
+              onClick={this.handleChange}
+            >
               Submit
             </SubmitButton>
           </SubmitArea>
@@ -134,7 +169,7 @@ ArchiveCreate = connect(
 
 const mapStateToProps = state => {
   return {
-    app: state.app
+    archive: state.archive
   };
 };
 
