@@ -12,6 +12,9 @@ const reducer = handleActions({
   },
   [actions.fullPreview](state, action) {
     return state.fullPreview(state, action.payload);
+  },
+  [actions.divided](state, action) {
+    return state.divided(state, action.payload);
   }
 }, new Archive());
 

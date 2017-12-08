@@ -3,12 +3,13 @@ import {
   List
 } from 'immutable';
 
-const Result = Record({
+const ArchiveState = Record({
   markdown: '',
-  isPreview: false
+  mode: {isPreview: false, isDivided: false},
+  additional: ''
 });
 
-class Archive extends Result {
+class Archive extends ArchiveState {
   realTimePreview(state, payload) {
     const newState = state.update('markdown',
       () => {
@@ -18,9 +19,17 @@ class Archive extends Result {
   }
 
   fullPreview(state, payload) {
-    const newState = state.update('isPreview',
+    const newState = state.update('mode',
       () => {
         return payload.isPreview;
+      });
+    return newState;
+  }
+
+  divided(state, payload) {
+    const newState = state.update('mode',
+      () => {
+        return payload.isDivided;
       });
     return newState;
   }

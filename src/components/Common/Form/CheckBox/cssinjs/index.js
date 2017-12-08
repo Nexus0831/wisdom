@@ -13,9 +13,9 @@ export const GhostCheckBox = styled.input`
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 2px solid gray;
+    border: 2px solid #EF331A;
     border-radius: 0;
-    color: gray;
+    color: #EF331A;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -23,7 +23,8 @@ export const GhostCheckBox = styled.input`
     font-weight: 300;
     font-size: 16px;
     font-family: "Helvetica Neue";
-    transition-duration: .3s;
+    transition-duration: .2s;
+    letter-spacing: 1px;
   }
   
   &:checked + label {

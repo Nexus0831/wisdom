@@ -1,10 +1,6 @@
 // node_modules
 import React from 'react';
-import brace from 'brace';
-import AceEditor from 'react-ace';
-
-import 'brace/mode/markdown';
-import 'brace/theme/monokai';
+import $ from 'jquery';
 
 // styles
 import {
@@ -14,32 +10,37 @@ import {
 
 // pure function
 const TextArea = (props) => {
+
+
+  const changeToggle = (e) => {
+    // ToDo: 補足機能はここで実装;
+    const textarea = document.querySelector('textarea');
+    if (textarea.value === '{') {
+      const pos = textarea.selectionStart;
+      let sentence = textarea.value;
+      textarea.value = sentence.substr(0, pos) + '}' + sentence.substr(pos, sentence.length);
+    //   // $textarea.attr('selectionStart', 1);
+    //   // $textarea.get(0).setSelectionRange(1, 1);
+      textarea.selectionEnd = pos;
+      textarea.selectionStart = pos;
+    }
+    props.input.onChange(textarea.value);
+  };
+
   return (
     <span
       id="textarea"
     >
-      {/*<AceEditor*/}
-        {/*mode="markdown"*/}
-        {/*theme="monokai"*/}
-        {/*// placeholder={props.placeholder}*/}
-        {/*value={props.input.value}*/}
-        {/*// label={props.label}*/}
-        {/*onBlur={() => props.input.onBlur(props.value)}*/}
-        {/*onChange={props.input.onChange}*/}
-        {/*// style={props.style}*/}
-        {/*className={props.className}*/}
-        {/*// readOnly={props.disabled}*/}
-        {/*number={2}*/}
-      {/*/>*/}
       <MarkdownEditor
-        // placeholder={props.placeholder}
-        value={props.input.value}
-        // label={props.label}
+        id="editor"
+        placeholder={props.placeholder}
         onBlur={() => props.input.onBlur(props.value)}
-        onChange={props.input.onChange}
-        // style={props.style}
+        value={props.input.value}
+        onChange={changeToggle}
+        readOnly={props.disabled}
         className={props.className}
-        // readOnly={props.disabled}
+        size={props.size}
+        style={props.style}
         wrap={props.wrap}
       />
       {

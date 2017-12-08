@@ -24,7 +24,29 @@ export const fullPreview = createAction(
   async (isPreview) => {
     const payload = {};
     try {
-      payload.isPreview = isPreview;
+      if (isPreview) {
+        payload.isPreview = {isPreview: isPreview, isDivided: !isPreview};
+      } else {
+        payload.isPreview = {isPreview: isPreview, isDivided: isPreview};
+      }
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const divided = createAction(
+  actionName.DIVIDED,
+  async (isDivided) => {
+    const payload = {};
+    try {
+      if (isDivided) {
+        payload.isDivided = {isPreview: !isDivided, isDivided: isDivided};
+      } else {
+        payload.isDivided = {isPreview: isDivided, isDivided: isDivided};
+      }
+
       return payload;
     } catch (error) {
       return payload;

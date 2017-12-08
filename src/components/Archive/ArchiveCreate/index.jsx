@@ -1,11 +1,11 @@
 // node_modules
 import React from 'react';
-import marked from 'marked';
+import Markdown from 'react-markdown-it';
 
-marked.setOptions({
-  sanitize: true,
-  // highlight:
-});
+// marked.setOptions({
+//   sanitize: true,
+//   langPrefix: '',
+// });
 
 import {
   connect
@@ -25,7 +25,8 @@ import {
 
 import {
   Modal,
-  Header
+  Header,
+  Icon
 } from 'semantic-ui-react';
 
 import {
@@ -33,7 +34,8 @@ import {
   Field,
   getFormValues,
   isValid,
-  initialize
+  initialize,
+  change
 } from 'redux-form';
 
 // components
@@ -53,7 +55,8 @@ import {
   EditorArea,
   PreviewArea,
   DividedArea,
-  FullPreviewArea
+  FullPreviewArea,
+  FullEditorArea
 } from './cssinjs';
 
 import * as actions from './../../../actions/archive';
@@ -61,24 +64,34 @@ import HeaderMenu from "./../../Common/HeaderMenu/index";
 
 
 class ArchiveCreate extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.fullPreview = this.fullPreview.bind(this);
-  }
 
-
-  handleChange() {
+  async handleMarkdownChange() {
+    // ToDo: reduxで再実装;
+    // ToDo: ToolBarの機能はreduxで実装;
+    await new Promise(resolve => setTimeout(resolve, 5));
+    // if (this.props.formValues.markdown === '{') {
+    //   let sentence = this.props.formValues.markdown;
+    //   sentence = sentence + '}';
+    //   await this.props.dispatch(change('archiveCreate', 'markdown', sentence ));
+    //
+    // }
     this.props.realTimePreview(this.props.formValues.markdown);
   }
 
-  fullPreview() {
-    this.props.realTimePreview(this.props.formValues.markdown);
-    this.props.fullPreview(!this.props.archive.isPreview);
+  // plusLink() {
+  //
+  // }
+
+  changeFullPreview() {
+    this.props.fullPreview(!this.props.archive.mode.isPreview);
+  }
+
+  changeDivided() {
+    this.props.divided(!this.props.archive.mode.isDivided);
   }
 
   async componentWillMount() {
-    await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
+    await this.props.dispatch(initialize('archiveCreate', { markdown: '', sharing: false }));
   }
 
   render() {
@@ -104,52 +117,80 @@ class ArchiveCreate extends React.Component {
           <SharingArea>
             <Field
               name='sharing'
-              label="sharing"
               component={CheckBox}
             />
           </SharingArea>
 
           <MainArea>
             <ToolBar>
-              <button
-                onClick={this.fullPreview}
-              >
-                Preview
-              </button>
+              <Icon
+                color='yellow'
+                name='unhide'
+                onClick={() => this.changeFullPreview()}
+                size='big'
+              />
+              <Icon
+                color='yellow'
+                name='columns'
+                onClick={() => this.changeDivided()}
+                size='big'
+              />
+              <Icon
+                color='yellow'
+                name='linkify'
+                // onClick={this.changeFullPreview}
+                size='big'
+              />
             </ToolBar>
             {
-              this.props.archive.isPreview ?
+              this.props.archive.mode.isPreview && !this.props.archive.mode.isDivided ?
                 <FullPreviewArea>
-                  <div
-                    dangerouslySetInnerHTML={{__html: marked(this.props.archive.markdown)}}
+                  {/*<div*/}
+                    {/*dangerouslySetInnerHTML={{__html: MarkdownIt(this.props.archive.markdown)}}*/}
+                  {/*/>*/}
+                  <Markdown
+                    source={this.props.archive.markdown}
+                    options={{
+                      breaks: true
+                    }}
                   />
                 </FullPreviewArea>
                 :
-                <DividedArea>
-                  <EditorArea>
+                !this.props.archive.mode.isPreview && this.props.archive.mode.isDivided ?
+                  <DividedArea>
+                    <EditorArea>
+                      <Field
+                        name='markdown'
+                        component={TextArea}
+                        // wrap='off'
+                        onChange={() => this.handleMarkdownChange()}
+                      />
+                    </EditorArea>
+                    <PreviewArea>
+                      <Markdown
+                        source={this.props.archive.markdown}
+                        options={{
+                          breaks: true
+                        }}
+                      />
+                    </PreviewArea>
+                  </DividedArea>
+                  :
+                  <FullEditorArea>
                     <Field
                       name='markdown'
                       component={TextArea}
                       // wrap='off'
-                      // onChange={this.props.onChange(thi)}
+                      onChange={() => this.handleMarkdownChange()}
                     />
-                  </EditorArea>
-                  <PreviewArea>
-                    <div
-                       dangerouslySetInnerHTML={{__html: marked(this.props.archive.markdown)}}
-                     />
-                  </PreviewArea>
-                </DividedArea>
+                  </FullEditorArea>
             }
-
-
-
 
           </MainArea>
 
           <SubmitArea>
             <SubmitButton
-              onClick={this.handleChange}
+              // onClick={this.handleChange}
             >
               Submit
             </SubmitButton>

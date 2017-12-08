@@ -51,6 +51,8 @@ export const PreviewArea = styled.div`
   border: 2px solid #fff;
   border-left: none;
   padding: 10px;
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, .2);
 `;
 
 export const FullPreviewArea = styled.div`
@@ -59,6 +61,12 @@ export const FullPreviewArea = styled.div`
   border: 2px solid #fff;
   color: #fff !important;
   padding: 10px;
+  background-color: rgba(255, 255, 255, .2);
+`;
+
+export const FullEditorArea = styled.div`
+  grid-row: 2 / 3;
+  grid-column: 1 / 3;
 `;
 
 export const DividedArea = styled.div`
@@ -68,33 +76,6 @@ export const DividedArea = styled.div`
   grid-template-rows: 1fr;
   grid-template-columns: 50% 50%;
 `;
-
-// export const MarkdownEditor = styled.textarea`
-//   outline: 0 !important;
-//   padding: 10px;
-//   font-size: 18px;
-//   resize: none;
-//   border: 2px solid #fff;
-//   background-color: rgba(0, 0, 0, 0);
-//   color: white;
-//   line-height: 1.5;
-//   font-family: Menlo;
-//   width: 100% !important;
-//   height: 100% !important;
-//
-//   &:focus {
-//     background-color: rgba(255, 255, 255, .2);
-//   }
-//
-//   &::selection {
-//     background-color: rgba(255, 255, 255, .4);
-//   }
-//
-//   &::-moz-selection {
-//     background-color: rgba(255, 255, 255, .4);
-//   }
-//
-// `;
 
 export const SubmitArea = styled.div`
   grid-row: 5 / 6;

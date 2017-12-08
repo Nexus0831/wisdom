@@ -22,6 +22,7 @@ export const MyGrid = styled.div`
   @media (max-width: 619px) {
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
+    margin-bottom: 20px;
   }
   
   @media (min-width: 620px) { 
@@ -39,7 +40,7 @@ export const MyGrid = styled.div`
 
 export const ArchiveCard = styled.div`
   width: 100%;
-  height: 200px;
+  height: 205px;
   border: 1px solid #FFFFFF;
   transition-duration: .3s;
   
@@ -74,7 +75,7 @@ export const Text = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 10px;
-  height: 85px;
+  height: 90px;
 `;
 
 export const ButtonContainer = styled.div`
