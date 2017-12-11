@@ -19,8 +19,6 @@ const TextArea = (props) => {
       const pos = textarea.selectionStart;
       let sentence = textarea.value;
       textarea.value = sentence.substr(0, pos) + '}' + sentence.substr(pos, sentence.length);
-    //   // $textarea.attr('selectionStart', 1);
-    //   // $textarea.get(0).setSelectionRange(1, 1);
       textarea.selectionEnd = pos;
       textarea.selectionStart = pos;
     }
