@@ -1,6 +1,7 @@
 // node_modules
 import React from 'react';
-import Markdown from 'react-markdown-it';
+var MarkdownIt = require('markdown-it'),
+md = new MarkdownIt();
 
 // marked.setOptions({
 //   sanitize: true,
@@ -132,7 +133,6 @@ class ArchiveCreate extends React.Component {
         textarea.selectionStart = pos + 1;
         break;
     }
-
     this.props.realTimePreview(this.props.formValues.markdown);
   }
 
@@ -238,7 +238,6 @@ class ArchiveCreate extends React.Component {
                 size='big'
                 disabled={this.props.archive.mode.isPreview}
               />
-
               <ToolIcon
                 name='image'
                 onClick={() => this.handleIconClick('image')}
@@ -263,18 +262,17 @@ class ArchiveCreate extends React.Component {
                 size='big'
                 backcolor={this.props.archive.mode.isDivided ? 'red': 'transparent'}
               />
-
-
             </ToolBar>
             {
               this.props.archive.mode.isPreview && !this.props.archive.mode.isDivided ?
                 <FullPreviewArea>
-                  <Markdown
-                    source={this.props.archive.markdown}
-                    options={{
-                      breaks: true
-                    }}
-                  />
+                  {/*<Markdown*/}
+                    {/*source={this.props.archive.markdown}*/}
+                    {/*options={{*/}
+                      {/*breaks: true*/}
+                    {/*}}*/}
+                  {/*/>*/}
+                  <span dangerouslySetInnerHTML={{__html: md.render(this.props.archive.markdown)}}/>
                 </FullPreviewArea>
                 :
                 !this.props.archive.mode.isPreview && this.props.archive.mode.isDivided ?
@@ -288,12 +286,13 @@ class ArchiveCreate extends React.Component {
                       />
                     </EditorArea>
                     <PreviewArea>
-                      <Markdown
-                        source={this.props.archive.markdown}
-                        options={{
-                          breaks: true
-                        }}
-                      />
+                      {/*<Markdown*/}
+                        {/*source={this.props.archive.markdown}*/}
+                        {/*options={{*/}
+                          {/*breaks: true*/}
+                        {/*}}*/}
+                      {/*/>*/}
+                      <span dangerouslySetInnerHTML={{__html: md.render(this.props.archive.markdown)}}/>
                     </PreviewArea>
                   </DividedArea>
                   :
