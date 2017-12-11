@@ -56,7 +56,8 @@ import {
   PreviewArea,
   DividedArea,
   FullPreviewArea,
-  FullEditorArea
+  FullEditorArea,
+  ToolIcon
 } from './cssinjs';
 
 import * as actions from './../../../actions/archive';
@@ -114,33 +115,62 @@ class ArchiveCreate extends React.Component {
             />
           </TitleArea>
 
-          <SharingArea>
-            <Field
-              name='sharing'
-              component={CheckBox}
-            />
-          </SharingArea>
+          {/*<SharingArea>*/}
+            {/*<Field*/}
+              {/*name='sharing'*/}
+              {/*component={CheckBox}*/}
+            {/*/>*/}
+          {/*</SharingArea>*/}
 
           <MainArea>
             <ToolBar>
-              <Icon
-                color='yellow'
-                name='unhide'
-                onClick={() => this.changeFullPreview()}
+              <ToolIcon
+                name='bold'
+                // onClick={this.changeFullPreview}
                 size='big'
               />
-              <Icon
-                color='yellow'
-                name='columns'
-                onClick={() => this.changeDivided()}
+              <ToolIcon
+                name='italic'
+                // onClick={this.changeFullPreview}
                 size='big'
               />
-              <Icon
-                color='yellow'
+              <ToolIcon
+                name='strikethrough'
+                // onClick={this.changeFullPreview}
+                size='big'
+              />
+              <ToolIcon
+                name='code'
+                // onClick={this.changeFullPreview}
+                size='big'
+              />
+              <ToolIcon
+                name='table'
+                // onClick={this.changeFullPreview}
+                size='big'
+              />
+              <ToolIcon
+                name='image'
+                // onClick={this.changeFullPreview}
+                size='big'
+              />
+              <ToolIcon
                 name='linkify'
                 // onClick={this.changeFullPreview}
                 size='big'
               />
+              <ToolIcon
+                name='unhide'
+                onClick={() => this.changeFullPreview()}
+                size='big'
+              />
+              <ToolIcon
+                name='columns'
+                onClick={() => this.changeDivided()}
+                size='big'
+              />
+
+
             </ToolBar>
             {
               this.props.archive.mode.isPreview && !this.props.archive.mode.isDivided ?

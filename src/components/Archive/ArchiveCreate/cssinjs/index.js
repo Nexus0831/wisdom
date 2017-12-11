@@ -3,6 +3,10 @@ import styled, {
   injectGlobal
 } from 'styled-components';
 
+import {
+  Icon
+} from 'semantic-ui-react';
+
 // styled component
 export const MyContainer = styled.div`
   display: grid;
@@ -11,17 +15,27 @@ export const MyContainer = styled.div`
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   width: 100%;
+  
 `;
 
 export const TitleArea = styled.div`
   grid-row: 1 / 2;
-  grid-column: 1 / 2;
+  grid-column: 1 / 4;
+  
+  @media (max-width: 619px) {
+    grid-column: 1 / 4;
+  }
 `;
 
 export const SharingArea = styled.div`
   text-align: center;
   grid-row: 1 / 2;
   grid-column: 3 / 4;
+  
+  @media (max-width: 619px) {
+    grid-row: 3 / 4;
+    grid-column: 1 / 4;
+  }
 `;
 
 export const MainArea = styled.div`
@@ -31,6 +45,11 @@ export const MainArea = styled.div`
   display: grid;
   grid-template-rows: 40px 1fr;
   grid-template-columns: 50% 50%;
+  
+  @media (max-width: 619px) {
+    
+    grid-template-rows: 80px 1fr;
+  }
 `;
 
 export const ToolBar = styled.div`
@@ -38,6 +57,19 @@ export const ToolBar = styled.div`
   grid-column: 1 / 3;
   border: 2px solid #fff;
   border-bottom: none;
+  //display: flex;
+  //align-items: center;
+  
+  padding-left: 8px;
+  padding-top: 5px;
+`;
+
+export const ToolIcon = styled(Icon)`
+  color: #fff;
+  cursor: pointer;
+  margin-right: 10px !important;
+  height: 40px;
+  
 `;
 
 export const EditorArea = styled.div`
@@ -51,7 +83,7 @@ export const PreviewArea = styled.div`
   border: 2px solid #fff;
   border-left: none;
   padding: 10px;
-  color: #fff !important;
+  color: #fff;
   background-color: rgba(255, 255, 255, .2);
 `;
 
@@ -59,7 +91,7 @@ export const FullPreviewArea = styled.div`
   grid-row: 2 / 3;
   grid-column: 1 / 3;
   border: 2px solid #fff;
-  color: #fff !important;
+  color: #fff;
   padding: 10px;
   background-color: rgba(255, 255, 255, .2);
 `;
@@ -82,6 +114,7 @@ export const SubmitArea = styled.div`
   grid-column: 3 / 4;
   
   @media (max-width: 619px) {
+    grid-row: 7 / 8;
     grid-column: 1 / 4;
   }
 `;
@@ -103,6 +136,7 @@ export const SubmitButton = styled.button`
     background-color: rgba(26, 239, 34, .2);
     cursor: pointer;
   }
+  
 `;
 
 export const globalStyles = injectGlobal`
@@ -112,7 +146,7 @@ export const globalStyles = injectGlobal`
     grid-template-columns: 20px 1fr 20px;
     
     @media (max-width: 619px) {
-        grid-template-rows: 60px 1fr;
+        grid-template-rows: 70px 1fr;
     }
   }
 `;
