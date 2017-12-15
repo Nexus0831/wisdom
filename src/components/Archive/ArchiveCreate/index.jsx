@@ -1,7 +1,9 @@
 // node_modules
 import React from 'react';
-var MarkdownIt = require('markdown-it'),
-md = new MarkdownIt();
+var MarkdownIt = require('markdown-it');
+var md = new MarkdownIt({
+  breaks: true
+});
 
 // marked.setOptions({
 //   sanitize: true,

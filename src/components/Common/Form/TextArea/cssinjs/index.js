@@ -1,5 +1,3 @@
-import font from '/Users/N.daigo/Downloads/ime_jp_rp.woff';
-
 // node_modules
 import styled, {
   injectGlobal

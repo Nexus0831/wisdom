@@ -10,18 +10,59 @@ import {
 
 // pure function
 const TextArea = (props) => {
-
+  const textarea = document.querySelector('textarea');
 
   const changeToggle = (e) => {
     // ToDo: 補足機能はここで実装;
-    const textarea = document.querySelector('textarea');
-    if (textarea.value === '{') {
-      const pos = textarea.selectionStart;
-      let sentence = textarea.value;
-      textarea.value = sentence.substr(0, pos) + '}' + sentence.substr(pos, sentence.length);
+    // const $textarea = $("#editor");
+    let sentence = textarea.value;
+    const pos = textarea.selectionStart;
+
+    const automatic = (key) => {
+      textarea.value = sentence.substr(0, pos) + key + sentence.substr(pos, sentence.length);
       textarea.selectionEnd = pos;
       textarea.selectionStart = pos;
-    }
+    };
+
+    const linefeed = (text) => {
+      
+    };
+
+    $("#editor").keydown((e) => {
+      switch (e.key) {
+        case '(':
+          automatic(')');
+          break;
+
+        case '{':
+          automatic('}');
+          break;
+
+        case '[':
+          automatic(']');
+          break;
+
+        case '\"':
+          automatic('\"');
+          break;
+
+        case '\'':
+          automatic('\'');
+          break;
+
+        case '\`':
+          automatic('\`');
+          break;
+
+        case 'Enter':
+          linefeed("改行が入力されました");
+          break;
+
+      }
+
+
+    });
+
     props.input.onChange(textarea.value);
   };
 
