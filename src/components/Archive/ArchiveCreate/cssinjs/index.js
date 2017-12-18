@@ -10,7 +10,7 @@ import {
 // styled component
 export const MyContainer = styled.div`
   display: grid;
-  grid-template-rows: 40px 20px 600px 20px 40px 20px;
+  grid-template-rows: 40px 20px 700px 20px 40px 20px;
   grid-template-columns: 78% 2% 20%;
   grid-row: 2 / 3;
   grid-column: 2 / 3;
@@ -23,17 +23,6 @@ export const TitleArea = styled.div`
   grid-column: 1 / 4;
   
   @media (max-width: 619px) {
-    grid-column: 1 / 4;
-  }
-`;
-
-export const SharingArea = styled.div`
-  text-align: center;
-  grid-row: 1 / 2;
-  grid-column: 3 / 4;
-  
-  @media (max-width: 619px) {
-    grid-row: 3 / 4;
     grid-column: 1 / 4;
   }
 `;
@@ -147,48 +136,6 @@ export const SubmitButton = styled.button`
     border: 3px solid gray !important;
     background-color: rgba(0, 0, 0, 0);
     cursor: auto;
-  }
-`;
-
-export const Form = styled.div`
-  width: 350px;
-  height: 600px;
-  
-  @media (max-width: 619px) {
-    height: 400px;
-  }
-  
-`;
-
-export const Centered = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const Title = styled.h1`
-  color: #fff;
-  width: 100%;
-  font-family: "Arial Hebrew";
-  text-align: center;
-  font-size: 16px;
-  font-weight: 100;
-  
-  //@media (max-width: 619px) {
-  //  font-size: 40px;
-  //}
-`;
-
-export const FormRow = styled.div`
-  width: 100%;
-  padding-bottom: 40px;
-  height: 100px;
-  
-  @media (max-width: 619px) {
-    padding: 0 30px 0;
-    height: 70px;
   }
 `;
 

@@ -15,6 +15,9 @@ const reducer = handleActions({
   },
   [actions.divided](state, action) {
     return state.divided(state, action.payload);
+  },
+  [actions.shortCut](state, action) {
+    return state.shortCut(state, action.payload);
   }
 }, new Archive());
 

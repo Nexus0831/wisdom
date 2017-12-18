@@ -1,3 +1,4 @@
 export const REALTIMEPREVIEW = 'REALTIMEPREVIEW';
 export const FULLPREVIEW = 'FULLPREVIEW';
 export const DIVIDED = 'DIVIDED';
+export const SHORTCUT = 'SHORTCUT';

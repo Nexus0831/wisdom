@@ -12,10 +12,11 @@ import {
 const TextArea = (props) => {
   const textarea = document.querySelector('textarea');
 
+
   const changeToggle = (e) => {
     // ToDo: 補足機能はここで実装;
     // const $textarea = $("#editor");
-    let sentence = textarea.value;
+    const sentence = textarea.value;
     const pos = textarea.selectionStart;
 
     const automatic = (key) => {
@@ -24,9 +25,14 @@ const TextArea = (props) => {
       textarea.selectionStart = pos;
     };
 
-    const linefeed = (text) => {
-      
-    };
+    // const linefeed = (e) => {
+    //   const lines = sentence.split("\n");
+    //   // console.log(lines[lines.length-1].substr(0, 3));
+    //   if (lines[lines.length-1].substr(0, 2).match(/\- /)) {
+    //     textarea.value = sentence + "- ";
+    //   }
+    //
+    // };
 
     $("#editor").keydown((e) => {
       switch (e.key) {
@@ -55,14 +61,19 @@ const TextArea = (props) => {
           break;
 
         case 'Enter':
-          linefeed("改行が入力されました");
+          // const lines = sentence.split("\n");
+          // console.log(lines);
+          // // console.log(lines[lines.length-1].substr(0, 3));
+          // if (lines[lines.length-1].match(/^\- /)) {
+          //   textarea.value = sentence + "- ";
+          // } else if(lines[lines.length-1].match(/^[1-9]*\. /)){
+          //
+          //   textarea.value = sentence + "- ";
+          // }
           break;
 
       }
-
-
     });
-
     props.input.onChange(textarea.value);
   };
 
