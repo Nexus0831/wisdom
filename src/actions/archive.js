@@ -28,7 +28,7 @@ export const fullPreview = createAction(
   async () => {
     const payload = {};
     try {
-      payload.isModes = {isPreview: true, isDivided: false};
+      payload.isMode = 'preview';
       return payload;
     } catch (error) {
       return payload;
@@ -41,7 +41,7 @@ export const fullEditor = createAction(
   async () => {
     const payload = {};
     try {
-      payload.isModes = {isPreview: false, isDivided: false};
+      payload.isMode = 'editor';
       return payload;
     } catch (error) {
       return payload;
@@ -54,7 +54,7 @@ export const divided = createAction(
   async () => {
     const payload = {};
     try {
-      payload.isModes = {isPreview: false, isDivided: true};
+      payload.isMode = 'divide';
       return payload;
     } catch (error) {
       return payload;

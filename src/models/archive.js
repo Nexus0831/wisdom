@@ -6,7 +6,7 @@ import {
 // ToDo: modesをisMode(Stringオブジェクト)で再定義
 const ArchiveState = Record({
   markdown: '',
-  modes: {isPreview: false, isDivided: false},
+  isMode: 'editor',
   additional: ''
 });
 
@@ -20,25 +20,25 @@ class Archive extends ArchiveState {
   }
 
   fullPreview(state, payload) {
-    const newState = state.update('modes',
+    const newState = state.update('isMode',
       () => {
-        return payload.isModes;
+        return payload.isMode;
       });
     return newState;
   }
 
   fullEditor(state, payload) {
-    const newState = state.update('modes',
+    const newState = state.update('isMode',
       () => {
-        return payload.isModes;
+        return payload.isMode;
       });
     return newState;
   }
 
   divided(state, payload) {
-    const newState = state.update('modes',
+    const newState = state.update('isMode',
       () => {
-        return payload.isModes;
+        return payload.isMode;
       });
     return newState;
   }

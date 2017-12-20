@@ -8,6 +8,7 @@ import {
 } from 'semantic-ui-react';
 
 // styled component
+// ToDo: スマホ版のツールバーの対応
 export const MyContainer = styled.div`
   display: grid;
   grid-template-rows: 40px 20px 700px 20px 40px 20px;
@@ -15,7 +16,6 @@ export const MyContainer = styled.div`
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   width: 100%;
-  
 `;
 
 export const TitleArea = styled.div`

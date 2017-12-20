@@ -139,7 +139,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, '****', 2, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
                 <ToolIcon
                   name='italic'
@@ -147,7 +147,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, '**', 1, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
                 <ToolIcon
                   name='strikethrough'
@@ -155,7 +155,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, '~~~~', 2, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
                 <Separator/>
                 <ToolIcon
@@ -164,7 +164,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, '```\n```', 3, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
                 <Separator/>
                 <ToolIcon
@@ -173,7 +173,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, "\n||||\n|:-:|:-:|:-:|\n||||\n||||\n", 1, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
                 <Separator/>
                 <ToolIcon
@@ -182,7 +182,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, '![]()', 2, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
                 <ToolIcon
                   name='linkify'
@@ -190,7 +190,7 @@ class ArchiveCreate extends React.Component {
                     this.props.shortCut(this.props.formValues.markdown, '[]()', 1, this.props)
                   }
                   size='big'
-                  disabled={this.props.archive.modes.isPreview}
+                  disabled={this.props.archive.isMode === 'preview'}
                 />
               </ShortCutArea>
               <ModeArea>
@@ -198,49 +198,49 @@ class ArchiveCreate extends React.Component {
                   name='edit'
                   onClick={this.props.fullEditor}
                   size='big'
-                  active={
-                    !this.props.archive.modes.isPreview
-                    &&
-                    !this.props.archive.modes.isDivided
-                      ? '#2CA4BF': '#fff'
-                  }
+                  active={this.props.archive.isMode === 'editor' ? '#2CA4BF': '#fff'}
                 />
                 <ToolIcon
                   name='unhide'
                   onClick={this.props.fullPreview}
                   size='big'
-                  active={this.props.archive.modes.isPreview ? '#2CA4BF': '#fff'}
+                  active={this.props.archive.isMode === 'preview' ? '#2CA4BF': '#fff'}
                 />
                 <ToolIcon
                   name='columns'
                   onClick={this.props.divided}
                   size='big'
-                  active={this.props.archive.modes.isDivided ? '#2CA4BF': '#fff'}
+                  active={this.props.archive.isMode === 'divide' ? '#2CA4BF': '#fff'}
                 />
               </ModeArea>
             </ToolBar>
             {
-              this.props.archive.modes.isPreview && !this.props.archive.modes.isDivided ?
+              this.props.archive.isMode === 'preview' ?
                 <FullPreviewArea>
                   <span
-                    dangerouslySetInnerHTML={{__html: md.render(this.props.archive.markdown)}}
+                    dangerouslySetInnerHTML={{
+                      __html: md.render(this.props.archive.markdown)
+                    }}
                   />
                 </FullPreviewArea>
                 :
-                !this.props.archive.modes.isPreview && this.props.archive.modes.isDivided ?
+                this.props.archive.isMode === 'divide' ?
                   <DividedArea>
                     <EditorArea>
                       <Field
                         name='markdown'
                         component={TextArea}
                         // wrap='off'
+                        placeholder='markdown...'
                         onChange={() => this.handleMarkdownChange()}
                         onKeyDown={(e) => this.handleOnKeyDown(e.key)}
                       />
                     </EditorArea>
                     <PreviewArea>
                       <span
-                        dangerouslySetInnerHTML={{__html: md.render(this.props.archive.markdown)}}
+                        dangerouslySetInnerHTML={{
+                          __html: md.render(this.props.archive.markdown)
+                        }}
                       />
                     </PreviewArea>
                   </DividedArea>
@@ -250,6 +250,7 @@ class ArchiveCreate extends React.Component {
                       name='markdown'
                       component={TextArea}
                       // wrap='off'
+                      placeholder='markdown...'
                       onChange={() => this.handleMarkdownChange()}
                       onKeyDown={(e) => this.handleOnKeyDown(e.key)}
                     />
