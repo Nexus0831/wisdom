@@ -44,6 +44,5 @@ export const globalStyles = injectGlobal`
   #textarea {
     width: 100% !important;
     height: 100% !important;
-    font-family: Menlo !important;
   }
 `;

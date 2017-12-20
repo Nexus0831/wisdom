@@ -46,24 +46,54 @@ export const ToolBar = styled.div`
   grid-column: 1 / 3;
   border: 2px solid #fff;
   border-bottom: none;
-  //display: flex;
-  //align-items: center;
-  
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 50% 50%;
   padding-left: 8px;
-  padding-top: 5px;
+  
+  @media (max-width: 619px) {
+    grid-template-rows: 50%;
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const ToolIcon = styled(Icon)`
-  color: #fff;
+  color: ${props => props.active ? props.active : '#fff'};
   cursor: pointer;
   margin-right: 10px !important;
   height: 40px;
-  background-color: ${props => props.backcolor};
   
   &.disabled.icon {
     cursor: auto;
+    pointer-events: none;
   }
+`;
+
+export const ShortCutArea = styled.div`
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+  display: flex;
+  align-items: center;
   
+  @media (max-width: 619px) {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    justify-content: space-between;
+  }
+`;
+
+export const ModeArea = styled.div`
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+  @media (max-width: 619px) {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    justify-content: flex-start;
+  }
 `;
 
 export const EditorArea = styled.div`
@@ -108,7 +138,7 @@ export const SubmitArea = styled.div`
   grid-column: 3 / 4;
   
   @media (max-width: 619px) {
-    grid-row: 7 / 8;
+    grid-row: 5 / 6;
     grid-column: 1 / 4;
   }
 `;
@@ -137,6 +167,13 @@ export const SubmitButton = styled.button`
     background-color: rgba(0, 0, 0, 0);
     cursor: auto;
   }
+`;
+
+export const Separator = styled.div`
+  width: 1px;
+  height: 25px;
+  background-color: #FFF;
+  margin-right: 10px !important;
 `;
 
 export const globalStyles = injectGlobal`

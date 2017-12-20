@@ -10,20 +10,19 @@ import {
 
 // pure function
 const TextArea = (props) => {
-  const textarea = document.querySelector('textarea');
 
 
   const changeToggle = (e) => {
     // ToDo: 補足機能はここで実装;
     // const $textarea = $("#editor");
-    const sentence = textarea.value;
-    const pos = textarea.selectionStart;
-
-    const automatic = (key) => {
-      textarea.value = sentence.substr(0, pos) + key + sentence.substr(pos, sentence.length);
-      textarea.selectionEnd = pos;
-      textarea.selectionStart = pos;
-    };
+    // const sentence = textarea.value;
+    // const pos = textarea.selectionStart;
+    //
+    // const automatic = (key) => {
+    //   textarea.value = sentence.substr(0, pos) + key + sentence.substr(pos, sentence.length);
+    //   textarea.selectionEnd = pos;
+    //   textarea.selectionStart = pos;
+    // };
 
     // const linefeed = (e) => {
     //   const lines = sentence.split("\n");
@@ -34,47 +33,47 @@ const TextArea = (props) => {
     //
     // };
 
-    $("#editor").keydown((e) => {
-      switch (e.key) {
-        case '(':
-          automatic(')');
-          break;
-
-        case '{':
-          automatic('}');
-          break;
-
-        case '[':
-          automatic(']');
-          break;
-
-        case '\"':
-          automatic('\"');
-          break;
-
-        case '\'':
-          automatic('\'');
-          break;
-
-        case '\`':
-          automatic('\`');
-          break;
-
-        case 'Enter':
-          // const lines = sentence.split("\n");
-          // console.log(lines);
-          // // console.log(lines[lines.length-1].substr(0, 3));
-          // if (lines[lines.length-1].match(/^\- /)) {
-          //   textarea.value = sentence + "- ";
-          // } else if(lines[lines.length-1].match(/^[1-9]*\. /)){
-          //
-          //   textarea.value = sentence + "- ";
-          // }
-          break;
-
-      }
-    });
-    props.input.onChange(textarea.value);
+    // textarea.onKeyDown((e) => {
+    //   switch (e.key) {
+    //     case '(':
+    //       automatic(')');
+    //       break;
+    //
+    //     case '{':
+    //       automatic('}');
+    //       break;
+    //
+    //     case '[':
+    //       automatic(']');
+    //       break;
+    //
+    //     case '\"':
+    //       automatic('\"');
+    //       break;
+    //
+    //     case '\'':
+    //       automatic('\'');
+    //       break;
+    //
+    //     case '\`':
+    //       automatic('\`');
+    //       break;
+    //
+    //     case 'Enter':
+    //       // const lines = sentence.split("\n");
+    //       // console.log(lines);
+    //       // // console.log(lines[lines.length-1].substr(0, 3));
+    //       // if (lines[lines.length-1].match(/^\- /)) {
+    //       //   textarea.value = sentence + "- ";
+    //       // } else if(lines[lines.length-1].match(/^[1-9]*\. /)){
+    //       //
+    //       //   textarea.value = sentence + "- ";
+    //       // }
+    //       break;
+    //
+    //   }
+    // });
+    props.input.onChange(e.target.value);
   };
 
   return (
@@ -92,6 +91,7 @@ const TextArea = (props) => {
         size={props.size}
         style={props.style}
         wrap={props.wrap}
+        onKeyDown={props.onKeyDown}
       />
       {
         props.meta.touched

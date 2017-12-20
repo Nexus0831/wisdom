@@ -56,12 +56,15 @@ import {
   SubmitArea,
   SubmitButton,
   ToolBar,
+  ShortCutArea,
+  ModeArea,
   EditorArea,
   PreviewArea,
   DividedArea,
   FullPreviewArea,
   FullEditorArea,
   ToolIcon,
+  Separator
 } from './cssinjs';
 
 import * as actions from './../../../actions/archive';
@@ -73,15 +76,6 @@ class ArchiveCreate extends React.Component {
   async handleMarkdownChange() {
     await new Promise(resolve => setTimeout(resolve, 6));
     this.props.realTimePreview(this.props.formValues.markdown);
-  }
-
-
-  changeFullPreview() {
-    this.props.fullPreview(!this.props.archive.mode.isPreview);
-  }
-
-  changeDivided() {
-    this.props.divided(!this.props.archive.mode.isDivided);
   }
 
   async componentWillMount() {
@@ -110,84 +104,102 @@ class ArchiveCreate extends React.Component {
 
           <MainArea>
             <ToolBar>
-              <ToolIcon
-                name='bold'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, '****', 2, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='italic'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, '**', 1, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='strikethrough'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, '~~~~', 2, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='code'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, '```\n```', 3, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='table'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, "\n||||\n|:-:|:-:|:-:|\n||||\n||||\n", 1, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='image'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, '![]()', 2, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='linkify'
-                onClick={() =>
-                  this.props.shortCut(this.props.formValues.markdown, '[]()', 1, this.props)
-                }
-                size='big'
-                disabled={this.props.archive.mode.isPreview}
-              />
-              <ToolIcon
-                name='unhide'
-                onClick={() => this.changeFullPreview()}
-                size='big'
-                backcolor={this.props.archive.mode.isPreview ? 'red': 'transparent'}
-              />
-              <ToolIcon
-                name='columns'
-                onClick={() => this.changeDivided()}
-                size='big'
-                backcolor={this.props.archive.mode.isDivided ? 'red': 'transparent'}
-              />
+              <ShortCutArea>
+                <ToolIcon
+                  name='bold'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, '****', 2, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+                <ToolIcon
+                  name='italic'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, '**', 1, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+                <ToolIcon
+                  name='strikethrough'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, '~~~~', 2, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+                <Separator/>
+                <ToolIcon
+                  name='code'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, '```\n```', 3, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+                <Separator/>
+                <ToolIcon
+                  name='table'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, "\n||||\n|:-:|:-:|:-:|\n||||\n||||\n", 1, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+                <Separator/>
+                <ToolIcon
+                  name='image'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, '![]()', 2, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+                <ToolIcon
+                  name='linkify'
+                  onClick={() =>
+                    this.props.shortCut(this.props.formValues.markdown, '[]()', 1, this.props)
+                  }
+                  size='big'
+                  disabled={this.props.archive.modes.isPreview}
+                />
+              </ShortCutArea>
+              <ModeArea>
+                <ToolIcon
+                  name='edit'
+                  onClick={this.props.fullEditor}
+                  size='big'
+                  active={
+                    !this.props.archive.modes.isPreview
+                    &&
+                    !this.props.archive.modes.isDivided
+                      ? '#2CA4BF': '#fff'
+                  }
+                />
+                <ToolIcon
+                  name='unhide'
+                  onClick={this.props.fullPreview}
+                  size='big'
+                  active={this.props.archive.modes.isPreview ? '#2CA4BF': '#fff'}
+                />
+                <ToolIcon
+                  name='columns'
+                  onClick={this.props.divided}
+                  size='big'
+                  active={this.props.archive.modes.isDivided ? '#2CA4BF': '#fff'}
+                />
+              </ModeArea>
             </ToolBar>
             {
-              this.props.archive.mode.isPreview && !this.props.archive.mode.isDivided ?
+              this.props.archive.modes.isPreview && !this.props.archive.modes.isDivided ?
                 <FullPreviewArea>
                   <span
                     dangerouslySetInnerHTML={{__html: md.render(this.props.archive.markdown)}}
                   />
                 </FullPreviewArea>
                 :
-                !this.props.archive.mode.isPreview && this.props.archive.mode.isDivided ?
+                !this.props.archive.modes.isPreview && this.props.archive.modes.isDivided ?
                   <DividedArea>
                     <EditorArea>
                       <Field
@@ -210,6 +222,7 @@ class ArchiveCreate extends React.Component {
                       component={TextArea}
                       // wrap='off'
                       onChange={() => this.handleMarkdownChange()}
+                      onKeyDown={() => console.log('test')}
                     />
                   </FullEditorArea>
             }

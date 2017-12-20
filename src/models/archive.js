@@ -3,9 +3,10 @@ import {
   List
 } from 'immutable';
 
+// ToDo: modesをisMode(Stringオブジェクト)で再定義
 const ArchiveState = Record({
   markdown: '',
-  mode: {isPreview: false, isDivided: false},
+  modes: {isPreview: false, isDivided: false},
   additional: ''
 });
 
@@ -19,17 +20,25 @@ class Archive extends ArchiveState {
   }
 
   fullPreview(state, payload) {
-    const newState = state.update('mode',
+    const newState = state.update('modes',
       () => {
-        return payload.isPreview;
+        return payload.isModes;
+      });
+    return newState;
+  }
+
+  fullEditor(state, payload) {
+    const newState = state.update('modes',
+      () => {
+        return payload.isModes;
       });
     return newState;
   }
 
   divided(state, payload) {
-    const newState = state.update('mode',
+    const newState = state.update('modes',
       () => {
-        return payload.isDivided;
+        return payload.isModes;
       });
     return newState;
   }
