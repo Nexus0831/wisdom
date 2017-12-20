@@ -21,6 +21,9 @@ const reducer = handleActions({
   },
   [actions.shortCut](state, action) {
     return state.shortCut(state, action.payload);
+  },
+  [actions.automation](state, action) {
+    return state.shortCut(state, action.payload);
   }
 }, new Archive());
 

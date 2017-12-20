@@ -78,6 +78,34 @@ class ArchiveCreate extends React.Component {
     this.props.realTimePreview(this.props.formValues.markdown);
   }
 
+  async handleOnKeyDown(text) {
+      switch (text) {
+        case '(':
+          this.props.automation(this.props.formValues.markdown, ')', this.props);
+          break;
+
+        case '{':
+          this.props.automation(this.props.formValues.markdown, '}', this.props);
+          break;
+
+        case '[':
+          this.props.automation(this.props.formValues.markdown, ']', this.props);
+          break;
+
+        case '\"':
+          this.props.automation(this.props.formValues.markdown, '\"', this.props);
+          break;
+
+        case '\'':
+          this.props.automation(this.props.formValues.markdown, '\'', this.props);
+          break;
+
+        case '\`':
+          this.props.automation(this.props.formValues.markdown, '\`', this.props);
+          break;
+      }
+  }
+
   async componentWillMount() {
     await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
   }
@@ -207,6 +235,7 @@ class ArchiveCreate extends React.Component {
                         component={TextArea}
                         // wrap='off'
                         onChange={() => this.handleMarkdownChange()}
+                        onKeyDown={(e) => this.handleOnKeyDown(e.key)}
                       />
                     </EditorArea>
                     <PreviewArea>
@@ -222,7 +251,7 @@ class ArchiveCreate extends React.Component {
                       component={TextArea}
                       // wrap='off'
                       onChange={() => this.handleMarkdownChange()}
-                      onKeyDown={() => console.log('test')}
+                      onKeyDown={(e) => this.handleOnKeyDown(e.key)}
                     />
                   </FullEditorArea>
             }

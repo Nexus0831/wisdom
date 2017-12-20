@@ -81,3 +81,22 @@ export const shortCut = createAction(
     }
   }
 );
+
+export const automation = createAction(
+  actionName.AUTOMATION,
+  async (sentence, char, props) => {
+    const payload = {};
+    try {
+      const textarea = document.querySelector('textarea');
+      const pos = textarea.selectionStart;
+      sentence = sentence.substr(0, pos) + char + sentence.substr(pos, sentence.length);
+      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      textarea.selectionEnd = pos;
+      textarea.selectionStart = pos;
+      payload.text = sentence;
+      return payload;
+    } catch(error) {
+      return payload;
+    }
+  }
+);
