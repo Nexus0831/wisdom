@@ -25,6 +25,9 @@ const reducer = handleActions({
   [actions.automation](state, action) {
     return state.automation(state, action.payload);
   },
+  [actions.tabInput](state, action) {
+    return state.linefeed(state, action.payload);
+  },
   [actions.linefeed](state, action) {
     return state.linefeed(state, action.payload);
   }

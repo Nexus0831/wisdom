@@ -104,6 +104,25 @@ export const automation = createAction(
   }
 );
 
+export const tabInput = createAction(
+  actionName.TABINPUT,
+  async (sentence, props) => {
+    const payload = {};
+    try {
+      const textarea = document.querySelector('textarea');
+      const pos = textarea.selectionStart;
+      textarea.focus();
+      sentence = sentence.substr(0, pos) + "  " + sentence.substr(pos, sentence.length);
+      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      payload.text = sentence;
+      textarea.focus();
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const linefeed = createAction(
   actionName.LINEFEED,
   async (sentence, props) => {

@@ -59,6 +59,14 @@ class Archive extends ArchiveState {
     return newState;
   }
 
+  tabInput(state, payload) {
+    const newState = state.update('markdown',
+      () => {
+        return payload.text;
+      });
+    return newState;
+  }
+
   linefeed(state, payload) {
     const newState = state.update('markdown',
       () => {
