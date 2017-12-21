@@ -23,6 +23,7 @@ export const realTimePreview = createAction(
   }
 );
 
+// モード切り替え
 export const fullPreview = createAction(
   actionName.FULLPREVIEW,
   async () => {
@@ -62,6 +63,7 @@ export const divided = createAction(
   }
 );
 
+// ツールバー
 export const shortCut = createAction(
   actionName.SHORTCUT,
   async (sentence, text, num, props) => {
@@ -82,6 +84,7 @@ export const shortCut = createAction(
   }
 );
 
+// エディタ機能
 export const automation = createAction(
   actionName.AUTOMATION,
   async (sentence, char, props) => {
@@ -96,6 +99,27 @@ export const automation = createAction(
       payload.text = sentence;
       return payload;
     } catch(error) {
+      return payload;
+    }
+  }
+);
+
+export const linefeed = createAction(
+  actionName.LINEFEED,
+  async (sentence, props) => {
+    const payload = {};
+    try {
+      const textarea = document.querySelector('textarea');
+      const pos = textarea.selectionStart;
+      const lines = sentence.split("\n");
+      console.log(lines);
+      if (lines[lines.length-1].match(/^\- /)) {
+        sentence = sentence.substr(0, pos) + "- " + sentence.substr(pos, sentence.length);
+        await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      }
+      payload.text = sentence;
+      return payload;
+    } catch (error) {
       return payload;
     }
   }

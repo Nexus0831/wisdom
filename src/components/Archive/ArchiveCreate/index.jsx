@@ -79,31 +79,35 @@ class ArchiveCreate extends React.Component {
   }
 
   async handleOnKeyDown(text) {
-      switch (text) {
-        case '(':
-          this.props.automation(this.props.formValues.markdown, ')', this.props);
-          break;
+    switch (text) {
+      case '(':
+        this.props.automation(this.props.formValues.markdown, ')', this.props);
+        break;
 
-        case '{':
-          this.props.automation(this.props.formValues.markdown, '}', this.props);
-          break;
+      case '{':
+        this.props.automation(this.props.formValues.markdown, '}', this.props);
+        break;
 
-        case '[':
-          this.props.automation(this.props.formValues.markdown, ']', this.props);
-          break;
+      case '[':
+        this.props.automation(this.props.formValues.markdown, ']', this.props);
+        break;
 
-        case '\"':
-          this.props.automation(this.props.formValues.markdown, '\"', this.props);
-          break;
+      case '\"':
+        this.props.automation(this.props.formValues.markdown, '\"', this.props);
+        break;
 
-        case '\'':
-          this.props.automation(this.props.formValues.markdown, '\'', this.props);
-          break;
+      case '\'':
+        this.props.automation(this.props.formValues.markdown, '\'', this.props);
+        break;
 
-        case '\`':
-          this.props.automation(this.props.formValues.markdown, '\`', this.props);
-          break;
-      }
+      case '\`':
+        this.props.automation(this.props.formValues.markdown, '\`', this.props);
+        break;
+
+      case 'Enter':
+        this.props.linefeed(this.props.formValues.markdown, this.props);
+        break;
+    }
   }
 
   async componentWillMount() {

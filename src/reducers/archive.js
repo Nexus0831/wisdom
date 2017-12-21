@@ -23,7 +23,10 @@ const reducer = handleActions({
     return state.shortCut(state, action.payload);
   },
   [actions.automation](state, action) {
-    return state.shortCut(state, action.payload);
+    return state.automation(state, action.payload);
+  },
+  [actions.linefeed](state, action) {
+    return state.linefeed(state, action.payload);
   }
 }, new Archive());
 
