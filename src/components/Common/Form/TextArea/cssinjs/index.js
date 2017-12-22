@@ -35,8 +35,38 @@ export const MarkdownEditor = styled.textarea`
     background-color: rgba(255, 255, 255, .4);
   }
   
+  /* 各ベンダープレフィックスが取れた標準版 */
+  &:placeholder-shown {
+      color: #ccc; 
+      letter-spacing: 2px;
+  }
+  
+  /* Google Chrome, Safari, Opera 15+, Android, iOS */
+  &::-webkit-input-placeholder {
+      color: #ccc; 
+      letter-spacing: 2px;
+  }
+
+  /* Firefox 19+ */
+  &::-moz-placeholder {
+      color: #ccc; opacity: 1; 
+      letter-spacing: normal;
+  }
+
+  /* IE 10+ */
+  &:-ms-input-placeholder {
+      color: #ccc; 
+      letter-spacing: normal;
+  }
+  
   &::-moz-selection {
     background-color: rgba(255, 255, 255, .4);
   }
-  
+`;
+
+export const globalStyles = injectGlobal`
+  #textarea {
+    width: 100% !important;
+    height: 100% !important;
+  }
 `;

@@ -15,20 +15,20 @@ const CheckBox = (props) => {
       <GhostCheckBox
         placeholder={props.placeholder}
         value={props.input.value}
-        label={props.label}
+        label={props.input.value ? 'sharing' : 'private'}
         onBlur={() => props.input.onBlur(props.value)}
         onChange={props.input.onChange}
         style={props.style}
         className={props.className}
         type='checkbox'
         size={props.size}
-        id="test"
+        id="sharing"
         checked={props.checked}
       />
       <label
-        htmlFor="test"
+        htmlFor="sharing"
       >
-        {props.label}
+        {props.input.value ? 'Sharing' : 'Private'}
       </label>
     </span>
   );

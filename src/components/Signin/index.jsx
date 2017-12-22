@@ -53,7 +53,6 @@ class Signin extends React.Component {
               Wisdom
             </Title>
             <FormRow>
-
               <Field
                 name="email"
                 placeholder='email...'

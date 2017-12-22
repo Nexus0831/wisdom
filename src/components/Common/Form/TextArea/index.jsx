@@ -1,5 +1,6 @@
 // node_modules
 import React from 'react';
+import $ from 'jquery';
 
 // styles
 import {
@@ -9,19 +10,30 @@ import {
 
 // pure function
 const TextArea = (props) => {
+
+
+  const changeToggle = (e) => {
+    props.input.onChange(e.target.value);
+  };
+
   return (
     <span
-      id="input"
+      id="textarea"
     >
       <MarkdownEditor
+        id="editor"
         placeholder={props.placeholder}
-        value={props.input.value}
-        label={props.label}
         onBlur={() => props.input.onBlur(props.value)}
-        onChange={props.input.onChange}
-        style={props.style}
-        className={props.className}
+        value={props.input.value}
+        onChange={changeToggle}
         readOnly={props.disabled}
+        className={props.className}
+        size={props.size}
+        style={props.style}
+        wrap={props.wrap}
+        onKeyDown={props.onKeyDown}
+        onKeyUp={props.onKeyUp}
+        onKeyPress={props.onKeyPress}
       />
       {
         props.meta.touched

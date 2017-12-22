@@ -4,3 +4,6 @@ build
 .idea
 yarn-error.log
 yarn.look
+.cache
+dist
+assets
