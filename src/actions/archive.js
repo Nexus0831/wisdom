@@ -133,7 +133,7 @@ export const linefeed = createAction(
       const lines = sentence.split("\n");
       console.log(lines);
       if (lines[lines.length-1].match(/^\- /)) {
-        sentence = sentence.substr(0, pos) + "- " + sentence.substr(pos, sentence.length);
+        sentence = sentence.substr(0, pos) + "\n- " + sentence.substr(pos, sentence.length - 1);
         await props.dispatch(change('archiveCreate', 'markdown', sentence ));
       }
       payload.text = sentence;

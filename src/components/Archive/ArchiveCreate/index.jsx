@@ -166,7 +166,9 @@ class ArchiveCreate extends React.Component {
                   size='big'
                   disabled={this.props.archive.isMode === 'preview'}
                 />
+
                 <Separator/>
+
                 <ToolIcon
                   name='code'
                   onClick={() =>
@@ -175,7 +177,9 @@ class ArchiveCreate extends React.Component {
                   size='big'
                   disabled={this.props.archive.isMode === 'preview'}
                 />
+
                 <Separator/>
+
                 <ToolIcon
                   name='table'
                   onClick={() =>
@@ -184,7 +188,9 @@ class ArchiveCreate extends React.Component {
                   size='big'
                   disabled={this.props.archive.isMode === 'preview'}
                 />
+
                 <Separator/>
+
                 <ToolIcon
                   name='image'
                   onClick={() =>
@@ -207,19 +213,19 @@ class ArchiveCreate extends React.Component {
                   name='edit'
                   onClick={this.props.fullEditor}
                   size='big'
-                  active={this.props.archive.isMode === 'editor' ? '#2CA4BF': '#fff'}
+                  active={this.props.archive.isMode === 'editor' ? '#1AEF22': '#fff'}
                 />
                 <ToolIcon
                   name='unhide'
                   onClick={this.props.fullPreview}
                   size='big'
-                  active={this.props.archive.isMode === 'preview' ? '#2CA4BF': '#fff'}
+                  active={this.props.archive.isMode === 'preview' ? '#1AEF22': '#fff'}
                 />
                 <ToolIcon
                   name='columns'
                   onClick={this.props.divided}
                   size='big'
-                  active={this.props.archive.isMode === 'divide' ? '#2CA4BF': '#fff'}
+                  active={this.props.archive.isMode === 'divide' ? '#1AEF22': '#fff'}
                 />
               </ModeArea>
             </ToolBar>
@@ -242,7 +248,7 @@ class ArchiveCreate extends React.Component {
                         // wrap='off'
                         placeholder='markdown...'
                         onChange={() => this.handleMarkdownChange()}
-                        onKeyDown={() => this.handleOnKeyDown()}
+                        onKeyDown={(e) => this.handleOnKeyDown(e)}
                       />
                     </EditorArea>
                     <PreviewArea>

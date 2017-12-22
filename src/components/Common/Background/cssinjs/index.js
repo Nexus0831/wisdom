@@ -1,6 +1,6 @@
 // node_modules
 import styled from 'styled-components';
-// import wisdomImg from 'https://raw.githubusercontent.com/Nexus0831/wisdom/master/assets/wisdom.png';
+// import wisdomImg from '/Users/N.daigo/wisdom/wisdow_dev/wisdom/assets/cristina.jpg';
 
 // styled component
 
@@ -9,7 +9,7 @@ export const BackgroundImage = styled.div`
   display: table;
   width: calc(100% + 20px);
   height: calc(100vh + 20px);
-  background-image: url(https://raw.githubusercontent.com/Nexus0831/wisdom/master/assets/wisdom.png);
+  background-image: url(https://raw.githubusercontent.com/Nexus0831/wisdom/master/assets/cristina.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
