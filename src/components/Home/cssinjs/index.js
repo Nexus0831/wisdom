@@ -43,6 +43,7 @@ export const ArchiveCard = styled.div`
   height: 205px;
   border: 1px solid #FFFFFF;
   transition-duration: .3s;
+
   
   &:hover {
     //background-color: rgba(255, 255, 255, .2);

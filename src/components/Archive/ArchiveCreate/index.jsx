@@ -116,8 +116,13 @@ class ArchiveCreate extends React.Component {
   }
 
   async componentWillMount() {
+    // ToDo: reduxの値を初期化
     await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
   }
+
+  // async componentWillUnmount() {
+  //   await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
+  // }
 
   render() {
     return (

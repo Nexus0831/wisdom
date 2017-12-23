@@ -8,9 +8,9 @@
   }
 
   #default-menu {
-    @media (max-width: 619px) {
-      display: none;
-    }
+    //@media (max-width: 619px) {
+    //  display: none;
+    //}
 
     .ui.horizontal.celled.list .list > .item:last-child, .ui.horizontal.celled.list > .item:last-child {
       border: {
@@ -22,9 +22,9 @@
   #mobile-menu {
     display: none;
 
-    @media (max-width: 619px) {
-      display: flex;
-    }
+    //@media (max-width: 619px) {
+    //  display: flex;
+    //}
   }
 
   .ui.menu {
@@ -74,7 +74,7 @@
           background: {
             color: transparent;
           }
-          color: #2CA4BF;
+          color: #1AEF22;
         }
       }
       & .active.item {

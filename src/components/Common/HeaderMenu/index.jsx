@@ -91,118 +91,118 @@ class HeaderMenu extends React.Component {
             />
 
             {/* Sharing */}
-            <Menu.Item
-              name="article"
-              active={
-                activeItem === 'article'
-              }
-              // onClick={this.handleItemClick}
-              as={
-                () => {
-                  return (
-                    <Link
-                      className="item"
-                      to="/sharing"
-                    >
-                      Sharing
-                    </Link>
-                  );
-                }
-              }
-            />
+            {/*<Menu.Item*/}
+              {/*name="article"*/}
+              {/*active={*/}
+                {/*activeItem === 'article'*/}
+              {/*}*/}
+              {/*// onClick={this.handleItemClick}*/}
+              {/*as={*/}
+                {/*() => {*/}
+                  {/*return (*/}
+                    {/*<Link*/}
+                      {/*className="item"*/}
+                      {/*to="/sharing"*/}
+                    {/*>*/}
+                      {/*Sharing*/}
+                    {/*</Link>*/}
+                  {/*);*/}
+                {/*}*/}
+              {/*}*/}
+            {/*/>*/}
             </Menu.Menu>
 
             {/* Interest */}
-            <Menu.Item
-              name="interest"
-              active={
-                activeItem === 'interest'
-              }
-              // onClick={this.handleItemClick}
-              as={
-                () => {
-                  return (
-                    <Link
-                      className="item"
-                      to="/interest"
-                    >
-                      Interest
-                    </Link>
-                  );
-                }
-              }
-            />
+            {/*<Menu.Item*/}
+              {/*name="interest"*/}
+              {/*active={*/}
+                {/*activeItem === 'interest'*/}
+              {/*}*/}
+              {/*// onClick={this.handleItemClick}*/}
+              {/*as={*/}
+                {/*() => {*/}
+                  {/*return (*/}
+                    {/*<Link*/}
+                      {/*className="item"*/}
+                      {/*to="/interest"*/}
+                    {/*>*/}
+                      {/*Interest*/}
+                    {/*</Link>*/}
+                  {/*);*/}
+                {/*}*/}
+              {/*}*/}
+            {/*>*/}
         </Menu>
 
         {/*スマホ版メニュー*/}
-        <Menu
-          fixed="top"
-          fluid
-          id="mobile-menu"
-          borderless
-          className={
-            classNames({
-              transparentMenu: this.props.defaultTransparent,
-              defaultTransparent: this.props.defaultTransparent
-            })
-          }
-        >
-          <Menu.Item
-            name="home"
-            active={
-              activeItem === 'home'
-            }
-            // onClick={this.handleItemClick}
-            as={
-              () => {
-                return (
-                  <Link
-                    className="item"
-                    to="/"
-                  >
-                    Wisdom
-                  </Link>
-                );
-              }
-            }
-          />
-          <Menu.Menu
-            position="right"
-          >
-            <Modal
-              trigger={
-                <Button
-                  circular
-                  icon='align justify'
-                  className="item"
-                />
-              }
-              basic
-              dimmer="blurring"
-            >
-              <Modal.Content>
-                <Link
-                  className="dropdown_link"
-                  to="/newArchive"
-                >
-                  New Archive
-                </Link>
-                <br/>
-                <Link
-                  className="dropdown_link"
-                  to="/sharing"
-                >
-                  Sharing
-                </Link>
-                <br/>
-                <Link
-                  className="dropdown_link"
-                  to="/interest"
-                >
-                  Interest
-                </Link>
-              </Modal.Content>
-            </Modal>
+        {/*<Menu*/}
+          {/*fixed="top"*/}
+          {/*fluid*/}
+          {/*id="mobile-menu"*/}
+          {/*borderless*/}
+          {/*className={*/}
+            {/*classNames({*/}
+              {/*transparentMenu: this.props.defaultTransparent,*/}
+              {/*defaultTransparent: this.props.defaultTransparent*/}
+            {/*})*/}
+          {/*}*/}
+        {/*>*/}
+          {/*<Menu.Item*/}
+            {/*name="home"*/}
+            {/*active={*/}
+              {/*activeItem === 'home'*/}
+            {/*}*/}
+            {/*// onClick={this.handleItemClick}*/}
+            {/*as={*/}
+              {/*() => {*/}
+                {/*return (*/}
+                  {/*<Link*/}
+                    {/*className="item"*/}
+                    {/*to="/"*/}
+                  {/*>*/}
+                    {/*Wisdom*/}
+                  {/*</Link>*/}
+                {/*);*/}
+              {/*}*/}
+            {/*}*/}
+          {/*/>*/}
+          {/*<Menu.Menu*/}
+            {/*position="right"*/}
+          {/*>*/}
+            {/*<Modal*/}
+              {/*trigger={*/}
+                {/*<Button*/}
+                  {/*circular*/}
+                  {/*icon='align justify'*/}
+                  {/*className="item"*/}
+                {/*/>*/}
+              {/*}*/}
+              {/*basic*/}
+              {/*dimmer="blurring"*/}
+            {/*>*/}
+              {/*<Modal.Content>*/}
+                {/*<Link*/}
+                  {/*className="dropdown_link"*/}
+                  {/*to="/newArchive"*/}
+                {/*>*/}
+                  {/*New Archive*/}
+                {/*</Link>*/}
+                {/*<br/>*/}
+                {/*<Link*/}
+                  {/*className="dropdown_link"*/}
+                  {/*to="/sharing"*/}
+                {/*>*/}
+                  {/*Sharing*/}
+                {/*</Link>*/}
+                {/*<br/>*/}
+                {/*<Link*/}
+                  {/*className="dropdown_link"*/}
+                  {/*to="/interest"*/}
+                {/*>*/}
+                  {/*Interest*/}
+                {/*</Link>*/}
+              {/*</Modal.Content>*/}
+            {/*</Modal>*/}
           {/*<Dropdown*/}
             {/*className="item"*/}
             {/*icon="align justify"*/}
@@ -241,8 +241,8 @@ class HeaderMenu extends React.Component {
               {/*</Dropdown.Item>*/}
             {/*</Dropdown.Menu>*/}
           {/*</Dropdown>*/}
-          </Menu.Menu>
-        </Menu>
+          {/*</Menu.Menu>*/}
+        {/*</Menu>*/}
       </div>
     );
   }
