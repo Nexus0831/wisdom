@@ -11,7 +11,7 @@ import * as actionName from './actionNames/archive';
 
 
 export const realTimePreview = createAction(
-  actionName.REALTIMEPREVIEW,
+  actionName.REAL_TIME_PREVIEW,
   async (text) => {
     const payload = {};
     try {
@@ -25,7 +25,7 @@ export const realTimePreview = createAction(
 
 // モード切り替え
 export const fullPreview = createAction(
-  actionName.FULLPREVIEW,
+  actionName.FULL_PREVIEW,
   async () => {
     const payload = {};
     try {
@@ -38,7 +38,7 @@ export const fullPreview = createAction(
 );
 
 export const fullEditor = createAction(
-  actionName.FULLPREVIEW,
+  actionName.FULL_PREVIEW,
   async () => {
     const payload = {};
     try {
@@ -65,7 +65,7 @@ export const divided = createAction(
 
 // ツールバー
 export const shortCut = createAction(
-  actionName.SHORTCUT,
+  actionName.SHORT_CUT,
   async (sentence, text, num, props) => {
     const payload = {};
     try {
@@ -105,7 +105,7 @@ export const automation = createAction(
 );
 
 export const tabInput = createAction(
-  actionName.TABINPUT,
+  actionName.TAB_INPUT,
   async (sentence, props) => {
     const payload = {};
     try {
@@ -124,7 +124,7 @@ export const tabInput = createAction(
 );
 
 export const linefeed = createAction(
-  actionName.LINEFEED,
+  actionName.LINE_FEED,
   async (sentence, props) => {
     const payload = {};
     try {
@@ -133,7 +133,7 @@ export const linefeed = createAction(
       const lines = sentence.split("\n");
       console.log(lines);
       if (lines[lines.length-1].match(/^\- /)) {
-        sentence = sentence.substr(0, pos) + "\n- " + sentence.substr(pos, sentence.length - 1);
+        sentence = sentence.substr(0, pos) + "\n- " + sentence.substr(pos, sentence.length - 2);
         await props.dispatch(change('archiveCreate', 'markdown', sentence ));
       }
       payload.text = sentence;
