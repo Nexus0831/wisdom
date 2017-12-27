@@ -10,11 +10,13 @@ import {
 } from 'react-router';
 
 import Signin from './../Signin';
+import Signup from './../Signup';
 
 class Routes extends React.Component {
   render() {
     return (
       <Switch>
+        {/* Signin */}
         <Route
           path="/signin"
           exact
@@ -26,8 +28,22 @@ class Routes extends React.Component {
             )
           }
           {...this.props}
-        >
-        </Route>
+        />
+
+        {/* Signup */}
+        <Route
+          path="/signup"
+          exact
+          render={
+            props => (
+              <Signup
+                {...props}
+              />
+            )
+          }
+          {...this.props}
+        />
+
       </Switch>
     );
   }

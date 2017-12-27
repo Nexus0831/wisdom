@@ -31,9 +31,9 @@ import {
 } from 'redux-form';
 
 // components
-import Background from './../Common/Background';
+import Background from '../Common/Background/index';
 
-import Input from './../Common/Form/Input';
+import Input from '../Common/Form/Input/index';
 
 // styles
 import {
@@ -46,12 +46,12 @@ import {
   ButtonContainer,
   Button,
   MyGrid
-} from './cssinjs';
+} from './cssinjs/index';
 
-import * as actions from './../../actions/app';
+import * as actions from '../../actions/app';
 import HeaderMenu from "../Common/HeaderMenu/index";
 
-class Home extends React.Component {
+class Archives extends React.Component {
   render() {
     return (
       <div id="home">
@@ -249,12 +249,12 @@ class Home extends React.Component {
   }
 }
 
-Home = connect(
+Archives = connect(
   state => ({
     formValues: getFormValues('home')(state),
     valid: isValid('home')(state)
   })
-)(Home);
+)(Archives);
 
 const mapStateToProps = state => {
   return {
@@ -275,4 +275,4 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({
     form: 'home',
-  })(Home)));
+  })(Archives)));

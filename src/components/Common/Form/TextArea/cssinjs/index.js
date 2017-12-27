@@ -19,6 +19,7 @@ export const MarkdownEditor = styled.textarea`
   padding: 10px;
   font-size: 18px;
   resize: none;
+  border-radius: 0;
   border: 2px solid #fff;
   background-color: rgba(0, 0, 0, 0);
   color: white;

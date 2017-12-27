@@ -9,20 +9,20 @@ import {
   Route
 } from 'react-router';
 
-import Home from './../Home';
+import Archives from './../Archive/index';
 import ArchiveCreate from './../Archive/ArchiveCreate';
 
 class Routes extends React.Component {
   render() {
     return (
       <Switch>
-        {/*Home*/}
+        {/*Archives*/}
         <Route
           path="/"
           exact
           render={
             props => (
-              <Home
+              <Archives
                 {...props}
               />
             )
@@ -31,9 +31,9 @@ class Routes extends React.Component {
         >
         </Route>
 
-        {/*Archive*/}
+        {/*ArchiveCreate*/}
         <Route
-          path="/newArchive"
+          path="/archive/create"
           exact
           render={
             props => (
