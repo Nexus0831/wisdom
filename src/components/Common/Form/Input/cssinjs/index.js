@@ -24,6 +24,7 @@ export const GhostInput = styled.input`
   font-family: Helvetica Neue;
   color: #FFFFFF;
   outline: 0 !important;
+  border-radius: 0;
   border: 2px solid #FFFFFF;
   background-color: rgba(0, 0, 0, 0);
   letter-spacing: ${props => props.type ? '5px' : '2px'};

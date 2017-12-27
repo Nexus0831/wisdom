@@ -81,7 +81,7 @@ class HeaderMenu extends React.Component {
                   return (
                     <Link
                       className="item"
-                      to="/newArchive"
+                      to="/archive/create"
                     >
                       New Archive
                     </Link>

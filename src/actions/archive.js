@@ -9,7 +9,6 @@ import {
 
 import * as actionName from './actionNames/archive';
 
-
 export const realTimePreview = createAction(
   actionName.REAL_TIME_PREVIEW,
   async (text) => {
@@ -38,7 +37,7 @@ export const fullPreview = createAction(
 );
 
 export const fullEditor = createAction(
-  actionName.FULL_PREVIEW,
+  actionName.FULL_EDITOR,
   async () => {
     const payload = {};
     try {

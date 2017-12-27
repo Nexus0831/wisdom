@@ -9,7 +9,7 @@ export const BackgroundImage = styled.div`
   display: table;
   width: calc(100% + 20px);
   height: calc(100vh + 20px);
-  background-image: url(https://raw.githubusercontent.com/Nexus0831/wisdom/master/assets/cristina.jpg);
+  background-image: ${props => 'url(' + props.src + ')' };
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
