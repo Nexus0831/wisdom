@@ -35,11 +35,17 @@ import Background from '../Common/Background/index';
 
 import Input from '../Common/Form/Input/index';
 
+import {
+  Link
+} from 'react-router-dom';
+
 // styles
 import {
   SearchForm,
   MyContainer,
   ArchiveCard,
+  ArchiveCreate,
+  CreateLink,
   Title,
   CreateDate,
   Text,
@@ -49,7 +55,7 @@ import {
 } from './cssinjs/index';
 
 import * as actions from '../../actions/app';
-import HeaderMenu from "../Common/HeaderMenu/index";
+import HeaderMenu from "../Common/MyHeaderMenu/index";
 
 class Archives extends React.Component {
   render() {
@@ -57,7 +63,6 @@ class Archives extends React.Component {
       <div id="home">
 
         <HeaderMenu
-          defaultTransparent
           style={{
             gridRow: "1 / -1",
             gridColumn: "1 / 2"
@@ -77,6 +82,15 @@ class Archives extends React.Component {
             {/*<NavLink*/}
             {/*to="/signin"*/}
             {/*>*/}
+
+            <Link
+              to="/archive/create"
+            >
+              <ArchiveCreate>
+                create an archive
+              </ArchiveCreate>
+            </Link>
+
 
             <ArchiveCard>
               <Title>

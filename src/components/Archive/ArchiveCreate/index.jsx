@@ -68,7 +68,7 @@ import {
 } from './cssinjs';
 
 import * as actions from './../../../actions/archive';
-import HeaderMenu from "./../../Common/HeaderMenu/index";
+import HeaderMenu from "./../../Common/MyHeaderMenu/index";
 
 
 class ArchiveCreate extends React.Component {
