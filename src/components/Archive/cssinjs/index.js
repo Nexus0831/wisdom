@@ -3,6 +3,10 @@ import styled, {
   injectGlobal
 } from 'styled-components';
 
+import {
+  Link
+} from 'react-router-dom';
+
 // styled component
 
 export const SearchForm = styled.div`
@@ -50,6 +54,34 @@ export const ArchiveCard = styled.div`
     box-shadow: 0 0 20px 5px rgba(255,255,255,.3) inset;
     cursor: pointer;
   }
+`;
+
+export const ArchiveCreate = styled.div`
+  width: 100%;
+  height: 205px;
+  border: 1px solid #1AEF22;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1AEF22;
+  font-size: 20px;
+  font-family: "mr-eaves-modern";
+  
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(26, 239, 34, .2);
+  }
+  
+  @media (max-width: 619px) {
+    height: 80px;
+  }
+`;
+
+export const CreateLink = styled(Link)`
+  color: #1AEF22;
+  font-size: 20px;
+  font-family: "mr-eaves-modern";
 `;
 
 export const Title = styled.div`

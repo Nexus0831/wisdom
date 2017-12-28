@@ -4,10 +4,6 @@ import styled, {
 } from 'styled-components';
 
 import {
-  Menu
-} from 'semantic-ui-react';
-
-import {
   Link
 } from 'react-router-dom';
 
@@ -24,6 +20,10 @@ export const Base = styled.div`
   &.transparentMenu {
     transition-duration: .5s;
     background-color: transparent !important;
+  }
+  
+  @media (max-width: 619px) {
+    height: 50px;
   }
 `;
 

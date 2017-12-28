@@ -35,11 +35,17 @@ import Background from '../Common/Background/index';
 
 import Input from '../Common/Form/Input/index';
 
+import {
+  Link
+} from 'react-router-dom';
+
 // styles
 import {
   SearchForm,
   MyContainer,
   ArchiveCard,
+  ArchiveCreate,
+  CreateLink,
   Title,
   CreateDate,
   Text,
@@ -76,6 +82,15 @@ class Archives extends React.Component {
             {/*<NavLink*/}
             {/*to="/signin"*/}
             {/*>*/}
+
+            <Link
+              to="/archive/create"
+            >
+              <ArchiveCreate>
+                create an archive
+              </ArchiveCreate>
+            </Link>
+
 
             <ArchiveCard>
               <Title>
