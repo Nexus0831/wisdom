@@ -14,14 +14,15 @@ import {
 $(window).scroll(() => {
   const scrollAmount = $(window).scrollTop();
   const ham = $('.hamburger-inner');
-  const menu = $('#gc-hero-menu .ui.menu');
+  const menu = $('#header-menu');
+  // const item = $('.item');
 
   if (scrollAmount === 0) {
-    if (menu.hasClass('defaultTransparent')) {
-      menu.addClass('transparentMenu');
-    }
+    menu.addClass('transparentMenu');
+    // item.addClass('transparentItem');
   } else {
     menu.removeClass('transparentMenu');
+    // item.removeClass('transparentItem');
   }
 
   if (scrollAmount > window.innerHeight - 40) {

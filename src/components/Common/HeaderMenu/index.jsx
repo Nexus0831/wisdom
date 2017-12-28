@@ -52,7 +52,6 @@ class HeaderMenu extends React.Component {
             active={
               activeItem === 'home'
             }
-            // onClick={this.handleItemClick}
             as={
               () => {
                 return (

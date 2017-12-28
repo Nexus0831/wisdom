@@ -49,7 +49,7 @@ import {
 } from './cssinjs/index';
 
 import * as actions from '../../actions/app';
-import HeaderMenu from "../Common/HeaderMenu/index";
+import HeaderMenu from "../Common/MyHeaderMenu/index";
 
 class Archives extends React.Component {
   render() {
@@ -57,7 +57,6 @@ class Archives extends React.Component {
       <div id="home">
 
         <HeaderMenu
-          defaultTransparent
           style={{
             gridRow: "1 / -1",
             gridColumn: "1 / 2"
