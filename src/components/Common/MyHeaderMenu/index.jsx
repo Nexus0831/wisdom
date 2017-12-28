@@ -12,9 +12,7 @@ import {
 // styled
 import {
   Base,
-  CustomMenu,
-  CustomMenuItem,
-  CustomMenuMenu
+  CustomLink
 } from './cssinjs'
 
 class HeaderMenu extends React.Component {
@@ -24,12 +22,12 @@ class HeaderMenu extends React.Component {
         id="header-menu"
         className="transparentMenu"
       >
-        <Link
-          className="item"
+        <CustomLink
+          className="item transparentItem"
           to="/"
         >
           Wisdom
-        </Link>
+        </CustomLink>
       </Base>
     );
   }

@@ -7,8 +7,12 @@ import {
   Menu
 } from 'semantic-ui-react';
 
+import {
+  Link
+} from 'react-router-dom';
+
 export const Base = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100% !important;
   z-index: 100;
   display: flex;
@@ -23,27 +27,22 @@ export const Base = styled.div`
   }
 `;
 
-export const CustomMenu = styled(Menu)`
-  border-left: 0 !important;
+export const CustomLink = styled(Link)`
+  color: #555555;
+  font-size: 20px;
+  font-family: "mr-eaves-modern";
   
-  &.transparentMenu {
-    transition-duration: .5s;
-    background-color: transparent !important;
+  &:hover {
+    color: #F3D179;
   }
   
-`;
-
-export const CustomMenuItem = styled(Menu.Item)`
-  background-color: transparent !important;
-  
-  &.item.transparentItem {
-    color: #ffffff !important;
+  &.transparentItem {
+    color: #ffffff;
+    
+    &:hover {
+     color: #1AEF22; 
+    }
   }
-  
-`;
-
-export const CustomMenuMenu = styled(Menu.Menu)`
-  background-color: transparent !important;
 `;
 
 export const globalStyles = injectGlobal`

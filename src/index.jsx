@@ -15,14 +15,14 @@ $(window).scroll(() => {
   const scrollAmount = $(window).scrollTop();
   const ham = $('.hamburger-inner');
   const menu = $('#header-menu');
-  // const item = $('.item');
+  const item = $('.item');
 
   if (scrollAmount === 0) {
     menu.addClass('transparentMenu');
-    // item.addClass('transparentItem');
+    item.addClass('transparentItem');
   } else {
     menu.removeClass('transparentMenu');
-    // item.removeClass('transparentItem');
+    item.removeClass('transparentItem');
   }
 
   if (scrollAmount > window.innerHeight - 40) {
