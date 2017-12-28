@@ -22,11 +22,11 @@ export const MyContainer = styled.div`
 
 export const MyGrid = styled.div`
   display: grid;
+  margin-bottom: 20px;
   
   @media (max-width: 619px) {
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
-    margin-bottom: 20px;
   }
   
   @media (min-width: 620px) { 
@@ -109,6 +109,7 @@ export const Text = styled.div`
   text-overflow: ellipsis;
   padding: 10px;
   height: 90px;
+  line-height: 20px;
 `;
 
 export const ButtonContainer = styled.div`
