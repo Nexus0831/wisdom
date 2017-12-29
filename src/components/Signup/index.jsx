@@ -20,11 +20,14 @@ import {
 
 import validate from './../../config/validates/signup';
 
+import { signup } from './../../actions/api/app.js';
+
 import {
   reduxForm,
   Field,
   getFormValues,
-  isValid
+  isValid,
+  initialize
 } from 'redux-form';
 
 // components
@@ -44,6 +47,12 @@ import {
 import * as actions from './../../actions/app';
 
 class Signup extends React.Component {
+
+  async componentWillMount() {
+    // ToDo: reduxの値を初期化
+    await this.props.dispatch(initialize('signup', { email: '', password: '', confirmation: '' }));
+  }
+
   render() {
     return(
       <div id="signin">
@@ -80,7 +89,7 @@ class Signup extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
-                onClick={() => this.props.history.push("/")}
+                onClick={() => this.props.signup(this.props.formValues.email, this.props.formValues.password)}
               >
                 Signup
               </Button>
@@ -94,8 +103,8 @@ class Signup extends React.Component {
 
 Signup = connect(
   state => ({
-    formValues: getFormValues('signin')(state),
-    valid: isValid('signin')(state)
+    formValues: getFormValues('signup')(state),
+    valid: isValid('signup')(state)
   })
 )(Signup);
 
