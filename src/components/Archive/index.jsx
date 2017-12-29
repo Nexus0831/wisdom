@@ -54,7 +54,7 @@ import {
   MyGrid
 } from './cssinjs/index';
 
-import * as actions from '../../actions/app';
+import * as actions from './../../actions/archive';
 import HeaderMenu from "../Common/MyHeaderMenu/index";
 
 class Archives extends React.Component {
@@ -78,11 +78,6 @@ class Archives extends React.Component {
           </SearchForm>
 
           <MyGrid>
-
-            {/*<NavLink*/}
-            {/*to="/signin"*/}
-            {/*>*/}
-
             <Link
               to="/archive/create"
             >
@@ -123,12 +118,14 @@ class Archives extends React.Component {
                       danger
                       row="2 / 3"
                       column="4 / 5"
+                      onClick={() => this.props.modalAction(true)}
                     >
                       delete
                     </Button>
                   }
                   basic
                   size="small"
+                  open={this.props.archive.isOpen}
                 >
                   <Header content="confirmation"/>
                   <Modal.Content>
@@ -136,7 +133,16 @@ class Archives extends React.Component {
                   </Modal.Content>
                   <Modal.Actions>
                     <Button
+                      style={{
+                        marginRight: '20px'
+                      }}
+                      onClick={() => this.props.modalAction(false)}
+                    >
+                      no
+                    </Button>
+                    <Button
                       danger
+                      onClick={() => this.props.modalAction(false)}
                     >
                       yes
                     </Button>
@@ -702,7 +708,7 @@ Archives = connect(
 
 const mapStateToProps = state => {
   return {
-    app: state.app
+    archive: state.archive
   };
 };
 

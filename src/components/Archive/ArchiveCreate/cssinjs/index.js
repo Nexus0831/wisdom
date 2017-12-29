@@ -69,6 +69,10 @@ export const ToolIcon = styled(Icon)`
     cursor: auto;
     pointer-events: none;
   }
+  
+  @media (max-width: 619px) {
+    ${props => props.mobile_none ? 'display: none !important' : ''}
+  }
 `;
 
 export const ShortCutArea = styled.div`

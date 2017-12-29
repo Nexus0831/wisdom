@@ -7,6 +7,9 @@ import {
 import Archive from './../models/archive'
 
 const reducer = handleActions({
+  [actions.modalAction](state, action) {
+    return state.modalAction(state, action.payload);
+  },
   [actions.realTimePreview](state, action) {
     return state.realTimePreview(state, action.payload);
   },

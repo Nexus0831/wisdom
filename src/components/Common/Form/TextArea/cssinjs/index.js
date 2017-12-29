@@ -27,6 +27,7 @@ export const MarkdownEditor = styled.textarea`
   font-family: Menlo;
   width: 100% !important;
   height: 100% !important;
+  box-shadow: none !important;
   
   &:focus {
     background-color: rgba(255, 255, 255, .2);
