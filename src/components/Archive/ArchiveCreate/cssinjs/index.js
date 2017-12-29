@@ -8,8 +8,6 @@ import {
 } from 'semantic-ui-react';
 
 // styled component
-// ToDo: スマホ版のツールバーの対応
-// ToDo: アイコンのサイズを小さくして対応
 export const MyContainer = styled.div`
   display: grid;
   grid-template-rows: 40px 20px 1fr 20px 40px 20px;
