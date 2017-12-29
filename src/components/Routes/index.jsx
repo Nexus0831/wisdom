@@ -18,6 +18,9 @@ class Routes extends React.Component {
     return (
       <div
         id="routes"
+        style={{
+          height: "100%"
+        }}
       >
         <Background/>
         <AfterSignin

@@ -9,6 +9,19 @@ import {
 
 import * as actionName from './actionNames/archive';
 
+export const modalAction = createAction(
+  actionName.IS_OPEN,
+  async (is_opne) => {
+    const payload = {};
+    try {
+      payload.isOpen = is_opne;
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const realTimePreview = createAction(
   actionName.REAL_TIME_PREVIEW,
   async (text) => {

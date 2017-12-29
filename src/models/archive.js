@@ -7,10 +7,19 @@ import {
 const ArchiveState = Record({
   markdown: '',
   isMode: 'editor',
-  additional: ''
+  isOpen: false
 });
 
 class Archive extends ArchiveState {
+  modalAction(state, payload) {
+    const newState = state.update('isOpen',
+      () => {
+        return payload.isOpen;
+      });
+    return newState
+  }
+
+
   realTimePreview(state, payload) {
     const newState = state.update('markdown',
       () => {

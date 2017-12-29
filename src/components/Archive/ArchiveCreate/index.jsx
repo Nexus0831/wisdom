@@ -229,6 +229,7 @@ class ArchiveCreate extends React.Component {
                   onClick={this.props.divided}
                   size='big'
                   active={this.props.archive.isMode === 'divide' ? '#1AEF22': '#fff'}
+                  mobile_none
                 />
               </ModeArea>
             </ToolBar>

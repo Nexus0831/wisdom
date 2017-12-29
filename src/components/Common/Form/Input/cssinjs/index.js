@@ -28,6 +28,7 @@ export const GhostInput = styled.input`
   border: 2px solid #FFFFFF;
   background-color: rgba(0, 0, 0, 0);
   letter-spacing: ${props => props.type ? '5px' : '2px'};
+  box-shadow: none !important;
   
   &:focus {
     background-color: rgba(255, 255, 255, .3);

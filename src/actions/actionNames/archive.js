@@ -6,3 +6,4 @@ export const SHORT_CUT = 'SHORT_CUT';
 export const AUTOMATION = 'AUTOMATION';
 export const LINE_FEED = 'LINE_FEED';
 export const TAB_INPUT = 'TAB_INPUT';
+export const IS_OPEN = 'IS_OPEN';

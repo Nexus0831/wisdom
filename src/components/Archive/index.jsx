@@ -54,9 +54,10 @@ import {
   MyGrid
 } from './cssinjs/index';
 
-import * as actions from '../../actions/app';
+import * as actions from './../../actions/archive';
 import HeaderMenu from "../Common/MyHeaderMenu/index";
 
+// ToDo: スマホ版でヘッダーのフォントとモーダル調整
 class Archives extends React.Component {
   render() {
     return (
@@ -78,16 +79,11 @@ class Archives extends React.Component {
           </SearchForm>
 
           <MyGrid>
-
-            {/*<NavLink*/}
-            {/*to="/signin"*/}
-            {/*>*/}
-
             <Link
               to="/archive/create"
             >
               <ArchiveCreate>
-                create an archive
+                Create Archive
               </ArchiveCreate>
             </Link>
 
@@ -123,12 +119,14 @@ class Archives extends React.Component {
                       danger
                       row="2 / 3"
                       column="4 / 5"
+                      onClick={() => this.props.modalAction(true)}
                     >
                       delete
                     </Button>
                   }
                   basic
                   size="small"
+                  open={this.props.archive.isOpen}
                 >
                   <Header content="confirmation"/>
                   <Modal.Content>
@@ -136,117 +134,16 @@ class Archives extends React.Component {
                   </Modal.Content>
                   <Modal.Actions>
                     <Button
-                      danger
+                      style={{
+                        marginRight: '20px'
+                      }}
+                      onClick={() => this.props.modalAction(false)}
                     >
-                      yes
+                      no
                     </Button>
-                  </Modal.Actions>
-                </Modal>
-
-              </ButtonContainer>
-            </ArchiveCard>
-
-            {/*</NavLink>*/}
-
-            <ArchiveCard>
-              <Title>
-                Pythonインストール
-              </Title>
-              <CreateDate>
-                {/*2017年12月24日 13時35分*/}
-                2017/12/24 13:35
-              </CreateDate>
-              <Text>
-                #Python
-
-                ## 準備
-                Pythonのインストール方法を記録しておく
-                ちなみにmac版である。
-                この圧倒的Pythonista力！！
-                映画インターンシップを見たい
-                Amazonビデオで視聴しようと思う。
-              </Text>
-              <ButtonContainer>
-                <Button
-                  row="2 / 3"
-                  column="2 / 3"
-                >
-                  edit
-                </Button>
-                <Modal
-                  trigger={
                     <Button
                       danger
-                      row="2 / 3"
-                      column="4 / 5"
-                    >
-                      delete
-                    </Button>
-                  }
-                  basic
-                  size="small"
-                >
-                  <Header content="confirmation"/>
-                  <Modal.Content>
-                    <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                  </Modal.Content>
-                  <Modal.Actions>
-                    <Button
-                      danger
-                    >
-                      yes
-                    </Button>
-                  </Modal.Actions>
-                </Modal>
-
-              </ButtonContainer>
-            </ArchiveCard>
-
-            <ArchiveCard>
-              <Title>
-                Pythonインストール
-              </Title>
-              <CreateDate>
-                {/*2017年12月24日 13時35分*/}
-                2017/12/24 13:35
-              </CreateDate>
-              <Text>
-                #Python
-
-                ## 準備
-                Pythonのインストール方法を記録しておく
-                ちなみにmac版である。
-                この圧倒的Pythonista力！！
-                映画インターンシップを見たい
-                Amazonビデオで視聴しようと思う。
-              </Text>
-              <ButtonContainer>
-                <Button
-                  row="2 / 3"
-                  column="2 / 3"
-                >
-                  edit
-                </Button>
-                <Modal
-                  trigger={
-                    <Button
-                      danger
-                      row="2 / 3"
-                      column="4 / 5"
-                    >
-                      delete
-                    </Button>
-                  }
-                  basic
-                  size="small"
-                >
-                  <Header content="confirmation"/>
-                  <Modal.Content>
-                    <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                  </Modal.Content>
-                  <Modal.Actions>
-                    <Button
-                      danger
+                      onClick={() => this.props.modalAction(false)}
                     >
                       yes
                     </Button>
@@ -272,7 +169,7 @@ Archives = connect(
 
 const mapStateToProps = state => {
   return {
-    app: state.app
+    archive: state.archive
   };
 };
 
