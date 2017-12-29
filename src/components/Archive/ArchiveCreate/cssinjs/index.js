@@ -12,11 +12,12 @@ import {
 // ToDo: アイコンのサイズを小さくして対応
 export const MyContainer = styled.div`
   display: grid;
-  grid-template-rows: 40px 20px 700px 20px 40px 20px;
+  grid-template-rows: 40px 20px 1fr 20px 40px 20px;
   grid-template-columns: 78% 2% 20%;
   grid-row: 2 / 3;
   grid-column: 2 / 3;
   width: 100%;
+  height: 100%;
 `;
 
 export const TitleArea = styled.div`
@@ -35,10 +36,10 @@ export const MainArea = styled.div`
   display: grid;
   grid-template-rows: 40px 1fr;
   grid-template-columns: 50% 50%;
+  height: 100%;
   
   @media (max-width: 619px) {
-    
-    grid-template-rows: 80px 1fr;
+    grid-template-rows: 60px 1fr;
   }
 `;
 
@@ -93,17 +94,17 @@ export const ModeArea = styled.div`
   @media (max-width: 619px) {
     grid-row: 2 / 3;
     grid-column: 1 / 2;
-    justify-content: flex-start;
+    justify-content: flex-end;
   }
 `;
 
 export const EditorArea = styled.div`
-  grid-row: 1;
+  grid-row: 1 / 2;
   grid-column: 1 / 2;
 `;
 
 export const PreviewArea = styled.div`
-  grid-row: 1;
+  grid-row: 1 / 2;
   grid-column: 2 / 3;
   border: 2px solid #fff;
   border-left: none;
@@ -175,6 +176,10 @@ export const Separator = styled.div`
   height: 25px;
   background-color: #FFF;
   margin-right: 10px !important;
+  
+  @media (max-width: 619px) {
+    height: 15px;
+  }
 `;
 
 export const globalStyles = injectGlobal`
@@ -182,9 +187,14 @@ export const globalStyles = injectGlobal`
     display: grid;
     grid-template-rows: 80px 1fr;
     grid-template-columns: 20px 1fr 20px;
+    height: 100%;
     
     @media (max-width: 619px) {
         grid-template-rows: 70px 1fr;
+        
+        i.big.icon, i.big.icons {
+          font-size: 1.5em !important;
+        }
     }
   }
 `;
