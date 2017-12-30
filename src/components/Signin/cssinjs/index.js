@@ -1,6 +1,10 @@
 // node_modules
 import styled from 'styled-components';
 
+import {
+  Link
+} from 'react-router-dom';
+
 // styled component
 
 export const Form = styled.div`
@@ -71,6 +75,22 @@ export const Button = styled.button`
     border: 3px solid gray !important;
     background-color: rgba(0, 0, 0, 0);
     cursor: auto;
+  }
+`;
+
+export const CustomLink = styled(Link)`
+  color: #15B0DE;
+  text-decoration: underline;
+  font-size: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  
+  &:hover {
+    color: #37D2FF;
+  text-decoration: underline;
   }
 `;
 

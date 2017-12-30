@@ -16,6 +16,22 @@ class App extends ArchiveState {
     return newState
   }
 
+  confirm(state, payload) {
+    const newState = state.update('isSignup',
+      () => {
+        return payload.isSignup;
+      });
+    return newState
+  }
+
+  signin(state, payload) {
+    const newState = state.update('isSignup',
+      () => {
+        return payload.isSignup;
+      });
+    return newState
+  }
+
 }
 
 export default App;

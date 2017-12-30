@@ -18,9 +18,9 @@ import {
   NavLink
 } from 'react-router-dom';
 
-import validate from './../../config/validates/signup';
+import validate from './../../../config/validates/signup';
 
-import { signup } from './../../actions/api/app.js';
+import { signup } from './../../../actions/api/app.js';
 
 import {
   reduxForm,
@@ -31,9 +31,9 @@ import {
 } from 'redux-form';
 
 // components
-import Background from './../Common/Background';
+import Background from './../../Common/Background';
 
-import Input from './../Common/Form/Input';
+import Input from './../../Common/Form/Input';
 
 // styles
 import {
@@ -42,23 +42,23 @@ import {
   Title,
   FormRow,
   Button
-} from './cssinjs';
+} from './../cssinjs';
 
-import * as actions from './../../actions/app';
+import * as actions from './../../../actions/app';
 
-class Signup extends React.Component {
+class Confirm extends React.Component {
 
   async componentWillMount() {
-    await this.props.dispatch(initialize('signup', { email: '', password: '', confirmation: '' }));
+    await this.props.dispatch(initialize('confirm', { email: '', code: '' }));
   }
 
   render() {
     return(
-      <div id="signup">
+      <div id="confirm">
         <Centered>
           <Form>
             <Title>
-              SignUp
+              Confirm
             </Title>
             <FormRow>
               <Field
@@ -69,18 +69,8 @@ class Signup extends React.Component {
             </FormRow>
             <FormRow>
               <Field
-                name="password"
-                type="password"
-                placeholder='password...'
-                component={Input}
-              />
-            </FormRow>
-
-            <FormRow>
-              <Field
-                name="confirmation"
-                type="password"
-                placeholder='confirmation password...'
+                name="code"
+                placeholder='code...'
                 component={Input}
               />
             </FormRow>
@@ -89,13 +79,14 @@ class Signup extends React.Component {
               <Button
                 disabled={(this.props.valid) === false}
                 onClick={() =>
-                  this.props.signup(
+                  this.props.confirm(
                     this.props.formValues.email,
-                    this.props.formValues.password,
+                    this.props.formValues.code,
                     this.props
-                  )}
+                  )
+                }
               >
-                Signup
+                Confirm
               </Button>
             </FormRow>
           </Form>
@@ -105,12 +96,12 @@ class Signup extends React.Component {
   }
 }
 
-Signup = connect(
+Confirm = connect(
   state => ({
-    formValues: getFormValues('signup')(state),
-    valid: isValid('signup')(state)
+    formValues: getFormValues('confirm')(state),
+    valid: isValid('confirm')(state)
   })
-)(Signup);
+)(Confirm);
 
 const mapStateToProps = state => {
   return {
@@ -130,6 +121,6 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({
-    form: 'signup',
+    form: 'confirm',
     validate
-  })(Signup)));
+  })(Confirm)));

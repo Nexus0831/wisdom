@@ -13,11 +13,17 @@ const validate = (values) => {
   // パスワード
   if (!values.password) {
     errors.password = 'パスワードは必須入力です';
+  } else if (values.password.length > 20) {
+    errors.password = 'パスワードは20文字以内で入力して下さい';
+  } else if (!/[A-Z]/g.test(values.password)) {
+    errors.password = 'パスワードには必ず大文字を入力してください';
   }
 
   // パスワード
   if (!values.confirmation) {
     errors.confirmation = '確認用パスワードは必須入力です';
+  } else if (values.confirmation.length > 20) {
+    errors.confirmPassword = 'パスワード(確認用)は20文字以内で入力して下さい';
   } else if (values.confirmation !== values.password) {
     errors.confirmation = 'パスワードと確認用パスワードが一致しません'
   }

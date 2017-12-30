@@ -24,7 +24,8 @@ import {
   reduxForm,
   Field,
   getFormValues,
-  isValid
+  isValid,
+  initialize
 } from 'redux-form';
 
 // components
@@ -38,12 +39,17 @@ import {
   Centered,
   Title,
   FormRow,
-  Button
+  Button,
+  CustomLink
 } from './cssinjs';
 
 import * as actions from './../../actions/app';
 
 class Signin extends React.Component {
+  async componentWillMount() {
+    await this.props.dispatch(initialize('sinup', { email: '', password: '' }));
+  }
+
   render() {
     return(
       <div id="signin">
@@ -70,10 +76,23 @@ class Signin extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
-                onClick={() => this.props.history.push("/")}
+               onClick={() =>
+                  this.props.signin(
+                  this.props.formValues.email,
+                  this.props.formValues.password,
+                  this.props
+                  )
+                }
               >
                 Signin
               </Button>
+            </FormRow>
+            <FormRow>
+              <CustomLink
+                to="/signup"
+              >
+                サインアップはこちら
+              </CustomLink>
             </FormRow>
           </Form>
         </Centered>
