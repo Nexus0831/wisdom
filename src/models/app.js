@@ -3,11 +3,13 @@ import {
   List
 } from 'immutable';
 
-const TestState = Record({
+const AppState = Record({
+  isSignin: false,
+  userName: '',
   isSignup: false
 });
 
-class App extends ArchiveState {
+class App extends AppState {
   signup(state, payload) {
     const newState = state.update('isSignup',
       () => {
@@ -25,9 +27,17 @@ class App extends ArchiveState {
   }
 
   signin(state, payload) {
-    const newState = state.update('isSignup',
+    const newState = state.update('isSignin',
       () => {
-        return payload.isSignup;
+        return payload.isSignin;
+      });
+    return newState
+  }
+
+  checkSession(state, payload) {
+    const newState = state.update('isSignin',
+      () => {
+        return payload.isSignin;
       });
     return newState
   }

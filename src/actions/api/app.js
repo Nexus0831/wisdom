@@ -16,10 +16,10 @@ Amplify.configure({
 
 export const signup = (email, password) => {
   Auth.signUp(email, password)
-    .then((data) => {
+    .then(() => {
       alert('登録メールアドレスに検証コードを送信しました。\n次の画面で検証コードを入力してください。');
     })
-    .catch((err) => {
+    .catch(() => {
       alert('エラーが発生しました');
       return;
     });
@@ -27,10 +27,10 @@ export const signup = (email, password) => {
 
 export const confirm = (email, code) => {
   Auth.confirmSignUp(email, code)
-    .then((data) => {
+    .then(() => {
       alert('おめでとうございます。\n無事検証が完了しました');
     })
-    .catch((err) => {
+    .catch(() => {
       alert('残念ですが、検証に失敗しました');
       return;
     });
@@ -38,11 +38,22 @@ export const confirm = (email, code) => {
 
 export const signin = (email, password) => {
   Auth.signIn(email, password)
-    .then((data) => {
+    .then(() => {
       alert('成功');
     })
-    .catch((err) => {
+    .catch(() => {
       alert('エラーが発生しました');
       return;
     });
+};
+
+export const checkSession = () => {
+  Auth.currentAuthenticatedUser()
+    .then((result) => {
+      console.log(result)
+    })
+    .catch((error) => {
+      console.log(error);
+      return;
+    })
 };

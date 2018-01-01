@@ -28,5 +28,21 @@ class App extends React.Component {
   }
 }
 
+// To Contaienr
+const mapStateToProps = (state) => {
+  return {
+    app: state.app
+  };
+};
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    Object.assign(
+      {},
+      actions
+    ),
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

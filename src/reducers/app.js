@@ -15,6 +15,9 @@ const reducer = handleActions({
   },
   [actions.confirm](state, action) {
     return state.confirm(state, action.payload);
+  },
+  [actions.checkSession](state, action) {
+    return state.checkSession(state, action.payload);
   }
 
 }, new App());

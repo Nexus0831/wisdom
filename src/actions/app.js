@@ -8,7 +8,7 @@ import * as actionName from './actionNames/app';
 import * as apis from './api/app';
 
 export const signup = createAction(
-  actionName.SIGNIN,
+  actionName.SIGNUP,
   async (email, password, props) => {
     const payload = {};
     try {
@@ -23,7 +23,7 @@ export const signup = createAction(
 );
 
 export const confirm = createAction(
-  actionName.SIGNIN,
+  actionName.CONFIRM,
   async (email, code, props) => {
     const payload = {};
     try {
@@ -43,8 +43,22 @@ export const signin = createAction(
     const payload = {};
     try {
       await apis.signin(email, password);
-      payload.isSignup = true;
+      payload.isSignin = true;
       props.history.push('/');
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const checkSession = createAction(
+  actionName.CHECK_SESSION,
+  async () => {
+    const payload = {};
+    try {
+      await apis.checkSession();
+      payload.isSignin = false;
       return payload;
     } catch (error) {
       return payload;
