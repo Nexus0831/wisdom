@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel public/index.html",
+    "start": "webpack-dev-server --config webpack/local.js --history-api-fallback",
     "develop": "webpack --config webpack/develop.js",
     "release": "webpack --config webpack/release.js",
     "production": "webpack --config webpack/production.js"

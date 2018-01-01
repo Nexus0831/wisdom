@@ -13,6 +13,10 @@ const validate = (values) => {
   // パスワード
   if (!values.password) {
     errors.password = 'パスワードは必須入力です';
+  } else if (values.password.length > 20) {
+    errors.password = 'パスワードは20文字以内で入力して下さい';
+  } else if (!/[A-Z]/g.test(values.password)) {
+    errors.password = 'パスワードには必ず大文字を入力してください';
   }
 
   return errors;

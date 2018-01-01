@@ -11,6 +11,7 @@ import {
 
 import Signin from './../Signin';
 import Signup from './../Signup';
+import Confirm from './../Signup/Confirm';
 
 class Routes extends React.Component {
   render() {
@@ -37,6 +38,20 @@ class Routes extends React.Component {
           render={
             props => (
               <Signup
+                {...props}
+              />
+            )
+          }
+          {...this.props}
+        />
+
+        {/* Confirm */}
+        <Route
+          path="/signup/confirm"
+          exact
+          render={
+            props => (
+              <Confirm
                 {...props}
               />
             )
