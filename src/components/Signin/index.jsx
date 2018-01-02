@@ -28,6 +28,10 @@ import {
   initialize
 } from 'redux-form';
 
+import {
+  signin
+} from '../../utils/cognito';
+
 // components
 import Background from './../Common/Background';
 
@@ -46,8 +50,18 @@ import {
 import * as actions from './../../actions/app';
 
 class Signin extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSignin = this.handleSignin.bind(this);
+  }
+
+  async handleSignin() {
+    await signin(this.props.formValues.email, this.props.formValues.password);
+    this.props.history.push('/');
+  }
+
   async componentWillMount() {
-    await this.props.dispatch(initialize('sinup', { email: '', password: '' }));
+    await this.props.dispatch(initialize('signin', { email: '', password: '' }));
   }
 
   render() {
@@ -76,13 +90,7 @@ class Signin extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
-               onClick={() =>
-                  this.props.signin(
-                  this.props.formValues.email,
-                  this.props.formValues.password,
-                  this.props
-                  )
-                }
+               onClick={this.handleSignin}
               >
                 Signin
               </Button>
