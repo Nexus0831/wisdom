@@ -70,7 +70,7 @@ import {
 import * as actions from './../../../actions/archive';
 import HeaderMenu from "./../../Common/MyHeaderMenu/index";
 
-
+// ToDo: MarkDownプレビューのスタイル設定;
 class ArchiveCreate extends React.Component {
 
   async handleMarkdownChange() {

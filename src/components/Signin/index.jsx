@@ -14,10 +14,6 @@ import {
   withRouter
 } from 'react-router';
 
-import {
-  NavLink
-} from 'react-router-dom';
-
 import validate from './../../config/validates/signin';
 
 import {
@@ -28,9 +24,11 @@ import {
   initialize
 } from 'redux-form';
 
-// components
-import Background from './../Common/Background';
+import {
+  signIn
+} from '../../utils/cognito';
 
+// components
 import Input from './../Common/Form/Input';
 
 // styles
@@ -46,8 +44,19 @@ import {
 import * as actions from './../../actions/app';
 
 class Signin extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSignin = this.handleSignin.bind(this);
+  }
+
+  async handleSignin() {
+    await signIn(this.props.formValues.email, this.props.formValues.password);
+    await this.props.checkSession();
+    this.props.history.push('/');
+  }
+
   async componentWillMount() {
-    await this.props.dispatch(initialize('sinup', { email: '', password: '' }));
+    await this.props.dispatch(initialize('signin', { email: '', password: '' }));
   }
 
   render() {
@@ -76,13 +85,7 @@ class Signin extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
-               onClick={() =>
-                  this.props.signin(
-                  this.props.formValues.email,
-                  this.props.formValues.password,
-                  this.props
-                  )
-                }
+               onClick={this.handleSignin}
               >
                 Signin
               </Button>

@@ -13,14 +13,7 @@ import {
 import {
   withRouter
 } from 'react-router';
-
-import {
-  NavLink
-} from 'react-router-dom';
-
-import validate from './../../../config/validates/signup';
-
-import { signup } from './../../../actions/api/app.js';
+import validate from './../../../config/validates/confirm';
 
 import {
   reduxForm,
@@ -30,9 +23,11 @@ import {
   initialize
 } from 'redux-form';
 
-// components
-import Background from './../../Common/Background';
+import {
+  confirm
+} from '../../../utils/cognito';
 
+// components
 import Input from './../../Common/Form/Input';
 
 // styles
@@ -47,6 +42,15 @@ import {
 import * as actions from './../../../actions/app';
 
 class Confirm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleConfirm = this.handleConfirm.bind(this);
+  }
+
+  async handleConfirm() {
+    await confirm(this.props.formValues.email, this.props.formValues.code);
+    this.props.history.push('/signin');
+  }
 
   async componentWillMount() {
     await this.props.dispatch(initialize('confirm', { email: '', code: '' }));
@@ -78,13 +82,7 @@ class Confirm extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
-                onClick={() =>
-                  this.props.confirm(
-                    this.props.formValues.email,
-                    this.props.formValues.code,
-                    this.props
-                  )
-                }
+                onClick={this.handleConfirm}
               >
                 Confirm
               </Button>

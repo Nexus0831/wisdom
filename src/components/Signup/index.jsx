@@ -14,13 +14,7 @@ import {
   withRouter
 } from 'react-router';
 
-import {
-  NavLink
-} from 'react-router-dom';
-
 import validate from './../../config/validates/signup';
-
-import { signup } from './../../actions/api/app.js';
 
 import {
   reduxForm,
@@ -30,8 +24,11 @@ import {
   initialize
 } from 'redux-form';
 
+import {
+  signUp
+} from '../../utils/cognito';
+
 // components
-import Background from './../Common/Background';
 
 import Input from './../Common/Form/Input';
 
@@ -47,6 +44,15 @@ import {
 import * as actions from './../../actions/app';
 
 class Signup extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSignup = this.handleSignup.bind(this);
+  }
+
+  async handleSignup() {
+    await signUp(this.props.formValues.email, this.props.formValues.password);
+    this.props.history.push('/signup/confirm');
+  }
 
   async componentWillMount() {
     await this.props.dispatch(initialize('signup', { email: '', password: '', confirmation: '' }));
@@ -88,12 +94,7 @@ class Signup extends React.Component {
             <FormRow>
               <Button
                 disabled={(this.props.valid) === false}
-                onClick={() =>
-                  this.props.signup(
-                    this.props.formValues.email,
-                    this.props.formValues.password,
-                    this.props
-                  )}
+                onClick={this.handleSignup}
               >
                 Signup
               </Button>

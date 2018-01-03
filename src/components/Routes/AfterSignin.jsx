@@ -2,11 +2,12 @@ import React from 'react';
 
 import {
   BrowserRouter as Router,
-  Switch
+  Switch,
+  Route
 } from 'react-router-dom';
 
 import {
-  Route
+  Redirect
 } from 'react-router';
 
 import Archives from './../Archive/index';
@@ -21,30 +22,42 @@ class Routes extends React.Component {
           path="/"
           exact
           render={
-            props => (
-              <Archives
-                {...props}
-              />
-            )
+            props => {
+              return (
+                this.props.app.isSignin ?
+                  <Archives
+                    {...props}
+                  />
+                  :
+                  <Redirect
+                    to='/signin'
+                  />
+              );
+            }
           }
           {...this.props}
-        >
-        </Route>
+        />
 
         {/*ArchiveCreate*/}
         <Route
           path="/archive/create"
           exact
           render={
-            props => (
-              <ArchiveCreate
-                {...props}
-              />
-            )
+            props => {
+              return (
+                this.props.app.isSignin ?
+                  <ArchiveCreate
+                    {...props}
+                  />
+                  :
+                  <Redirect
+                    to='/signin'
+                  />
+              );
+            }
           }
           {...this.props}
-        >
-        </Route>
+        />
       </Switch>
     );
   }
