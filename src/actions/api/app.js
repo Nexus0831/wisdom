@@ -15,7 +15,7 @@ Amplify.configure({
 });
 
 export const checkSession = () => {
-  const flag = Auth.currentAuthenticatedUser()
+  return Auth.currentAuthenticatedUser()
     .then(result => {
       // console.log(result.username);
       return true;
@@ -24,6 +24,4 @@ export const checkSession = () => {
       // console.log('error');
       return false;
     });
-
-  return flag;
 };

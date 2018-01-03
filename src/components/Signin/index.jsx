@@ -51,6 +51,7 @@ class Signin extends React.Component {
 
   async handleSignin() {
     await signIn(this.props.formValues.email, this.props.formValues.password);
+    await this.props.checkSession();
     this.props.history.push('/');
   }
 
