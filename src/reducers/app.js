@@ -4,7 +4,7 @@ import {
   handleActions
 } from 'redux-actions';
 
-import App from './../models/app';
+import App from '../models/app';
 
 const reducer = handleActions({
   [actions.checkSession](state, action) {

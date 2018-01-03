@@ -14,13 +14,7 @@ import {
   withRouter
 } from 'react-router';
 
-import {
-  NavLink
-} from 'react-router-dom';
-
 import validate from './../../config/validates/signup';
-
-import { signup } from './../../actions/api/app.js';
 
 import {
   reduxForm,
@@ -35,7 +29,6 @@ import {
 } from '../../utils/cognito';
 
 // components
-import Background from './../Common/Background';
 
 import Input from './../Common/Form/Input';
 

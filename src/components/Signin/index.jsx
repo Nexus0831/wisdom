@@ -14,10 +14,6 @@ import {
   withRouter
 } from 'react-router';
 
-import {
-  NavLink
-} from 'react-router-dom';
-
 import validate from './../../config/validates/signin';
 
 import {
@@ -33,8 +29,6 @@ import {
 } from '../../utils/cognito';
 
 // components
-import Background from './../Common/Background';
-
 import Input from './../Common/Form/Input';
 
 // styles

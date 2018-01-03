@@ -3,9 +3,13 @@ import {
   List
 } from 'immutable';
 
+const SigninUserRecord = Record({
+  username: ''
+});
+
 const AppState = Record({
-  isSignin: false,
-  userName: '',
+  signinUser: new SigninUserRecord(),
+  isSignin: true
 });
 
 class App extends AppState {

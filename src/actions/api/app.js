@@ -15,13 +15,15 @@ Amplify.configure({
 });
 
 export const checkSession = () => {
-  Auth.currentAuthenticatedUser()
-    .then((result) => {
+  const flag = Auth.currentAuthenticatedUser()
+    .then(result => {
       // console.log(result.username);
       return true;
     })
     .catch((error) => {
-      console.log('error');
+      // console.log('error');
       return false;
-    })
+    });
+
+  return flag;
 };

@@ -13,8 +13,6 @@ export const checkSession = createAction(
     const payload = {};
     try {
       payload.isSignin = await apis.checkSession();
-      console.log(await apis.checkSession());
-      console.log(payload.isSignin);
       return payload;
     } catch (error) {
       return payload;
