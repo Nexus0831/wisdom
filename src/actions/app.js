@@ -12,8 +12,9 @@ export const checkSession = createAction(
   async () => {
     const payload = {};
     try {
-      await apis.checkSession();
-      payload.isSignin = false;
+      payload.isSignin = await apis.checkSession();
+      console.log(await apis.checkSession());
+      console.log(payload.isSignin);
       return payload;
     } catch (error) {
       return payload;

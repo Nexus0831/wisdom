@@ -29,7 +29,7 @@ import {
 } from 'redux-form';
 
 import {
-  signin
+  signIn
 } from '../../utils/cognito';
 
 // components
@@ -56,7 +56,7 @@ class Signin extends React.Component {
   }
 
   async handleSignin() {
-    await signin(this.props.formValues.email, this.props.formValues.password);
+    await signIn(this.props.formValues.email, this.props.formValues.password);
     this.props.history.push('/');
   }
 

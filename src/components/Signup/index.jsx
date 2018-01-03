@@ -31,7 +31,7 @@ import {
 } from 'redux-form';
 
 import {
-  signup
+  signUp
 } from '../../utils/cognito';
 
 // components
@@ -57,7 +57,7 @@ class Signup extends React.Component {
   }
 
   async handleSignup() {
-    await signup(this.props.formValues.email, this.props.formValues.password);
+    await signUp(this.props.formValues.email, this.props.formValues.password);
     this.props.history.push('/signup/confirm');
   }
 

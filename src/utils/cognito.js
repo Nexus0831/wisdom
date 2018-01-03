@@ -14,7 +14,7 @@ Amplify.configure({
   }
 });
 
-export const signup = (email, password) => {
+export const signUp = (email, password) => {
   Auth.signUp(email, password)
     .then(() => {
       alert('登録メールアドレスに検証コードを送信しました。\n次の画面で検証コードを入力してください。');
@@ -36,7 +36,7 @@ export const confirm = (email, code) => {
     });
 };
 
-export const signin = (email, password) => {
+export const signIn = (email, password) => {
   Auth.signIn(email, password)
     .then(() => {
       alert('成功');
