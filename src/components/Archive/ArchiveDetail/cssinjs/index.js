@@ -197,7 +197,7 @@ export const globalStyles = injectGlobal`
             margin-bottom: 0; }
       
       img {
-        max-width: 100%; }
+        max-width: 50%; }
       
       span.frame {
         display: block;

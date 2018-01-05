@@ -52,7 +52,8 @@ class ArchiveDetail extends React.Component {
                 "## プレビューテスト\n" +
                 "### プレビューテスト\n" +
                 "#### プレビューテスト\n" +
-                "##### プレビューテスト")
+                "##### プレビューテスト\n" +
+                "![test](https://raw.githubusercontent.com/Nexus0831/wisdom/changeMenu/assets/zoltan.jpg)")
             }}
           />
         </MyContainer>

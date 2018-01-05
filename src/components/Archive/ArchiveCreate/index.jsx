@@ -235,7 +235,9 @@ class ArchiveCreate extends React.Component {
             </ToolBar>
             {
               this.props.archive.isMode === 'preview' ?
-                <FullPreviewArea>
+                <FullPreviewArea
+                  className="markdown-preview"
+                >
                   <span
                     dangerouslySetInnerHTML={{
                       __html: md.render(this.props.archive.markdown)
@@ -255,7 +257,9 @@ class ArchiveCreate extends React.Component {
                         onKeyDown={(e) => this.handleOnKeyDown(e)}
                       />
                     </EditorArea>
-                    <PreviewArea>
+                    <PreviewArea
+                      className="markdown-preview"
+                    >
                       <span
                         dangerouslySetInnerHTML={{
                           __html: md.render(this.props.archive.markdown)
