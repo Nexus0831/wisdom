@@ -43,7 +43,18 @@ class ArchiveDetail extends React.Component {
             gridColumn: "1 / 2"
           }}
         />
-        <MyContainer>
+        <MyContainer
+          className="markdown-preview"
+        >
+          <span
+            dangerouslySetInnerHTML={{
+              __html: md.render("# プレビューテスト\n" +
+                "## プレビューテスト\n" +
+                "### プレビューテスト\n" +
+                "#### プレビューテスト\n" +
+                "##### プレビューテスト")
+            }}
+          />
         </MyContainer>
       </div>
     );
