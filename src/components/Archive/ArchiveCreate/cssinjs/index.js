@@ -69,7 +69,7 @@ export const ToolIcon = styled(Icon)`
   }
   
   @media (max-width: 619px) {
-    ${props => props.mobile_none ? 'display: none !important' : ''}
+    ${props => props.mobile ? 'display: none !important' : ''}
   }
 `;
 

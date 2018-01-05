@@ -68,7 +68,7 @@ import {
 } from './cssinjs';
 
 import * as actions from './../../../actions/archive';
-import HeaderMenu from "./../../Common/MyHeaderMenu/index";
+import HeaderMenu from "../../Common/HeaderMenu/index";
 
 // ToDo: MarkDownプレビューのスタイル設定;
 class ArchiveCreate extends React.Component {
@@ -229,7 +229,7 @@ class ArchiveCreate extends React.Component {
                   onClick={this.props.divided}
                   size='big'
                   active={this.props.archive.isMode === 'divide' ? '#1AEF22': '#fff'}
-                  mobile_none
+                  mobile='none'
                 />
               </ModeArea>
             </ToolBar>
