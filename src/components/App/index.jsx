@@ -12,6 +12,9 @@ import {
   BrowserRouter
 } from 'react-router-dom';
 
+import NotificationsSystem from 'reapop';
+import theme from 'reapop-theme-wybo';
+
 import * as actions from './../../actions/app';
 import Routes from '../Routes';
 
@@ -19,11 +22,14 @@ import Routes from '../Routes';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
-        <Routes
-          {...this.props}
-        />
-      </BrowserRouter>
+      <div>
+        <BrowserRouter>
+          <Routes
+            {...this.props}
+          />
+        </BrowserRouter>
+        <NotificationsSystem theme={theme} />
+      </div>
     );
   }
 }

@@ -3,6 +3,8 @@ import {
   createAction
 } from 'redux-actions';
 
+import { addNotification as notify } from 'reapop';
+
 import * as actionName from './actionNames/app';
 
 import * as apis from './api/app';
@@ -17,5 +19,18 @@ export const checkSession = createAction(
     } catch (error) {
       return payload;
     }
+  }
+);
+
+export const openSnackbar = createAction(
+  actionName.OPEN_SNACK_BAR,
+  (m = '', s = 'info', t = 'Wisdom') => {
+    return (
+      notify({
+        title: t,
+        message: m,
+        status: s
+      })
+    );
   }
 );
