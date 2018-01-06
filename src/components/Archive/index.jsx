@@ -60,6 +60,32 @@ import HeaderMenu from "../Common/HeaderMenu/index";
 // ToDo: スマホ版でヘッダーのフォントとモーダル調整
 class Archives extends React.Component {
   render() {
+    const testArchive = [
+      {title: 'firstTitle', date: '2017/12/24 13:35', text: '#Python\n' +
+      '\n' +
+      '                ## 準備\n' +
+      '                Pythonのインストール方法を記録しておく\n' +
+      '                ちなみにmac版である。\n' +
+      '                この圧倒的Pythonista力！！\n' +
+      '                映画インターンシップを見たい\n' +
+      '                Amazonビデオで視聴しようと思う。'},
+      {title: 'secondTitle', date: '2017/12/24 13:35', text: '#Python\n' +
+      '\n' +
+      '                ## 準備\n' +
+      '                Pythonのインストール方法を記録しておく\n' +
+      '                ちなみにmac版である。\n' +
+      '                この圧倒的Pythonista力！！\n' +
+      '                映画インターンシップを見たい\n' +
+      '                Amazonビデオで視聴しようと思う。'},
+      {title: 'therdTitle', date: '2017/12/24 13:35', text: '#Python\n' +
+      '\n' +
+      '                ## 準備\n' +
+      '                Pythonのインストール方法を記録しておく\n' +
+      '                ちなみにmac版である。\n' +
+      '                この圧倒的Pythonista力！！\n' +
+      '                映画インターンシップを見たい\n' +
+      '                Amazonビデオで視聴しようと思う。'},
+    ];
     return (
       <div id="home">
 
@@ -87,71 +113,70 @@ class Archives extends React.Component {
               </ArchiveCreate>
             </Link>
 
-
-            <ArchiveCard>
-              <Title>
-                Pythonインストール
-              </Title>
-              <CreateDate>
-                {/*2017年12月24日 13時35分*/}
-                2017/12/24 13:35
-              </CreateDate>
-              <Text>
-                #Python
-
-                ## 準備
-                Pythonのインストール方法を記録しておく
-                ちなみにmac版である。
-                この圧倒的Pythonista力！！
-                映画インターンシップを見たい
-                Amazonビデオで視聴しようと思う。
-              </Text>
-              <ButtonContainer>
-                <Button
-                  row="2 / 3"
-                  column="2 / 3"
+            {
+              testArchive.map((e, index) => {
+                return (
+                <ArchiveCard
+                  key={index}
                 >
-                  edit
-                </Button>
-                <Modal
-                  trigger={
+                  <Title>
+                    {e.title}
+                  </Title>
+                  <CreateDate>
+                    {e.date}
+                  </CreateDate>
+                  <Text>
+                    {e.text}
+                  </Text>
+                  <ButtonContainer>
                     <Button
-                      danger
                       row="2 / 3"
-                      column="4 / 5"
-                      onClick={() => this.props.modalAction(true)}
+                      column="2 / 3"
                     >
-                      delete
+                      edit
                     </Button>
-                  }
-                  basic
-                  size="small"
-                  open={this.props.archive.isOpen}
-                >
-                  <Header content="confirmation"/>
-                  <Modal.Content>
-                    <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                  </Modal.Content>
-                  <Modal.Actions>
-                    <Button
-                      style={{
-                        marginRight: '20px'
-                      }}
-                      onClick={() => this.props.modalAction(false)}
+                    <Modal
+                      trigger={
+                        <Button
+                          danger
+                          row="2 / 3"
+                          column="4 / 5"
+                          onClick={() => this.props.modalAction(true, index)}
+                        >
+                          delete
+                        </Button>
+                      }
+                      basic
+                      size="small"
+                      open={this.props.archive.isOpens[index]}
                     >
-                      no
-                    </Button>
-                    <Button
-                      danger
-                      onClick={() => this.props.modalAction(false)}
-                    >
-                      yes
-                    </Button>
-                  </Modal.Actions>
-                </Modal>
+                      <Header content="confirmation"/>
+                      <Modal.Content>
+                        <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+                      </Modal.Content>
+                      <Modal.Actions>
+                        <Button
+                          style={{
+                            marginRight: '20px'
+                          }}
+                          onClick={() => this.props.modalAction(false, index)}
+                        >
+                          no
+                        </Button>
+                        <Button
+                          danger
+                          onClick={() => this.props.modalAction(false, index)}
+                        >
+                          yes
+                        </Button>
+                      </Modal.Actions>
+                    </Modal>
 
-              </ButtonContainer>
-            </ArchiveCard>
+                  </ButtonContainer>
+                </ArchiveCard>
+                )
+              })
+            }
 
           </MyGrid>
         </MyContainer>

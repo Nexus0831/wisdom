@@ -352,14 +352,15 @@ export const globalStyles = injectGlobal`
           margin-bottom: 0; }
       
       table {
-        padding: 0; }
-        table tr {
+        padding: 0; 
+        border-collapse: collapse;
+      }
+      
+      table tr {
           border-top: 1px solid #cccccc;
-          background-color: white;
+          background-color: rgba(0, 0, 0, 0);
           margin: 0;
           padding: 0; }
-          table tr:nth-child(2n) {
-            background-color: #f8f8f8; }
           table tr th {
             font-weight: bold;
             border: 1px solid #cccccc;
@@ -377,7 +378,7 @@ export const globalStyles = injectGlobal`
             margin-bottom: 0; }
       
       img {
-        max-width: 100%; }
+        max-width: 70%; }
       
       span.frame {
         display: block;
