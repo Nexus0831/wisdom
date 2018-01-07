@@ -17,11 +17,17 @@ Amplify.configure({
 export const checkSession = () => {
   return Auth.currentAuthenticatedUser()
     .then(result => {
-      // console.log(result.username);
-      return true;
+      const results = {
+        userName: result.username,
+        isSignin: true
+      };
+      return results;
     })
     .catch((error) => {
-      // console.log('error');
-      return false;
+      const results = {
+        userName: '',
+        isSignin: false
+      };
+      return results;
     });
 };

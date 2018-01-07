@@ -8,6 +8,8 @@ import {
 } from 'redux-form';
 
 import * as actionName from './actionNames/archive';
+import * as apis from './api/archive';
+import * as app from './app';
 
 export const modalAction = createAction(
   actionName.IS_OPEN,
@@ -17,6 +19,20 @@ export const modalAction = createAction(
     try {
       stack[index] = is_opne;
       payload.isOpens = stack;
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveCreate = createAction(
+  actionName.ARCHIVE_CREATE,
+  async (values) => {
+    const payload = {};
+    try {
+      await apis.archiveCreate(values);
+      payload.is_create = true;
       return payload;
     } catch (error) {
       return payload;

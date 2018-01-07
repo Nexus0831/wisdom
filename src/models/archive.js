@@ -7,7 +7,8 @@ import {
 const ArchiveState = Record({
   markdown: '',
   isMode: 'editor',
-  isOpens: List([]).toArray()
+  isOpens: List([]).toArray(),
+  isCreate: false
 });
 
 class Archive extends ArchiveState {
@@ -19,6 +20,13 @@ class Archive extends ArchiveState {
     return newState
   }
 
+  archiveCreate(state, payload) {
+    const newState = state.update('isCreate',
+      () => {
+        return payload.is_create;
+      });
+    return newState
+  }
 
   realTimePreview(state, payload) {
     const newState = state.update('markdown',

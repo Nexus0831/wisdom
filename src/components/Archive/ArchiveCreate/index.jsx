@@ -117,7 +117,7 @@ class ArchiveCreate extends React.Component {
 
   async componentWillMount() {
     // ToDo: reduxの値を初期化
-    await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
+    await this.props.dispatch(initialize('archiveForm', { markdown: '' }));
     await this.props.fullEditor();
     await this.props.realTimePreview('');
   }
@@ -284,7 +284,7 @@ class ArchiveCreate extends React.Component {
 
           <SubmitArea>
             <SubmitButton
-              // onClick={this.handleChange}
+              onClick={this.props.archiveCreate}
             >
               Submit
             </SubmitButton>
@@ -297,8 +297,8 @@ class ArchiveCreate extends React.Component {
 
 ArchiveCreate = connect(
   state => ({
-    formValues: getFormValues('archiveCreate')(state),
-    valid: isValid('archiveCreate')(state)
+    formValues: getFormValues('archiveForm')(state),
+    valid: isValid('archiveForm')(state)
   })
 )(ArchiveCreate);
 
@@ -320,6 +320,6 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({
-    form: 'archiveCreate',
+    form: 'archiveForm',
     validate
   })(ArchiveCreate)));

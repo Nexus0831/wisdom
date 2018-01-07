@@ -3,16 +3,20 @@ import {
   List
 } from 'immutable';
 
-const SigninUserRecord = Record({
-  username: ''
-});
-
 const AppState = Record({
-  signinUser: new SigninUserRecord(),
+  userName: '',
   isSignin: true
 });
 
 class App extends AppState {
+  readSigninUser(state, payload) {
+    const newState = state.update('userName',
+      () => {
+        return payload.userName;
+      });
+    return newState
+  }
+
   checkSession(state, payload) {
     const newState = state.update('isSignin',
       () => {
