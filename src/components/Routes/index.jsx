@@ -16,12 +16,12 @@ import Background from './../Common/Background';
 class Routes extends React.Component {
   // 初回起動時の共通処理
   async componentWillMount() {
-    await this.props.checkSession();
+    await this.props.checkSession(this.props);
   }
 
   // 画面遷移した際の共通処理
   async componentWillUpdate() {
-    await this.props.checkSession();
+    await this.props.checkSession(this.props);
   }
 
   render() {

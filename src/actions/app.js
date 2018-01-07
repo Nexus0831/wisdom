@@ -11,10 +11,27 @@ import * as apis from './api/app';
 
 export const checkSession = createAction(
   actionName.CHECK_SESSION,
-  async () => {
+  async (props) => {
+    const payload = {
+      isSignin: false
+    };
+    try {
+      const result = await apis.checkSession();
+      props.readSigninUser(result.userName);
+      payload.isSignin = result.isSignin;
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const readSigninUser = createAction(
+  actionName.READ_SIGNIN_USER,
+  async (userName) => {
     const payload = {};
     try {
-      payload.isSignin = await apis.checkSession();
+      payload.userName = userName;
       return payload;
     } catch (error) {
       return payload;

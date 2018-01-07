@@ -5,6 +5,10 @@ import Amplify, {
 
 import * as aws from './../config/aws';
 
+import {
+  assets
+} from './../config/urls';
+
 Amplify.configure({
   Auth: {
     region: aws.AWS_REGION,
@@ -39,7 +43,7 @@ export const confirm = (email, code) => {
 export const signIn = (email, password) => {
   Auth.signIn(email, password)
     .then(() => {
-      alert('成功');
+      localStorage.setItem('background-url', assets[Math.floor( Math.random() * 3 )])
     })
     .catch(() => {
       alert('エラーが発生しました');

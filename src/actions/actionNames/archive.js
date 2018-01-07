@@ -7,3 +7,4 @@ export const AUTOMATION = 'AUTOMATION';
 export const LINE_FEED = 'LINE_FEED';
 export const TAB_INPUT = 'TAB_INPUT';
 export const IS_OPEN = 'IS_OPEN';
+export const ARCHIVE_CREATE = 'ARCHIVE_CREATE';

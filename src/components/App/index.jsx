@@ -22,7 +22,11 @@ import Routes from '../Routes';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div
+        style={{
+          height: '100%'
+        }}
+      >
         <BrowserRouter>
           <Routes
             {...this.props}

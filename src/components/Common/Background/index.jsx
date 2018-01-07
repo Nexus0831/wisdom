@@ -12,7 +12,7 @@ class Background extends React.Component {
   render() {
     return(
         <BackgroundImage
-          src={assets[Math.floor( Math.random() * 3 )]}
+          src={localStorage.getItem('bacground-url') ? localStorage.getItem('bacground-url') : assets[0]}
         >
           <BackgroundEffect>
           </BackgroundEffect>

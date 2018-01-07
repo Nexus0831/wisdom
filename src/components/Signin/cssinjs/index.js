@@ -90,7 +90,7 @@ export const CustomLink = styled(Link)`
   
   &:hover {
     color: #37D2FF;
-  text-decoration: underline;
+    text-decoration: underline;
   }
 `;
 

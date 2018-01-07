@@ -68,7 +68,7 @@ import {
 } from './cssinjs';
 
 import * as actions from './../../../actions/archive';
-import HeaderMenu from "./../../Common/MyHeaderMenu/index";
+import HeaderMenu from "../../Common/HeaderMenu/index";
 
 // ToDo: MarkDownプレビューのスタイル設定;
 class ArchiveCreate extends React.Component {
@@ -117,7 +117,7 @@ class ArchiveCreate extends React.Component {
 
   async componentWillMount() {
     // ToDo: reduxの値を初期化
-    await this.props.dispatch(initialize('archiveCreate', { markdown: '' }));
+    await this.props.dispatch(initialize('archiveForm', { markdown: '' }));
     await this.props.fullEditor();
     await this.props.realTimePreview('');
   }
@@ -229,13 +229,15 @@ class ArchiveCreate extends React.Component {
                   onClick={this.props.divided}
                   size='big'
                   active={this.props.archive.isMode === 'divide' ? '#1AEF22': '#fff'}
-                  mobile_none
+                  mobile='none'
                 />
               </ModeArea>
             </ToolBar>
             {
               this.props.archive.isMode === 'preview' ?
-                <FullPreviewArea>
+                <FullPreviewArea
+                  className="markdown-preview"
+                >
                   <span
                     dangerouslySetInnerHTML={{
                       __html: md.render(this.props.archive.markdown)
@@ -255,7 +257,9 @@ class ArchiveCreate extends React.Component {
                         onKeyDown={(e) => this.handleOnKeyDown(e)}
                       />
                     </EditorArea>
-                    <PreviewArea>
+                    <PreviewArea
+                      className="markdown-preview"
+                    >
                       <span
                         dangerouslySetInnerHTML={{
                           __html: md.render(this.props.archive.markdown)
@@ -280,7 +284,7 @@ class ArchiveCreate extends React.Component {
 
           <SubmitArea>
             <SubmitButton
-              // onClick={this.handleChange}
+              onClick={this.props.archiveCreate}
             >
               Submit
             </SubmitButton>
@@ -293,8 +297,8 @@ class ArchiveCreate extends React.Component {
 
 ArchiveCreate = connect(
   state => ({
-    formValues: getFormValues('archiveCreate')(state),
-    valid: isValid('archiveCreate')(state)
+    formValues: getFormValues('archiveForm')(state),
+    valid: isValid('archiveForm')(state)
   })
 )(ArchiveCreate);
 
@@ -316,6 +320,6 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({
-    form: 'archiveCreate',
+    form: 'archiveForm',
     validate
   })(ArchiveCreate)));

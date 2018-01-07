@@ -1,2 +1,3 @@
 export const CHECK_SESSION = 'CHECK_SESSION';
 export const OPEN_SNACK_BAR = 'OPEN_SNACK_BAR';
+export const READ_SIGNIN_USER = 'READ_SIGNIN_USER';
