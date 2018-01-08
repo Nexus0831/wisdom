@@ -167,7 +167,7 @@ export const SubmitButton = styled.button`
   
   &:disabled {
     color: gray !important;
-    border: 3px solid gray !important;
+    border: 1px solid gray !important;
     background-color: rgba(0, 0, 0, 0);
     cursor: auto;
   }

@@ -16,9 +16,14 @@ Amplify.configure({
 });
 
 const path = "/wisdom";
+const strings = "abcdefghijklmnopqrstuvwxyz0123456789";
 
 // CRUD
 export const archiveCreate = (values) => {
+  let hash = '';
+  for(let i=0; i<15; i++){
+    hash += strings[Math.floor(Math.random()*strings.length)];
+  }
   const date = new Date();
   const created_at = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
   const option = {
@@ -28,7 +33,8 @@ export const archiveCreate = (values) => {
     body: {
       TableName: aws.AWS_TABLE_NAME,
       Item: {
-        key: 2,
+        id: hash,
+        createUser: values.userName,
         title: values.title,
         date: created_at,
         text: values.text
@@ -37,7 +43,7 @@ export const archiveCreate = (values) => {
   };
   return API.post(aws.AWS_NAME, path, option)
     .then(result => {
-
+      console.log('good');
     })
     .catch((error) => {
       console.log('error');

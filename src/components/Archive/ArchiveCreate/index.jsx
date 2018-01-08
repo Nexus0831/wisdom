@@ -11,6 +11,10 @@ var md = new MarkdownIt({
 // });
 
 import {
+  Record
+} from 'immutable';
+
+import {
   connect
 } from 'react-redux';
 
@@ -72,6 +76,10 @@ import HeaderMenu from "../../Common/HeaderMenu/index";
 
 // ToDo: MarkDownプレビューのスタイル設定;
 class ArchiveCreate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   async handleMarkdownChange() {
     await new Promise(resolve => setTimeout(resolve, 6));
@@ -120,6 +128,16 @@ class ArchiveCreate extends React.Component {
     await this.props.dispatch(initialize('archiveForm', { markdown: '' }));
     await this.props.fullEditor();
     await this.props.realTimePreview('');
+  }
+
+  handleSubmit() {
+    const values = {
+      title: this.props.formValues.title,
+      text: this.props.formValues.markdown,
+      userName: this.props.app.userName
+    };
+    this.props.archiveCreate(values);
+    this.props.history.push('/');
   }
 
   render() {
@@ -284,7 +302,8 @@ class ArchiveCreate extends React.Component {
 
           <SubmitArea>
             <SubmitButton
-              onClick={this.props.archiveCreate}
+              onClick={this.handleSubmit}
+              disabled={(this.props.valid) === false}
             >
               Submit
             </SubmitButton>
@@ -304,7 +323,8 @@ ArchiveCreate = connect(
 
 const mapStateToProps = state => {
   return {
-    archive: state.archive
+    archive: state.archive,
+    app: state.app
   };
 };
 
