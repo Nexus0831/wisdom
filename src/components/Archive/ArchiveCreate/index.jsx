@@ -137,7 +137,7 @@ class ArchiveCreate extends React.Component {
       userName: this.props.app.userName
     };
     this.props.archiveCreate(values);
-    this.props.history.push('/');
+    // this.props.history.push('/');
   }
 
   render() {

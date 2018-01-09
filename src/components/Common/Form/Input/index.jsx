@@ -26,8 +26,12 @@ const Input = (props) => {
       />
       {
         props.meta.touched
-        && props.meta.error
-        && <ValidateError>{props.meta.error}</ValidateError>
+        &&
+        props.meta.error
+        &&
+        <ValidateError>
+          {props.meta.error}
+        </ValidateError>
       }
     </span>
   );
