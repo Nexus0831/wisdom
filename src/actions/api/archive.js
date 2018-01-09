@@ -20,36 +20,35 @@ const strings = "abcdefghijklmnopqrstuvwxyz0123456789";
 
 // CRUD
 export const archiveCreate = (values) => {
-  console.log(archiveRead());
-  // let hash = '';
-  // for(let i=0; i<15; i++){
-  //   hash += strings[Math.floor(Math.random()*strings.length)];
-  // }
-  // const date = new Date();
-  // const created_at = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
-  // const option = {
-  //   headers: {
-  //     'Content-Type': 'application/json; charset=utf-8'
-  //   },
-  //   body: {
-  //     TableName: aws.AWS_TABLE_NAME,
-  //     Item: {
-  //       id: hash,
-  //       createUser: values.userName,
-  //       title: values.title,
-  //       date: created_at,
-  //       text: values.text
-  //     }
-  //   }
-  // };
-  // return API.post(aws.AWS_NAME, path, option)
-  //   .then(result => {
-  //     console.log('good');
-  //   })
-  //   .catch((error) => {
-  //     console.log('error');
-  //     console.log(error);
-  //   });
+  let hash = '';
+  for(let i=0; i<15; i++){
+    hash += strings[Math.floor(Math.random()*strings.length)];
+  }
+  const date = new Date();
+  const created_at = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+  const option = {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    body: {
+      TableName: aws.AWS_TABLE_NAME,
+      Item: {
+        id: hash,
+        createUser: values.userName,
+        title: values.title,
+        date: created_at,
+        text: values.text
+      }
+    }
+  };
+  return API.post(aws.AWS_NAME, path, option)
+    .then(result => {
+      console.log('good');
+    })
+    .catch((error) => {
+      console.log('error');
+      console.log(error);
+    });
 };
 
 export const archiveRead = () => {
