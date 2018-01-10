@@ -40,6 +40,19 @@ export const archiveCreate = createAction(
   }
 );
 
+export const archiveRead = createAction(
+  actionName.ARCHIVE_READ,
+  async (userName) => {
+    const payload = {};
+    try {
+      payload.archives = await apis.archiveRead(userName);
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const realTimePreview = createAction(
   actionName.REAL_TIME_PREVIEW,
   async (text) => {

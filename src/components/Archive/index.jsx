@@ -60,32 +60,7 @@ import HeaderMenu from "../Common/HeaderMenu/index";
 // ToDo: スマホ版でヘッダーのフォントとモーダル調整
 class Archives extends React.Component {
   render() {
-    const testArchive = [
-      {title: 'firstTitle', date: '2017/12/24 13:35', text: '#Python\n' +
-      '\n' +
-      '                ## 準備\n' +
-      '                Pythonのインストール方法を記録しておく\n' +
-      '                ちなみにmac版である。\n' +
-      '                この圧倒的Pythonista力！！\n' +
-      '                映画インターンシップを見たい\n' +
-      '                Amazonビデオで視聴しようと思う。'},
-      {title: 'secondTitle', date: '2017/12/24 13:35', text: '#Python\n' +
-      '\n' +
-      '                ## 準備\n' +
-      '                Pythonのインストール方法を記録しておく\n' +
-      '                ちなみにmac版である。\n' +
-      '                この圧倒的Pythonista力！！\n' +
-      '                映画インターンシップを見たい\n' +
-      '                Amazonビデオで視聴しようと思う。'},
-      {title: 'therdTitle', date: '2017/12/24 13:35', text: '#Python\n' +
-      '\n' +
-      '                ## 準備\n' +
-      '                Pythonのインストール方法を記録しておく\n' +
-      '                ちなみにmac版である。\n' +
-      '                この圧倒的Pythonista力！！\n' +
-      '                映画インターンシップを見たい\n' +
-      '                Amazonビデオで視聴しようと思う。'},
-    ];
+    this.props.archiveRead(this.props.app.userName);
     return (
       <div id="home">
 
@@ -114,19 +89,19 @@ class Archives extends React.Component {
             </Link>
 
             {
-              testArchive.map((e, index) => {
+              this.props.archive.archives.map((item, index) => {
                 return (
                 <ArchiveCard
                   key={index}
                 >
                   <Title>
-                    {e.title}
+                    {item.title}
                   </Title>
                   <CreateDate>
-                    {e.date}
+                    {item.date}
                   </CreateDate>
                   <Text>
-                    {e.text}
+                    {item.text}
                   </Text>
                   <ButtonContainer>
                     <Button
@@ -194,7 +169,8 @@ Archives = connect(
 
 const mapStateToProps = state => {
   return {
-    archive: state.archive
+    archive: state.archive,
+    app: state.app
   };
 };
 

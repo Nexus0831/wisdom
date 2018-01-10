@@ -17,7 +17,7 @@ export const checkSession = createAction(
     };
     try {
       const result = await apis.checkSession();
-      props.readSigninUser(result.userName);
+      await props.readSigninUser(result.userName);
       payload.isSignin = result.isSignin;
       return payload;
     } catch (error) {

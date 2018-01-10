@@ -124,7 +124,6 @@ class ArchiveCreate extends React.Component {
   }
 
   async componentWillMount() {
-    // ToDo: reduxの値を初期化
     await this.props.dispatch(initialize('archiveForm', { markdown: '' }));
     await this.props.fullEditor();
     await this.props.realTimePreview('');
@@ -137,7 +136,7 @@ class ArchiveCreate extends React.Component {
       userName: this.props.app.userName
     };
     this.props.archiveCreate(values);
-    // this.props.history.push('/');
+    this.props.history.push('/');
   }
 
   render() {

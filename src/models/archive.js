@@ -8,7 +8,8 @@ const ArchiveState = Record({
   markdown: '',
   isMode: 'editor',
   isOpens: List([]).toArray(),
-  isCreate: false
+  isCreate: false,
+  archives: List([]).toArray()
 });
 
 class Archive extends ArchiveState {
@@ -24,6 +25,14 @@ class Archive extends ArchiveState {
     const newState = state.update('isCreate',
       () => {
         return payload.is_create;
+      });
+    return newState
+  }
+
+  archiveRead(state, payload) {
+    const newState = state.update('archives',
+      () => {
+        return payload.archives;
       });
     return newState
   }

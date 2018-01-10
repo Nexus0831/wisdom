@@ -25,7 +25,11 @@ export const archiveCreate = (values) => {
     hash += strings[Math.floor(Math.random()*strings.length)];
   }
   const date = new Date();
-  const created_at = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+  const created_at = `${date.getFullYear()}/
+                      ${date.getMonth() + 1}/
+                      ${date.getDate()} 
+                      ${date.getHours()}:
+                      ${("00"+date.getMinutes()).slice(-2)}`;
   const option = {
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
@@ -43,19 +47,18 @@ export const archiveCreate = (values) => {
   };
   return API.post(aws.AWS_NAME, path, option)
     .then(result => {
-      console.log('good');
+      return true
     })
     .catch((error) => {
-      console.log('error');
-      console.log(error);
+      return false
     });
 };
 
-export const archiveRead = () => {
+export const archiveRead = (userName) => {
   return API.get(aws.AWS_NAME, path)
     .then(result => {
       const items = result.Items.filter(item => {
-        return (item.title === 'Pythonインストール')
+        return (item.createUser === userName)
       });
       return items
     })

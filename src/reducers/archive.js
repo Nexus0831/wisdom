@@ -13,6 +13,9 @@ const reducer = handleActions({
   [actions.archiveCreate](state, action) {
     return state.archiveCreate(state, action.payload);
   },
+  [actions.archiveRead](state, action) {
+    return state.archiveRead(state, action.payload);
+  },
   [actions.realTimePreview](state, action) {
     return state.realTimePreview(state, action.payload);
   },
