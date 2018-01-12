@@ -16,6 +16,12 @@ const reducer = handleActions({
   [actions.archiveRead](state, action) {
     return state.archiveRead(state, action.payload);
   },
+  [actions.resultInit](state, action) {
+    return state.resultInit(state, action.payload);
+  },
+  [actions.archiveSearch](state, action) {
+    return state.archiveSearch(state, action.payload);
+  },
   [actions.realTimePreview](state, action) {
     return state.realTimePreview(state, action.payload);
   },

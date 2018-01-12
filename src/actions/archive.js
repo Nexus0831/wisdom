@@ -53,6 +53,38 @@ export const archiveRead = createAction(
   }
 );
 
+export const resultInit = createAction(
+  actionName.RESULT_INIT,
+  async (archives) => {
+    const payload = {};
+    try {
+      payload.results = archives;
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveSearch = createAction(
+  actionName.ARCHIVE_SEARCH,
+  async (archives, word) => {
+    const payload = {};
+    try {
+      if(word.length !== 0) {
+        payload.archives = archives.filter(item => {
+          return (item.title.indexOf(word) !== -1)
+        }) ;
+      } else {
+        payload.archives = archives;
+      }
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const realTimePreview = createAction(
   actionName.REAL_TIME_PREVIEW,
   async (text) => {

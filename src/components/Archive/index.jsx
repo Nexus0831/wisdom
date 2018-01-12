@@ -27,7 +27,8 @@ import {
   reduxForm,
   Field,
   getFormValues,
-  isValid
+  isValid,
+  initialize
 } from 'redux-form';
 
 // components
@@ -59,8 +60,23 @@ import HeaderMenu from "../Common/HeaderMenu/index";
 
 // ToDo: スマホ版でヘッダーのフォントとモーダル調整
 class Archives extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  async handleSearch() {
+    await new Promise(resolve => setTimeout(resolve, 6));
+    await this.props.archiveSearch(this.props.archive.archives, this.props.formValues.keyword)
+  }
+
+  async componentWillMount() {
+    await this.props.dispatch(initialize('home', { keyword: '' }));
+    await this.props.archiveRead(this.props.app.userName);
+    await this.props.resultInit(this.props.archive.archives);
+  }
+
   render() {
-    this.props.archiveRead(this.props.app.userName);
     return (
       <div id="home">
 
@@ -76,6 +92,7 @@ class Archives extends React.Component {
               name='keyword'
               placeholder='search...'
               component={Input}
+              onChange={this.handleSearch}
             />
           </SearchForm>
 
@@ -89,7 +106,7 @@ class Archives extends React.Component {
             </Link>
 
             {
-              this.props.archive.archives.map((item, index) => {
+              this.props.archive.results.map((item, index) => {
                 return (
                 <ArchiveCard
                   key={index}

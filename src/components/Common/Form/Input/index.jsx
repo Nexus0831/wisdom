@@ -9,6 +9,10 @@ import {
 
 // pure function
 const Input = (props) => {
+  const changeToggle = (e) => {
+    props.input.onChange(e.target.value);
+  };
+
   return (
     <span
       id="input"
@@ -18,7 +22,7 @@ const Input = (props) => {
         value={props.input.value}
         label={props.label}
         onBlur={() => props.input.onBlur(props.value)}
-        onChange={props.input.onChange}
+        onChange={changeToggle}
         style={props.style}
         className={props.className}
         type={props.type}
