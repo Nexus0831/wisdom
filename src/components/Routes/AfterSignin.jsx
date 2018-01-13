@@ -62,7 +62,7 @@ class Routes extends React.Component {
 
         {/* ArchiveDetail */}
         <Route
-          path="/archive/detail"
+          path="/archive/:id"
           exact
           render={
             props => {

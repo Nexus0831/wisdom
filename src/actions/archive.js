@@ -55,7 +55,7 @@ export const archiveRead = createAction(
 
 export const resultInit = createAction(
   actionName.RESULT_INIT,
-  async (archives) => {
+  (archives) => {
     const payload = {};
     try {
       payload.results = archives;
@@ -78,6 +78,21 @@ export const archiveSearch = createAction(
       } else {
         payload.archives = archives;
       }
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveDetail = createAction(
+  actionName.ARCHIVE_DETAIL,
+  (archives, id) => {
+    const payload = {};
+    try {
+      payload.archive = archives.filter(item => {
+        return (item.id === id)
+      })[0];
       return payload;
     } catch (error) {
       return payload;

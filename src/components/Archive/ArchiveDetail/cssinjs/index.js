@@ -12,6 +12,23 @@ export const MyContainer = styled.div`
   height: 100%;
 `;
 
+export const Title = styled.div`
+  width: 100%;
+  color: white;
+  font-size: 54px;
+  text-align: center;
+  padding-bottom: 30px;
+`;
+
+export const Date = styled.div`
+  width: 100%;
+  color: white;
+  font-family: "Helvetica Neue";
+  font-weight: 200;
+  font-size: 30px;
+  text-align: center;
+`;
+
 export const globalStyles = injectGlobal`
   #archive-detail {
     display: grid;

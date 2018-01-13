@@ -11,3 +11,4 @@ export const ARCHIVE_CREATE = 'ARCHIVE_CREATE';
 export const ARCHIVE_READ = 'ARCHIVE_READ';
 export const ARCHIVE_SEARCH = 'ARCHIVE_SEARCH';
 export const RESULT_INIT = 'RESULT_INIT';
+export const ARCHIVE_DETAIL = 'ARCHIVE_DETAIL';

@@ -73,10 +73,76 @@ class Archives extends React.Component {
   async componentWillMount() {
     await this.props.dispatch(initialize('home', { keyword: '' }));
     await this.props.archiveRead(this.props.app.userName);
-    await this.props.resultInit(this.props.archive.archives);
+    await this.props.resultInit(this.props.archive.datas);
   }
 
   render() {
+    const archives = this.props.archive.results.map((item, index) => {
+      return (
+          <ArchiveCard
+            key={index}
+          >
+            <Link
+              to={`/archive/${item.id}`}
+            >
+            <Title>
+              {item.title}
+            </Title>
+            <CreateDate>
+              {item.date}
+            </CreateDate>
+            <Text>
+              {item.text}
+            </Text>
+            </Link>
+            <ButtonContainer>
+              <Button
+                row="2 / 3"
+                column="2 / 3"
+              >
+                edit
+              </Button>
+              <Modal
+                trigger={
+                  <Button
+                    danger
+                    row="2 / 3"
+                    column="4 / 5"
+                    onClick={() => this.props.modalAction(true, index)}
+                  >
+                    delete
+                  </Button>
+                }
+                basic
+                size="small"
+                open={this.props.archive.isOpens[index]}
+              >
+                <Header content="confirmation"/>
+                <Modal.Content>
+                  <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button
+                    style={{
+                      marginRight: '20px'
+                    }}
+                    onClick={() => this.props.modalAction(false, index)}
+                  >
+                    No
+                  </Button>
+                  <Button
+                    danger
+                    onClick={() => this.props.modalAction(false, index)}
+                  >
+                    Yes
+                  </Button>
+                </Modal.Actions>
+              </Modal>
+            </ButtonContainer>
+          </ArchiveCard>
+      )
+    });
+
     return (
       <div id="home">
 
@@ -104,72 +170,7 @@ class Archives extends React.Component {
                 Create Archive
               </ArchiveCreate>
             </Link>
-
-            {
-              this.props.archive.results.map((item, index) => {
-                return (
-                <ArchiveCard
-                  key={index}
-                >
-                  <Title>
-                    {item.title}
-                  </Title>
-                  <CreateDate>
-                    {item.date}
-                  </CreateDate>
-                  <Text>
-                    {item.text}
-                  </Text>
-                  <ButtonContainer>
-                    <Button
-                      row="2 / 3"
-                      column="2 / 3"
-                    >
-                      edit
-                    </Button>
-                    <Modal
-                      trigger={
-                        <Button
-                          danger
-                          row="2 / 3"
-                          column="4 / 5"
-                          onClick={() => this.props.modalAction(true, index)}
-                        >
-                          delete
-                        </Button>
-                      }
-                      basic
-                      size="small"
-                      open={this.props.archive.isOpens[index]}
-                    >
-                      <Header content="confirmation"/>
-                      <Modal.Content>
-                        <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                      </Modal.Content>
-                      <Modal.Actions>
-                        <Button
-                          style={{
-                            marginRight: '20px'
-                          }}
-                          onClick={() => this.props.modalAction(false, index)}
-                        >
-                          no
-                        </Button>
-                        <Button
-                          danger
-                          onClick={() => this.props.modalAction(false, index)}
-                        >
-                          yes
-                        </Button>
-                      </Modal.Actions>
-                    </Modal>
-
-                  </ButtonContainer>
-                </ArchiveCard>
-                )
-              })
-            }
-
+            {archives}
           </MyGrid>
         </MyContainer>
       </div>
