@@ -99,6 +99,7 @@ class Archives extends React.Component {
               <Button
                 row="2 / 3"
                 column="2 / 3"
+                onClick={() => this.props.history.push(`/archive/edit/${item.id}`)}
               >
                 edit
               </Button>

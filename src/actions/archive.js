@@ -53,6 +53,19 @@ export const archiveRead = createAction(
   }
 );
 
+export const archiveEdit = createAction(
+  actionName.ARCHIVE_EDIT,
+  async (values) => {
+    const payload = {};
+    try {
+      payload.is_edited = await apis.archiveEdit(values);
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const resultInit = createAction(
   actionName.RESULT_INIT,
   (archives) => {
