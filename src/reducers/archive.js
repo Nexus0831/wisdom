@@ -19,6 +19,9 @@ const reducer = handleActions({
   [actions.archiveEdit](state, action) {
     return state.archiveEdit(state, action.payload);
   },
+  [actions.archiveDelete](state, action) {
+    return state.archiveDelete(state, action.payload);
+  },
   [actions.resultInit](state, action) {
     return state.resultInit(state, action.payload);
   },

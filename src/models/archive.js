@@ -10,6 +10,7 @@ const ArchiveState = Record({
   isOpens: List([]).toArray(),
   isCreate: false,
   isEdited: false,
+  isDelete: false,
   datas: List([]).toArray(),
   results: List([]).toArray(),
   data: List([]).toObject()
@@ -44,6 +45,14 @@ class Archive extends ArchiveState {
     const newState = state.update('isEdited',
       () => {
         return payload.is_edited;
+      });
+    return newState
+  }
+
+  archiveDelete(state, payload) {
+    const newState = state.update('isDelete',
+      () => {
+        return payload.is_delete;
       });
     return newState
   }

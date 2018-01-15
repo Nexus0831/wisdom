@@ -63,11 +63,18 @@ class Archives extends React.Component {
   constructor(props) {
     super(props);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   async handleSearch() {
     await new Promise(resolve => setTimeout(resolve, 6));
     await this.props.archiveSearch(this.props.archive.archives, this.props.formValues.keyword)
+  }
+
+  async handleDelete(id, index) {
+    await this.props.archiveDelete(id);
+    await this.props.modalAction(false, index);
+    await this.props.history.push('/');
   }
 
   async componentWillMount() {
@@ -133,7 +140,7 @@ class Archives extends React.Component {
                   </Button>
                   <Button
                     danger
-                    onClick={() => this.props.modalAction(false, index)}
+                    onClick={() => this.handleDelete(item.id, index)}
                   >
                     Yes
                   </Button>

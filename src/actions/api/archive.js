@@ -21,11 +21,14 @@ const strings = "abcdefghijklmnopqrstuvwxyz0123456789";
 // CRUD
 export const archiveCreate = (values) => {
   let hash = '';
+
   for(let i=0; i<15; i++){
     hash += strings[Math.floor(Math.random()*strings.length)];
   }
+
   const date = new Date();
   const created_at = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${("00" + date.getMinutes()).slice(-2)}`;
+
   const option = {
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
@@ -41,6 +44,7 @@ export const archiveCreate = (values) => {
       }
     }
   };
+
   return API.post(aws.AWS_NAME, path, option)
     .then(result => {
       return true
@@ -66,6 +70,7 @@ export const archiveRead = (userName) => {
 export const archiveEdit = (values) => {
   const date = new Date();
   const created_at = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${("00" + date.getMinutes()).slice(-2)}`;
+
   const option = {
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
@@ -89,15 +94,37 @@ export const archiveEdit = (values) => {
             Value: values.text
           }
       }
-
     }
   };
   return API.put(aws.AWS_NAME, path, option)
     .then(result => {
+      return true
+    })
+    .catch((error) => {
+      return false
+    });
+};
+
+export const archiveDelete = (id) => {
+  const option = {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    body: {
+      TableName: aws.AWS_TABLE_NAME,
+      Key: {
+        id: id
+      }
+    }
+  };
+  return API.del(aws.AWS_NAME, path, option)
+    .then(result => {
+      console.log("good");
       console.log(result);
       return true
     })
     .catch((error) => {
+      console.log("bad");
       console.log(error);
       return false
     });

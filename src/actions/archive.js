@@ -66,6 +66,19 @@ export const archiveEdit = createAction(
   }
 );
 
+export const archiveDelete = createAction(
+  actionName.ARCHIVE_DELETE,
+  async (id) => {
+    const payload = {};
+    try {
+      payload.is_delete = await apis.archiveDelete(id);
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const resultInit = createAction(
   actionName.RESULT_INIT,
   (archives) => {
@@ -176,7 +189,7 @@ export const shortCut = createAction(
       const pos = textarea.selectionStart;
       textarea.focus();
       sentence = sentence.substr(0, pos) + text + sentence.substr(pos, sentence.length);
-      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      await props.dispatch(change('archiveForm', 'markdown', sentence ));
       textarea.selectionEnd = pos + num;
       textarea.selectionStart = pos + num;
       payload.text = sentence;
@@ -196,7 +209,7 @@ export const automation = createAction(
       const textarea = document.querySelector('textarea');
       const pos = textarea.selectionStart;
       sentence = sentence.substr(0, pos) + char + sentence.substr(pos, sentence.length);
-      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      await props.dispatch(change('archiveForm', 'markdown', sentence ));
       textarea.selectionEnd = pos;
       textarea.selectionStart = pos;
       payload.text = sentence;
@@ -216,7 +229,7 @@ export const tabInput = createAction(
       const pos = textarea.selectionStart;
       textarea.focus();
       sentence = sentence.substr(0, pos) + "  " + sentence.substr(pos, sentence.length);
-      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      await props.dispatch(change('archiveForm', 'markdown', sentence ));
       payload.text = sentence;
       textarea.focus();
       return payload;
@@ -237,7 +250,7 @@ export const linefeed = createAction(
       console.log(lines);
       if (lines[lines.length-1].match(/^\- /)) {
         sentence = sentence.substr(0, pos) + "\n- " + sentence.substr(pos, sentence.length - 2);
-        await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+        await props.dispatch(change('archiveForm', 'markdown', sentence ));
       }
       payload.text = sentence;
       return payload;
