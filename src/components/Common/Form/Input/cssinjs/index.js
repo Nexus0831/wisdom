@@ -10,7 +10,7 @@ export const ValidateError = styled.div`
     font-size: 12px;
     color: #df2a3e;
     white-space: nowrap;
-    padding-top: 5px;
+    padding-top: 2px;
   }
 `;
 

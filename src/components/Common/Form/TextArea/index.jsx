@@ -10,8 +10,6 @@ import {
 
 // pure function
 const TextArea = (props) => {
-
-
   const changeToggle = (e) => {
     props.input.onChange(e.target.value);
   };

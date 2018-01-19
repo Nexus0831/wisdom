@@ -27,7 +27,8 @@ import {
   reduxForm,
   Field,
   getFormValues,
-  isValid
+  isValid,
+  initialize
 } from 'redux-form';
 
 // components
@@ -59,36 +60,99 @@ import HeaderMenu from "../Common/HeaderMenu/index";
 
 // ToDo: スマホ版でヘッダーのフォントとモーダル調整
 class Archives extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  async handleSearch() {
+    await new Promise(resolve => setTimeout(resolve, 6));
+    await this.props.archiveSearch(this.props.archive.datas, this.props.formValues.keyword)
+  }
+
+  async handleDelete(id, index) {
+    await this.props.archiveDelete(id);
+    await this.props.modalAction(false, index);
+    await this.props.history.push('/');
+  }
+
+  async componentWillMount() {
+    await this.props.dispatch(initialize('home', { keyword: '' }));
+    await this.props.archiveRead(this.props.app.userName);
+    await this.props.resultInit(this.props.archive.datas);
+  }
+
   render() {
-    const testArchive = [
-      {title: 'firstTitle', date: '2017/12/24 13:35', text: '#Python\n' +
-      '\n' +
-      '                ## 準備\n' +
-      '                Pythonのインストール方法を記録しておく\n' +
-      '                ちなみにmac版である。\n' +
-      '                この圧倒的Pythonista力！！\n' +
-      '                映画インターンシップを見たい\n' +
-      '                Amazonビデオで視聴しようと思う。'},
-      {title: 'secondTitle', date: '2017/12/24 13:35', text: '#Python\n' +
-      '\n' +
-      '                ## 準備\n' +
-      '                Pythonのインストール方法を記録しておく\n' +
-      '                ちなみにmac版である。\n' +
-      '                この圧倒的Pythonista力！！\n' +
-      '                映画インターンシップを見たい\n' +
-      '                Amazonビデオで視聴しようと思う。'},
-      {title: 'therdTitle', date: '2017/12/24 13:35', text: '#Python\n' +
-      '\n' +
-      '                ## 準備\n' +
-      '                Pythonのインストール方法を記録しておく\n' +
-      '                ちなみにmac版である。\n' +
-      '                この圧倒的Pythonista力！！\n' +
-      '                映画インターンシップを見たい\n' +
-      '                Amazonビデオで視聴しようと思う。'},
-    ];
+    const archives = this.props.archive.results.map((item, index) => {
+      return (
+        <ArchiveCard
+          key={index}
+        >
+          <Link
+            to={`/archive/${item.id}`}
+          >
+            <Title>
+              {item.title}
+            </Title>
+            <CreateDate>
+              {item.date}
+            </CreateDate>
+            <Text>
+              {item.text}
+            </Text>
+          </Link>
+          <ButtonContainer>
+            <Button
+              row="2 / 3"
+              column="2 / 3"
+              onClick={() => this.props.history.push(`/archive/edit/${item.id}`)}
+            >
+              edit
+            </Button>
+            <Modal
+              trigger={
+                <Button
+                  danger
+                  row="2 / 3"
+                  column="4 / 5"
+                  onClick={() => this.props.modalAction(true, index)}
+                >
+                  delete
+                </Button>
+              }
+              basic
+              size="small"
+              open={this.props.archive.isOpens[index]}
+            >
+              <Header content="confirmation"/>
+              <Modal.Content>
+                <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button
+                  style={{
+                    marginRight: '20px'
+                  }}
+                  onClick={() => this.props.modalAction(false, index)}
+                >
+                  No
+                </Button>
+                <Button
+                  danger
+                  onClick={() => this.props.modalAction(false, index)}
+                >
+                  Yes
+                </Button>
+              </Modal.Actions>
+            </Modal>
+          </ButtonContainer>
+        </ArchiveCard>
+      )
+    });
+
     return (
       <div id="home">
-
         <HeaderMenu
           style={{
             gridRow: "1 / -1",
@@ -101,6 +165,7 @@ class Archives extends React.Component {
               name='keyword'
               placeholder='search...'
               component={Input}
+              onChange={this.handleSearch}
             />
           </SearchForm>
 
@@ -112,72 +177,7 @@ class Archives extends React.Component {
                 Create Archive
               </ArchiveCreate>
             </Link>
-
-            {
-              testArchive.map((e, index) => {
-                return (
-                <ArchiveCard
-                  key={index}
-                >
-                  <Title>
-                    {e.title}
-                  </Title>
-                  <CreateDate>
-                    {e.date}
-                  </CreateDate>
-                  <Text>
-                    {e.text}
-                  </Text>
-                  <ButtonContainer>
-                    <Button
-                      row="2 / 3"
-                      column="2 / 3"
-                    >
-                      edit
-                    </Button>
-                    <Modal
-                      trigger={
-                        <Button
-                          danger
-                          row="2 / 3"
-                          column="4 / 5"
-                          onClick={() => this.props.modalAction(true, index)}
-                        >
-                          delete
-                        </Button>
-                      }
-                      basic
-                      size="small"
-                      open={this.props.archive.isOpens[index]}
-                    >
-                      <Header content="confirmation"/>
-                      <Modal.Content>
-                        <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                      </Modal.Content>
-                      <Modal.Actions>
-                        <Button
-                          style={{
-                            marginRight: '20px'
-                          }}
-                          onClick={() => this.props.modalAction(false, index)}
-                        >
-                          no
-                        </Button>
-                        <Button
-                          danger
-                          onClick={() => this.props.modalAction(false, index)}
-                        >
-                          yes
-                        </Button>
-                      </Modal.Actions>
-                    </Modal>
-
-                  </ButtonContainer>
-                </ArchiveCard>
-                )
-              })
-            }
-
+            {archives}
           </MyGrid>
         </MyContainer>
       </div>
@@ -194,7 +194,8 @@ Archives = connect(
 
 const mapStateToProps = state => {
   return {
-    archive: state.archive
+    archive: state.archive,
+    app: state.app
   };
 };
 

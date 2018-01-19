@@ -13,6 +13,7 @@ import {
 import Archives from './../Archive/index';
 import ArchiveCreate from './../Archive/ArchiveCreate';
 import ArchiveDetail from './../Archive/ArchiveDetail';
+import ArchiveEdit from './../Archive/ArchiveEdit';
 
 class Routes extends React.Component {
   render() {
@@ -62,13 +63,34 @@ class Routes extends React.Component {
 
         {/* ArchiveDetail */}
         <Route
-          path="/archive/detail"
+          path="/archive/:id"
           exact
           render={
             props => {
               return (
                 this.props.app.isSignin ?
                   <ArchiveDetail
+                    {...props}
+                  />
+                  :
+                  <Redirect
+                    to='/signin'
+                  />
+              );
+            }
+          }
+          {...this.props}
+        />
+
+        {/* ArchiveEdit */}
+        <Route
+          path="/archive/edit/:id"
+          exact
+          render={
+            props => {
+              return (
+                this.props.app.isSignin ?
+                  <ArchiveEdit
                     {...props}
                   />
                   :

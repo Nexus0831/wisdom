@@ -24,8 +24,7 @@ export const signUp = (email, password) => {
       alert('登録メールアドレスに検証コードを送信しました。\n次の画面で検証コードを入力してください。');
     })
     .catch(() => {
-      alert('エラーが発生しました');
-      return;
+      alert('登録に失敗しました。\nそのメールアドレスはすでに使われている可能性があります。');
     });
 };
 
@@ -36,7 +35,6 @@ export const confirm = (email, code) => {
     })
     .catch(() => {
       alert('残念ですが、検証に失敗しました');
-      return;
     });
 };
 
@@ -47,6 +45,5 @@ export const signIn = (email, password) => {
     })
     .catch(() => {
       alert('エラーが発生しました');
-      return;
     });
 };

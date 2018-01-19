@@ -40,6 +40,92 @@ export const archiveCreate = createAction(
   }
 );
 
+export const archiveRead = createAction(
+  actionName.ARCHIVE_READ,
+  async (userName) => {
+    const payload = {};
+    try {
+      payload.archives = await apis.archiveRead(userName);
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveEdit = createAction(
+  actionName.ARCHIVE_EDIT,
+  async (values) => {
+    const payload = {};
+    try {
+      payload.is_edited = await apis.archiveEdit(values);
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveDelete = createAction(
+  actionName.ARCHIVE_DELETE,
+  async (id) => {
+    const payload = {};
+    try {
+      payload.is_delete = await apis.archiveDelete(id);
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const resultInit = createAction(
+  actionName.RESULT_INIT,
+  async (archives) => {
+    const payload = {};
+    try {
+      payload.results = archives;
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveSearch = createAction(
+  actionName.ARCHIVE_SEARCH,
+  async (archives, word) => {
+    const payload = {};
+    try {
+      if(word.length !== 0) {
+        payload.results = archives.filter(item => {
+          return (item.title.indexOf(word) !== -1)
+        }) ;
+      } else {
+        payload.results = archives;
+      }
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
+export const archiveDetail = createAction(
+  actionName.ARCHIVE_DETAIL,
+  (archives, id) => {
+    const payload = {};
+    try {
+      payload.archive = archives.filter(item => {
+        return (item.id === id)
+      })[0];
+      return payload;
+    } catch (error) {
+      return payload;
+    }
+  }
+);
+
 export const realTimePreview = createAction(
   actionName.REAL_TIME_PREVIEW,
   async (text) => {
@@ -103,7 +189,7 @@ export const shortCut = createAction(
       const pos = textarea.selectionStart;
       textarea.focus();
       sentence = sentence.substr(0, pos) + text + sentence.substr(pos, sentence.length);
-      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      await props.dispatch(change('archiveForm', 'markdown', sentence ));
       textarea.selectionEnd = pos + num;
       textarea.selectionStart = pos + num;
       payload.text = sentence;
@@ -123,7 +209,7 @@ export const automation = createAction(
       const textarea = document.querySelector('textarea');
       const pos = textarea.selectionStart;
       sentence = sentence.substr(0, pos) + char + sentence.substr(pos, sentence.length);
-      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      await props.dispatch(change('archiveForm', 'markdown', sentence ));
       textarea.selectionEnd = pos;
       textarea.selectionStart = pos;
       payload.text = sentence;
@@ -143,7 +229,7 @@ export const tabInput = createAction(
       const pos = textarea.selectionStart;
       textarea.focus();
       sentence = sentence.substr(0, pos) + "  " + sentence.substr(pos, sentence.length);
-      await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+      await props.dispatch(change('archiveForm', 'markdown', sentence ));
       payload.text = sentence;
       textarea.focus();
       return payload;
@@ -164,7 +250,7 @@ export const linefeed = createAction(
       console.log(lines);
       if (lines[lines.length-1].match(/^\- /)) {
         sentence = sentence.substr(0, pos) + "\n- " + sentence.substr(pos, sentence.length - 2);
-        await props.dispatch(change('archiveCreate', 'markdown', sentence ));
+        await props.dispatch(change('archiveForm', 'markdown', sentence ));
       }
       payload.text = sentence;
       return payload;

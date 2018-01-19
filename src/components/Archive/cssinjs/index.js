@@ -116,10 +116,6 @@ export const ButtonContainer = styled.div`
   display: grid;
   grid-template-rows: 10px 1fr 5px;
   grid-template-columns: 1fr 100px 10px 100px 10px;
-  //grid-template-areas:
-  //      "..... ..... ..... ......"
-  //      "..... edit ...... delete"
-  //      "..... ..... ..... ......";
   width: 100%;
   height: 50px;
 `;

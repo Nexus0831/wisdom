@@ -8,7 +8,12 @@ const ArchiveState = Record({
   markdown: '',
   isMode: 'editor',
   isOpens: List([]).toArray(),
-  isCreate: false
+  isCreate: false,
+  isEdited: false,
+  isDelete: false,
+  datas: List([]).toArray(),
+  results: List([]).toArray(),
+  data: List([]).toObject()
 });
 
 class Archive extends ArchiveState {
@@ -24,6 +29,54 @@ class Archive extends ArchiveState {
     const newState = state.update('isCreate',
       () => {
         return payload.is_create;
+      });
+    return newState
+  }
+
+  archiveRead(state, payload) {
+    const newState = state.update('datas',
+      () => {
+        return payload.archives;
+      });
+    return newState
+  }
+
+  archiveEdit(state, payload) {
+    const newState = state.update('isEdited',
+      () => {
+        return payload.is_edited;
+      });
+    return newState
+  }
+
+  archiveDelete(state, payload) {
+    const newState = state.update('isDelete',
+      () => {
+        return payload.is_delete;
+      });
+    return newState
+  }
+
+  resultInit(state, payload) {
+    const newState = state.update('results',
+      () => {
+        return payload.results;
+      });
+    return newState
+  }
+
+  archiveSearch(state, payload) {
+    const newState = state.update('results',
+      () => {
+        return payload.results;
+      });
+    return newState
+  }
+
+  archiveDetail(state, payload) {
+    const newState = state.update('data',
+      () => {
+        return payload.archive;
       });
     return newState
   }

@@ -3,8 +3,7 @@ import React from 'react';
 var MarkdownIt = require('markdown-it');
 var md = new MarkdownIt({
   breaks: true
-}).use(require('markdown-it-sub'))
-  .use(require('markdown-it-highlightjs'));
+});
 
 // marked.setOptions({
 //   sanitize: true,
@@ -70,13 +69,13 @@ import {
   FullEditorArea,
   ToolIcon,
   Separator
-} from './cssinjs';
+} from './../ArchiveCreate/cssinjs';
 
 import * as actions from './../../../actions/archive';
 import HeaderMenu from "../../Common/HeaderMenu/index";
 
 // ToDo: MarkDownプレビューのスタイル設定;
-class ArchiveCreate extends React.Component {
+class ArchiveEdit extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -125,18 +124,20 @@ class ArchiveCreate extends React.Component {
   }
 
   async componentWillMount() {
-    await this.props.dispatch(initialize('archiveForm', { markdown: '' }));
+    await this.props.archiveDetail(this.props.archive.datas, this.props.match.params.id);
+    await this.props.dispatch(initialize('archiveEditForm', { title: this.props.archive.data.title, markdown: this.props.archive.data.text }));
     await this.props.fullEditor();
-    await this.props.realTimePreview('');
+    await this.props.realTimePreview(this.props.archive.data.text);
   }
 
   handleSubmit() {
     const values = {
+      id: this.props.archive.data.id,
       title: this.props.formValues.title,
       text: this.props.formValues.markdown,
       userName: this.props.app.userName
     };
-    this.props.archiveCreate(values);
+    this.props.archiveEdit(values);
     this.props.history.push('/');
   }
 
@@ -314,12 +315,12 @@ class ArchiveCreate extends React.Component {
   }
 }
 
-ArchiveCreate = connect(
+ArchiveEdit = connect(
   state => ({
-    formValues: getFormValues('archiveForm')(state),
-    valid: isValid('archiveForm')(state)
+    formValues: getFormValues('archiveEditForm')(state),
+    valid: isValid('archiveEditForm')(state)
   })
-)(ArchiveCreate);
+)(ArchiveEdit);
 
 const mapStateToProps = state => {
   return {
@@ -340,6 +341,6 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(
   reduxForm({
-    form: 'archiveForm',
+    form: 'archiveEditForm',
     validate
-  })(ArchiveCreate)));
+  })(ArchiveEdit)));
