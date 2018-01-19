@@ -68,7 +68,7 @@ class Archive extends ArchiveState {
   archiveSearch(state, payload) {
     const newState = state.update('results',
       () => {
-        return payload.archives;
+        return payload.results;
       });
     return newState
   }

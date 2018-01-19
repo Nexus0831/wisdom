@@ -3,7 +3,8 @@ import React from 'react';
 var MarkdownIt = require('markdown-it');
 var md = new MarkdownIt({
   breaks: true
-});
+}).use(require('markdown-it-sub'))
+  .use(require('markdown-it-highlightjs'));
 
 import {
   connect

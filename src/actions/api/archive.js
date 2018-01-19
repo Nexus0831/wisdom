@@ -105,7 +105,7 @@ export const archiveEdit = (values) => {
     });
 };
 
-export const archiveDelete = (id) => {
+export const archiveDelete = (ID) => {
   const option = {
     headers: {
       'Content-Type': 'application/json; charset=utf-8'
@@ -113,19 +113,16 @@ export const archiveDelete = (id) => {
     body: {
       TableName: aws.AWS_TABLE_NAME,
       Key: {
-        id: id
+        id: ID
       }
     }
   };
+
   return API.del(aws.AWS_NAME, path, option)
     .then(result => {
-      console.log("good");
-      console.log(result);
       return true
     })
     .catch((error) => {
-      console.log("bad");
-      console.log(error);
       return false
     });
 };

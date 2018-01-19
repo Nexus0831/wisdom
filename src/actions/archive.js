@@ -81,7 +81,7 @@ export const archiveDelete = createAction(
 
 export const resultInit = createAction(
   actionName.RESULT_INIT,
-  (archives) => {
+  async (archives) => {
     const payload = {};
     try {
       payload.results = archives;
@@ -98,11 +98,11 @@ export const archiveSearch = createAction(
     const payload = {};
     try {
       if(word.length !== 0) {
-        payload.archives = archives.filter(item => {
+        payload.results = archives.filter(item => {
           return (item.title.indexOf(word) !== -1)
         }) ;
       } else {
-        payload.archives = archives;
+        payload.results = archives;
       }
       return payload;
     } catch (error) {

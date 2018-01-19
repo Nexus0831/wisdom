@@ -68,7 +68,7 @@ class Archives extends React.Component {
 
   async handleSearch() {
     await new Promise(resolve => setTimeout(resolve, 6));
-    await this.props.archiveSearch(this.props.archive.archives, this.props.formValues.keyword)
+    await this.props.archiveSearch(this.props.archive.datas, this.props.formValues.keyword)
   }
 
   async handleDelete(id, index) {
@@ -86,12 +86,12 @@ class Archives extends React.Component {
   render() {
     const archives = this.props.archive.results.map((item, index) => {
       return (
-          <ArchiveCard
-            key={index}
+        <ArchiveCard
+          key={index}
+        >
+          <Link
+            to={`/archive/${item.id}`}
           >
-            <Link
-              to={`/archive/${item.id}`}
-            >
             <Title>
               {item.title}
             </Title>
@@ -101,59 +101,58 @@ class Archives extends React.Component {
             <Text>
               {item.text}
             </Text>
-            </Link>
-            <ButtonContainer>
-              <Button
-                row="2 / 3"
-                column="2 / 3"
-                onClick={() => this.props.history.push(`/archive/edit/${item.id}`)}
-              >
-                edit
-              </Button>
-              <Modal
-                trigger={
-                  <Button
-                    danger
-                    row="2 / 3"
-                    column="4 / 5"
-                    onClick={() => this.props.modalAction(true, index)}
-                  >
-                    delete
-                  </Button>
-                }
-                basic
-                size="small"
-                open={this.props.archive.isOpens[index]}
-              >
-                <Header content="confirmation"/>
-                <Modal.Content>
-                  <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
-                </Modal.Content>
-                <Modal.Actions>
-                  <Button
-                    style={{
-                      marginRight: '20px'
-                    }}
-                    onClick={() => this.props.modalAction(false, index)}
-                  >
-                    No
-                  </Button>
-                  <Button
-                    danger
-                    onClick={() => this.handleDelete(item.id, index)}
-                  >
-                    Yes
-                  </Button>
-                </Modal.Actions>
-              </Modal>
-            </ButtonContainer>
-          </ArchiveCard>
+          </Link>
+          <ButtonContainer>
+            <Button
+              row="2 / 3"
+              column="2 / 3"
+              onClick={() => this.props.history.push(`/archive/edit/${item.id}`)}
+            >
+              edit
+            </Button>
+            <Modal
+              trigger={
+                <Button
+                  danger
+                  row="2 / 3"
+                  column="4 / 5"
+                  onClick={() => this.props.modalAction(true, index)}
+                >
+                  delete
+                </Button>
+              }
+              basic
+              size="small"
+              open={this.props.archive.isOpens[index]}
+            >
+              <Header content="confirmation"/>
+              <Modal.Content>
+                <p>このアーカイブはあなたの重要な知見です本当に削除しますか？</p>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button
+                  style={{
+                    marginRight: '20px'
+                  }}
+                  onClick={() => this.props.modalAction(false, index)}
+                >
+                  No
+                </Button>
+                <Button
+                  danger
+                  onClick={() => this.props.modalAction(false, index)}
+                >
+                  Yes
+                </Button>
+              </Modal.Actions>
+            </Modal>
+          </ButtonContainer>
+        </ArchiveCard>
       )
     });
 
     return (
       <div id="home">
-
         <HeaderMenu
           style={{
             gridRow: "1 / -1",
