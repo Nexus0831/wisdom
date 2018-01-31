@@ -58,7 +58,7 @@ import {
 import * as actions from './../../actions/archive';
 import HeaderMenu from "../Common/HeaderMenu/index";
 
-// ToDo: スマホ版でヘッダーのフォントとモーダル調整
+// ToDo: スマホ版でヘッダーのフォント
 class Archives extends React.Component {
   constructor(props) {
     super(props);
