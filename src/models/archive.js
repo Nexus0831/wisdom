@@ -49,6 +49,7 @@ class Archive extends ArchiveState {
     return newState
   }
 
+  // ToDo: resultも削除
   archiveDelete(state, payload) {
     const newState = state.update('isDelete',
       () => {

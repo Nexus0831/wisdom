@@ -31,6 +31,7 @@ export const archiveCreate = (values) => {
 
   const option = {
     headers: {
+      'X-Api-Key': aws.AWS_API_KEY,
       'Content-Type': 'application/json; charset=utf-8'
     },
     body: {
@@ -55,7 +56,13 @@ export const archiveCreate = (values) => {
 };
 
 export const archiveRead = (userName) => {
-  return API.get(aws.AWS_NAME, path)
+  const option = {
+    headers: {
+      'X-Api-Key': aws.AWS_API_KEY,
+      'Content-Type': 'application/json; charset=utf-8'
+    }
+  };
+  return API.get(aws.AWS_NAME, path, option)
     .then(result => {
       const items = result.Items.filter(item => {
         return (item.createUser === userName)
