@@ -140,7 +140,7 @@ class Archives extends React.Component {
                 </Button>
                 <Button
                   danger
-                  onClick={() => this.props.modalAction(false, index)}
+                  onClick={() => this.handleDelete(item.id, index)}
                 >
                   Yes
                 </Button>
