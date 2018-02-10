@@ -1,19 +1,19 @@
 // node_modules
 import React from 'react';
-var MarkdownIt = require('markdown-it');
-var md = new MarkdownIt({
-  breaks: true
+
+let MarkdownIt = require('markdown-it');
+let md = new MarkdownIt({
+  breaks: true,
+  // highlight: function (str, lang) {
+  //   if (lang && hljs.getLanguage(lang)) {
+  //     try {
+  //       return hljs.highlight(lang, str).value;
+  //     } catch (__) {}
+  //   }
+  //   return ''; // use external default escaping
+  // }
 }).use(require('markdown-it-sub'))
   .use(require('markdown-it-highlightjs'));
-
-// marked.setOptions({
-//   sanitize: true,
-//   langPrefix: '',
-// });
-
-import {
-  Record
-} from 'immutable';
 
 import {
   connect
@@ -28,22 +28,11 @@ import {
 } from 'react-router';
 
 import {
-  NavLink
-} from 'react-router-dom';
-
-import {
-  Modal,
-  Header,
-  Icon
-} from 'semantic-ui-react';
-
-import {
   reduxForm,
   Field,
   getFormValues,
   isValid,
   initialize,
-  change
 } from 'redux-form';
 
 import validate from './../../../config/validates/archiveCreate';

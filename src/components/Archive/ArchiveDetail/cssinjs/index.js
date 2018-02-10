@@ -36,8 +36,13 @@ export const globalStyles = injectGlobal`
     grid-template-columns: 20px 1fr 20px;
     height: 100%;
     
+    @media (min-width: 1024px) {
+      grid-template-columns: 40px 1fr 40px;
+    }
+    
     .markdown-preview {
       color: #ffffff;
+      font-size: 16px;
       
       a {
         color: #15B0DE;
@@ -282,31 +287,30 @@ export const globalStyles = injectGlobal`
         margin: 0 2px;
         padding: 0 5px;
         white-space: nowrap;
-        border: 1px solid #eaeaea;
-        background-color: #f8f8f8;
+        border: 1px solid #282828;
+        background-color: #282828;
         border-radius: 3px; }
       
       pre code {
         margin: 0;
         padding: 0;
+        font-size: 18px !important;
         white-space: pre;
         border: none;
         background: transparent; }
       
       .highlight pre {
-        background-color: #f8f8f8;
-        border: 1px solid #cccccc;
-        font-size: 13px;
-        line-height: 19px;
+        background-color: #282828;
+        border: 1px solid #282828;
+        font-size: 18px;
         overflow: auto;
         padding: 6px 10px;
         border-radius: 3px; }
       
       pre {
-        background-color: #f8f8f8;
-        border: 1px solid #cccccc;
-        font-size: 13px;
-        line-height: 19px;
+        background-color: #282828;
+        border: 1px solid #282828;
+        font-size: 18px;
         overflow: auto;
         padding: 6px 10px;
         border-radius: 3px; }
