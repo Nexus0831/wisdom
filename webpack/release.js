@@ -3,6 +3,7 @@ require('babel-polyfill');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 // プラグイン
 const plugins = [
@@ -16,7 +17,7 @@ const plugins = [
       NODE_ENV: JSON.stringify('release')
     }
   }),
-  new webpack.optimize.UglifyJsPlugin()
+  new UglifyJSPlugin()
 ];
 
 console.log('--------------- release ---------------');
