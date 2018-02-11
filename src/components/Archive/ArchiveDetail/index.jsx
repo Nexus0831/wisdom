@@ -1,7 +1,7 @@
 // node_modules
 import React from 'react';
-var MarkdownIt = require('markdown-it');
-var md = new MarkdownIt({
+let MarkdownIt = require('markdown-it');
+let md = new MarkdownIt({
   breaks: true
 }).use(require('markdown-it-sub'))
   .use(require('markdown-it-highlightjs'));
@@ -19,9 +19,6 @@ import {
 } from 'react-router';
 
 // components
-import Input from './../../Common/Form/Input';
-import CheckBox from './../../Common/Form/CheckBox';
-import TextArea from './../../Common/Form/TextArea';
 
 // styles
 import {

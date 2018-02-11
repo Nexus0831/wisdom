@@ -3,15 +3,7 @@ import React from 'react';
 
 let MarkdownIt = require('markdown-it');
 let md = new MarkdownIt({
-  breaks: true,
-  // highlight: function (str, lang) {
-  //   if (lang && hljs.getLanguage(lang)) {
-  //     try {
-  //       return hljs.highlight(lang, str).value;
-  //     } catch (__) {}
-  //   }
-  //   return ''; // use external default escaping
-  // }
+  breaks: true
 }).use(require('markdown-it-sub'))
   .use(require('markdown-it-highlightjs'));
 
@@ -39,7 +31,6 @@ import validate from './../../../config/validates/archiveCreate';
 
 // components
 import Input from './../../Common/Form/Input';
-import CheckBox from './../../Common/Form/CheckBox';
 import TextArea from './../../Common/Form/TextArea';
 
 // styles
@@ -105,10 +96,6 @@ class ArchiveCreate extends React.Component {
       case 'Tab':
         event.preventDefault();
         this.props.tabInput(this.props.formValues.markdown, this.props);
-        break;
-
-      case 'Enter':
-        this.props.linefeed(this.props.formValues.markdown, this.props);
         break;
     }
   }

@@ -80,6 +80,7 @@ export const archiveEdit = (values) => {
 
   const option = {
     headers: {
+      'X-Api-Key': aws.AWS_API_KEY,
       'Content-Type': 'application/json; charset=utf-8'
     },
     body: {
@@ -115,6 +116,7 @@ export const archiveEdit = (values) => {
 export const archiveDelete = (ID) => {
   const option = {
     headers: {
+      'X-Api-Key': aws.AWS_API_KEY,
       'Content-Type': 'application/json; charset=utf-8'
     },
     body: {
