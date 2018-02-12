@@ -14,11 +14,6 @@ import {
 } from 'react-router';
 
 import {
-  NavLink
-} from 'react-router-dom';
-
-import {
-  Grid,
   Modal,
   Header
 } from 'semantic-ui-react';
@@ -32,7 +27,6 @@ import {
 } from 'redux-form';
 
 // components
-import Background from '../Common/Background/index';
 
 import Input from '../Common/Form/Input/index';
 
@@ -46,7 +40,6 @@ import {
   MyContainer,
   ArchiveCard,
   ArchiveCreate,
-  CreateLink,
   Title,
   CreateDate,
   Text,

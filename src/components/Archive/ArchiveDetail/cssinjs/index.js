@@ -15,9 +15,20 @@ export const MyContainer = styled.div`
 export const Title = styled.div`
   width: 100%;
   color: white;
-  font-size: 54px;
   text-align: center;
   padding-bottom: 30px;
+  
+  @media (max-width: 619px) {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 620px) { 
+    font-size: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 54px;
+  }
 `;
 
 export const Date = styled.div`

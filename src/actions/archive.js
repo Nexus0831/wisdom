@@ -239,6 +239,7 @@ export const tabInput = createAction(
   }
 );
 
+// ToDo: 未実装
 export const linefeed = createAction(
   actionName.LINE_FEED,
   async (sentence, props) => {
@@ -247,7 +248,6 @@ export const linefeed = createAction(
       const textarea = document.querySelector('textarea');
       const pos = textarea.selectionStart;
       const lines = sentence.split("\n");
-      console.log(lines);
       if (lines[lines.length-1].match(/^\- /)) {
         sentence = sentence.substr(0, pos) + "\n- " + sentence.substr(pos, sentence.length - 2);
         await props.dispatch(change('archiveForm', 'markdown', sentence ));

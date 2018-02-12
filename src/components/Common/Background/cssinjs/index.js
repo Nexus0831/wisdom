@@ -29,5 +29,5 @@ export const BackgroundEffect = styled.div`
   width: calc(100% + 30px);
   height: calc(100vh + 30px);
   position: fixed;
-  background-color: rgba(0, 0, 0, .25);
+  background-color: rgba(0, 0, 0, .6);
 `;
