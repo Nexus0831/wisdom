@@ -7,3 +7,4 @@ yarn.look
 .cache
 dist
 assets
+.vscode

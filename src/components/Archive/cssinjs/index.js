@@ -23,13 +23,13 @@ export const MyContainer = styled.div`
 export const MyGrid = styled.div`
   display: grid;
   margin-bottom: 20px;
-  
+
   @media (max-width: 619px) {
     grid-template-columns: 1fr;
     grid-row-gap: 20px;
   }
-  
-  @media (min-width: 620px) { 
+
+  @media (min-width: 620px) {
     grid-template-columns: 49% 49%;
     grid-row-gap: 16px;
     grid-column-gap: 2%;
@@ -48,7 +48,7 @@ export const ArchiveCard = styled.div`
   border: 1px solid #FFFFFF;
   transition-duration: .3s;
 
-  
+
   &:hover {
     //background-color: rgba(255, 255, 255, .2);
     box-shadow: 0 0 20px 5px rgba(255,255,255,.3) inset;
@@ -67,12 +67,12 @@ export const ArchiveCreate = styled.div`
   color: #1AEF22;
   font-size: 20px;
   font-family: "mr-eaves-modern";
-  
+
   &:hover {
     cursor: pointer;
     background-color: rgba(26, 239, 34, .2);
   }
-  
+
   @media (max-width: 619px) {
     height: 80px;
   }
@@ -122,7 +122,7 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   ${props => props.row ? 'grid-row:' + props.row : ''};
-  ${props => props.column ? 'grid-column:' + props.column : ''};  
+  ${props => props.column ? 'grid-column:' + props.column : ''};
   color: ${props => props.danger ?  '#EF331A' : '#1AEF22'};
   font-weight: 300;
   font-size: 16px;
@@ -134,7 +134,7 @@ export const Button = styled.button`
   font-family: "Helvetica Neue";
   border-radius: 0;
   transition-duration: .3s;
-  
+
   &:hover {
     background-color: ${props => props.danger ?  'rgba(239, 51, 26, .2)' : 'rgba(26, 239, 34, .2)'};
     cursor: pointer;
@@ -146,7 +146,7 @@ export const globalStyles = injectGlobal`
     display: grid;
     grid-template-rows: 80px 1fr;
     grid-template-columns: 20px 1fr 20px;
-    
+
     @media (max-width: 619px) {
         grid-template-rows: 70px 1fr;
     }
