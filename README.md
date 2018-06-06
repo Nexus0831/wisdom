@@ -1,4 +1,7 @@
 # Wisdom
+
+![wisdom-top](https://raw.githubusercontent.com/Nexus0831/GitHub-images/master/wisdom/wisdom-top.png)
+
 個人の知見を記録できる。Webアプリ。   
 知見の記録はMarkdownで記述する。
 Markdownエディターも自作した。
